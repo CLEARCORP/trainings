@@ -11,7 +11,11 @@ class Course (osv.Model):
         'name': fields.char ('Name', size = 128, required = True, select = True),
         'code': fields.char ('Code', size = 32, required =  True),
         'description' : fields.text('Description'),
-        'session_ids' : fields.one2many('lesmed.course.session', 'course_id',string = 'Sessions')
+        'session_ids' : fields.one2many('lesmed.course.session', 'course_id',string = 'Sessions'),
+        
+        'student_ids' : fields.many2many('lesmed.student', string = 'Students'),
+        
+        
                }
 
 class Student (osv.Model):
@@ -20,7 +24,8 @@ class Student (osv.Model):
     _columns = {
         'name' : fields.char ('Name', size = 128, required = True, select= True),
         'code' : fields.char ('Code', size = 32, required = True, select = True ),
-        'birthday' : fields.date ('Birthday')
+        'birthday' : fields.date ('Birthday'),
+        'course_ids': fields.many2many('lesmed.course', string = 'Courses'),
                 }
     
 class CourseSession (osv.Model):
