@@ -4,6 +4,13 @@ from openerp.osv import osv, fields
 
 class Course (osv.Model):
     _name = 'cv_clearcorp.course'
+    
+    def get_available_seats (self, cr, uid, ids, field_name, arg, context):
+        return 0
+    
+    def get_occupied_seats (self, cr, uid, ids, field_name, arg, context):
+        return 0
+    
     _columns = {
         'name': fields.char('Name', size=128, required=True, select=True),
         'code': fields.char('Code', size=32, required=True, select=True),
@@ -11,6 +18,9 @@ class Course (osv.Model):
         'session_ids': fields.one2many('cv_clearcorp.course.session','course_id',string='Sessions'),
         'student_ids': fields.many2many('cv_clearcorp.student', string='Students'),
         'teacher_id': fields.many2one('res.users', string='Teacher', ondelete='set null', select=True),
+        'total_seats': fields.integer('Total seats', required=True),
+        'available_seats': fields.function(get_available_seats, type='integer', string='Available seats', readonly=True),
+        'occupied_seats': fields.function(get_occupied_seats, type='integer', string='Occupied seats', readonly=True),
         }
 
 class Student (osv.Model):
