@@ -15,7 +15,11 @@ eLearning Management
     """, 
     'images' : [],
     'depends' : [],
-    'data' : [],
+    #se tiene que poner el view primero ya que tiene la accion que necesita el menu
+    'data' : [
+        'lesmed_view.xml',
+        'lesmed_menu.xml',
+              ],
     'demo' : [],
     'test' : [],
     'installable' : True,
