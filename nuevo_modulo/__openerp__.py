@@ -16,7 +16,10 @@ This app is used to manage
 ''',
     'images': [],
     'depends': [],
-    'data': [],
+    'data': [
+         'nuevo_modulo_view.xml',
+         'nuevo_modulo_menu.xml',
+             ],
     'demo': [],
     'test': [],
     'installable': True,
