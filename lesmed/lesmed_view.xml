@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <openerp>
     <data>
-    	       <!-- Fiscal Year -->
         <record id="view_elearning_course_form" model="ir.ui.view">
             <field name="name">lesmed.course.from</field>
             <field name="model">lesmed.course</field>
@@ -12,9 +11,7 @@
                 		<field name="name" class = "oe_inline" style = "width: 20px"/> - 
                     	<field name="code" class = "oe_inline" style = "width: 20px"/>
                 	</h1>
-               	
-                
-                    <notebook>
+               		<notebook>
                     	<page string = "Description">
                     		<field name = "description" nolabel= "1">
                     		</field>
@@ -22,9 +19,12 @@
                     	</page>
                     	
                     </notebook>
+                
+                    
                 </form>
             </field>
         </record>
+           
         <record id="view_elearning_course_tree" model="ir.ui.view">
             <field name="name">lesmed.course.tree</field>
             <field name="model">lesmed.course</field>
@@ -36,8 +36,7 @@
                 </tree>
             </field>
         </record>
-    	
-    	
+    		
     	<record id="action_elearning_courses" model="ir.actions.act_window">
             <field name="name">Courses</field>
             <field name="res_model">lesmed.course</field>
@@ -52,6 +51,110 @@
               </p>
             </field>
         </record>
+    
+    
+    <!-- Students -->	   
+    	<record id="view_elearning_students_form" model="ir.ui.view">
+            <field name="name">lesmed.student.from</field>
+            <field name="model">lesmed.student</field>
+            <field name="arch" type="xml">
+                <form string="Students">
+                	<label for ="code" class="oe_edit_only" string="Student name and code"/>
+                	<h1>
+                		<field name="name" class = "oe_inline" style = "width: 20px"/> - 
+                    	<field name="code" class = "oe_inline" style = "width: 20px"/>
+                    	<!--field name="birthday" class = "oe_inline" style = "width: 20px"/-->
+                    	
+                	</h1>
+                    <group col = "4">
+                		<field name = "birthday"> </field>
+                    </group>
+                </form>
+            </field>
+        </record>
+           
+        <record id="view_elearning_student_tree" model="ir.ui.view">
+            <field name="name">lesmed.student.tree</field>
+            <field name="model">lesmed.student</field>
+            <field name="arch" type="xml">
+                <tree string="Student">
+                    <field name="code"/>
+                    <field name="name"/>
+                    <field name="birthday"/>                    
+                </tree>
+            </field>
+        </record>
+    		
+    	<record id="action_elearning_student" model="ir.actions.act_window">
+            <field name="name">Student</field>
+            <field name="res_model">lesmed.student</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+            <field name="help" type="html">
+              <p class="oe_view_nocontent_create">
+                Click to create a new student
+              </p>
+              <p>
+                Set your students here.
+              </p>
+            </field>
+        </record>
+        
+        <!--  courseSession-->
+        
+        <record id="view_elearning_courseSession_form" model="ir.ui.view">
+            <field name="name">lesmed.course.session.from</field>
+            <field name="model">lesmed.course.session</field>
+            <field name="arch" type="xml">
+                <form string="Session">
+                	<label for ="subject" class="oe_edit_only" string="Session subject: "/>
+                	<h1>
+                		<field name="subject" class = "oe_inline" /> - 
+                    	
+                	</h1>
+                	<group col = "4">
+                		<group col = "2">
+                			<field  name = "start_time"/>
+                			<field  name = "end_time"/>
+                		</group>
+                	</group>	
+               	
+                
+                    
+                </form>
+            </field>
+        </record>
+           
+        <record id="view_elearning_courseSession_tree" model="ir.ui.view">
+            <field name="name">lesmed.course.session.tree</field>
+            <field name="model">lesmed.course.session</field>
+            <field name="arch" type="xml">
+                <tree string="Session">
+                    <field name="subject"/>
+                    <field name="start_time"/>
+                    <field name="end_time"/>
+                    
+                </tree>
+            </field>
+        </record>
+    		
+    	<record id="action_elearning_courseSession" model="ir.actions.act_window">
+            <field name="name">CourseSession</field>
+            <field name="res_model">lesmed.course.session</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+            <field name="help" type="html">
+              <p class="oe_view_nocontent_create">
+                Click to create a new course session
+              </p>
+              <p>
+                Set your courses session here.
+              </p>
+            </field>
+        </record>
+    	
+    	
+    	
     	
     </data>
 </openerp>

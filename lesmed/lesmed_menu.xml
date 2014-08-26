@@ -7,11 +7,9 @@
     	<menuitem id = "menu_elearning_conf" name = "Configuration" parent = "menu_elearning" sequence = "50"/>
     	
     	<menuitem id = "menu_elearning_courses" name = "Courses" parent = "menu_elearning_conf" action = "action_elearning_courses" sequence = "1"/>
+    	<menuitem id = "menu_elearning_students" name = "Students" parent = "menu_elearning_sub" action = "action_elearning_student" sequence = "2"/>
+    	<menuitem id = "menu_elearning_coursesSessions" name = "Courses Sessions" parent = "menu_elearning_sub" action = "action_elearning_courseSession" sequence = "3"/>
     	
-    	
-    	
-    	
-    	
-    	
+
     </data>
 </openerp>
