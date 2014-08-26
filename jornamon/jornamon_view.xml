@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <openerp>
     <data>
+    	<!-- Class Course -->
     	<record id="view_elearnoing_course_form" model="ir.ui.view">
             <field name="name">jornamon.course.form</field>
             <field name="model">jornamon.course</field>
@@ -48,6 +49,96 @@
               </p>
             </field>
         </record>
- 	
+        
+ <!-- Class Student -->
+     	<record id="view_elearning_student_form" model="ir.ui.view">
+            <field name="name">jornamon.student.form</field>
+            <field name="model">jornamon.student</field>
+            <field name="arch" type="xml">
+                <form string="Student">
+                	<label for="code" class="oe_edit_only" string="Student code and name:"/>
+                	<h1>
+                		<field name="code" class="oe_inline" style="width: 6em"/> - 
+	                	<field name="name" class="oe_inline"/>  
+                		
+                	</h1>
+ 
+                    <group col="4">                 	
+                    		<field name="birthday" />
+                   </group>
+                 </form>
+            </field>
+        </record>
+        <record id="view_elearning_student_tree" model="ir.ui.view">
+            <field name="name">jornamon.student.tree</field>
+            <field name="model">jornamon.student</field>
+            
+            <field name="arch" type="xml">
+                <tree string="Courses">
+                    <field name="code"/>
+                    <field name="name"/>
+                    <field name="birthday"/>
+                </tree>
+            </field>
+        </record>
+    	
+        <record id="action_elearning_student" model="ir.actions.act_window">
+            <field name="name">Student</field>
+            <field name="res_model">jornamon.student</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+            <field name="help" type="html">
+              <p class="oe_view_nocontent_create">
+                Click to add a new student.
+              </p><p>
+                Manage your students here.
+              </p>
+            </field>
+        </record>
+        
+ <!-- Class CourseSession -->
+    	<record id="view_elearnoing_course_session_form" model="ir.ui.view">
+            <field name="name">jornamon.course.session.form</field>
+            <field name="model">jornamon.course.session</field>
+            <field name="arch" type="xml">
+                <form string="Session">
+                	<label for="subject" class="oe_edit_only" string="Session subject:"/>
+                	<h1>
+						<field name="subject" class="oe_inline"/>             		
+                	</h1>
+                		<group col="6">
+                			<group col="2">
+ 								<field name="start_time"/>
+ 								<field name="end_time"/>
+                    		</group>
+                    	</group>
+                 </form>
+            </field>
+        </record>
+        <record id="view_elearning_course_session_tree" model="ir.ui.view">
+            <field name="name">jornamon.course.session.tree</field>
+            <field name="model">jornamon.course.session</field>
+            <field name="arch" type="xml">
+                <tree string="Courses">
+                    <field name="subject"/>
+                    <field name="start_time"/>
+                    <field name="end_time"/>
+                </tree>
+            </field>
+        </record>
+    	
+        <record id="action_elearning_course_session" model="ir.actions.act_window">
+            <field name="name">Sessions</field>
+            <field name="res_model">jornamon.course.session</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+            <field name="help" type="html">
+              <p class="oe_view_nocontent_create">
+                Click to create a new session.
+              </p><p>
+                Set your sessions here.
+              </p>
+            </field>
+        </record>
     </data>
 </openerp>
