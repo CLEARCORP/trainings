@@ -13,6 +13,9 @@
 	                	<field name="name" class="oe_inline"/>
                 	</h1>
                 	<notebook>
+                		<page string="Sessions">
+		                    <field name="session_ids" nolabel="1"/>
+                		</page>
                 		<page string="Description">
 		                    <field name="description" nolabel="1"/>
                 		</page>
@@ -84,6 +87,7 @@
             </field>
         </record>
 
+		<!-- Class CourseSession -->
     	<record id="view_elearning_course_session_form" model="ir.ui.view">
             <field name="name">cv_clearcorp.course.session.form</field>
             <field name="model">cv_clearcorp.course.session</field>
@@ -94,6 +98,9 @@
 	                    <field name="subject" class="oe_inline"/>
                 	</h1>
                 	<group col="4">
+	                	<group col="2" colspan="2">
+		                	<field name="course_id"/>
+	                	</group>
 	                	<group col="2">
 		                	<field name="start_time"/>
 		                	<field name="end_time"/>
