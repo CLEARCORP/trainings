@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <openerp>
     <data>
-    	 <record id="view_elearning_course_form" model="ir.ui.view">
+    	<!--Class Course-->
+        <record id="view_elearning_course_form" model="ir.ui.view">
             <field name="name">diego_dev.course.form</field>
             <field name="model">diego_dev.course</field>
             <field name="arch" type="xml">
@@ -20,8 +21,7 @@
                 </form>
              </field>
            </record>
-           
-       <record id="view_elearning_course_tree" model="ir.ui.view">
+        <record id="view_elearning_course_tree" model="ir.ui.view">
             <field name="name">diego_dev.course.tree</field>
             <field name="model">diego_dev.course</field>
             <field name="arch" type="xml">
@@ -30,9 +30,7 @@
                     <field name="name"/>
                 </tree>
             </field>
-        </record>
-           
-        
+        </record>      
         <record id="action_elearning_courses" model="ir.actions.act_window">
             <field name="name">Courses</field>
             <field name="res_model">diego_dev.course</field>
@@ -47,6 +45,70 @@
               </p>
             </field>
         </record>
+        
+        <!--Class Student-->
+        <record id="view_elearning_student_form" model="ir.ui.view">
+            <field name="name">diego_dev.student.form</field>
+            <field name="model">diego_dev.student</field>
+            <field name="arch" type="xml">
+                <form string="Course">
+                	<label for ="code" class="oe_edit_only" string="Course code and name"/>
+                		<h1>
+	                		<field name="name" class="oe_inline" style ="width: 6em"/> - 
+	                		<field name="code" class="oe_inline" />
+                		</h1>
+                		
+	                    <notebook>
+	                    	<page string = "Description">
+	                    	<field name="description" nolabel="1"/>	
+	                    	</page>
+	                    </notebook>
+                </form>
+             </field>
+           </record>
+        <record id="view_elearning_student_tree" model="ir.ui.view">
+            <field name="name">diego_dev.student.tree</field>
+            <field name="model">diego_dev.student</field>
+            <field name="arch" type="xml">
+            	<tree string="Student">
+                    <field name="code"/>
+                    <field name="name"/>
+                </tree>
+            </field>
+        </record>      
+        <record id="action_elearning_student" model="ir.actions.act_window">
+        
+        <!--Class Session-->	
+        <record id="view_elearning_course_session_form" model="ir.ui.view">
+            <field name="name">diego_dev.course.session.form</field>
+            <field name="model">diego_dev.course.session</field>
+            <field name="arch" type="xml">
+                <form string="Session">
+                	<label for ="code" class="oe_edit_only" string="Course code and name"/>
+                		<h1>
+	                		<field name="name" class="oe_inline" style ="width: 6em"/> - 
+	                		<field name="code" class="oe_inline" />
+                		</h1>
+                		
+	                    <notebook>
+	                    	<page string = "Description">
+	                    	<field name="description" nolabel="1"/>	
+	                    	</page>
+	                    </notebook>
+                </form>
+             </field>
+           </record>
+        <record id="view_elearning_course_session_tree" model="ir.ui.view">
+            <field name="name">diego_dev.course.session.tree</field>
+            <field name="model">diego_dev.cours.session</field>
+            <field name="arch" type="xml">
+            	<tree string="Courses">
+                    <field name="code"/>
+                    <field name="name"/>
+                </tree>
+            </field>
+        </record>      
+        <record id="action_elearning_course_session" model="ir.actions.act_window">
         
     </data>
 </openerp>
