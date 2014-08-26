@@ -1,6 +1,43 @@
 <?xml version="1.0" encoding="utf-8"?>
 <openerp>
     <data>
+    	       <!-- Fiscal Year -->
+        <record id="view_elearning_course_form" model="ir.ui.view">
+            <field name="name">lesmed.course.from</field>
+            <field name="model">lesmed.course</field>
+            <field name="arch" type="xml">
+                <form string="Course">
+                	<label for ="code" class="oe_edit_only" string="Course code and name:"/>
+                	<h1>
+                		<field name="name" class = "oe_inline" style = "width: 20px"/> - 
+                    	<field name="code" class = "oe_inline" style = "width: 20px"/>
+                	</h1>
+               	
+                
+                    <notebook>
+                    	<page string = "Description">
+                    		<field name = "description" nolabel= "1">
+                    		</field>
+                    		
+                    	</page>
+                    	
+                    </notebook>
+                </form>
+            </field>
+        </record>
+        <record id="view_elearning_course_tree" model="ir.ui.view">
+            <field name="name">lesmed.course.tree</field>
+            <field name="model">lesmed.course</field>
+            <field name="arch" type="xml">
+                <tree string="Courses">
+                    <field name="code"/>
+                    <field name="name"/>
+                    
+                </tree>
+            </field>
+        </record>
+    	
+    	
     	<record id="action_elearning_courses" model="ir.actions.act_window">
             <field name="name">Courses</field>
             <field name="res_model">lesmed.course</field>
