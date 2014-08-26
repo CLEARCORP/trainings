@@ -17,7 +17,10 @@ This app is only for testing purposes. Most liely it will never do something use
     'website' : 'http://google.com',
     'images' : [],
     'depends' : [],
-    'data' : [],
+    'data' : [
+        'jornamon_view.xml',
+        'jornamon_menu.xml',          
+              ],
     'qweb' : [],
     'demo' : [],
     'test' : [],
