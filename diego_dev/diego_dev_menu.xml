@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+		<menuitem id="menu_elearning" name="eLearning" sequence="20"/>
+		<menuitem id="menu_elearning_sub" name="eLearning" parent= "menu_elearning" sequence="1"/>
+		<menuitem id="menu_elearning_conf" name="Configutation" parent= "menu_elearning" sequence="50"/>
+		
+		<menuitem id="menu_elearning_courses" name="Course" parent= "menu_elearning_conf" action ="action_elearning_courses" sequence="1"/>
+	</data>
+</openerp>
