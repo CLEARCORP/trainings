@@ -2,7 +2,7 @@
 <openerp>
     <data>
     	<!-- Class Course -->
-    	<record id="view_elearnoing_course_form" model="ir.ui.view">
+    	<record id="view_elearning_course_form" model="ir.ui.view">
             <field name="name">jornamon.course.form</field>
             <field name="model">jornamon.course</field>
             <field name="arch" type="xml">
@@ -97,7 +97,7 @@
         </record>
         
  <!-- Class CourseSession -->
-    	<record id="view_elearnoing_course_session_form" model="ir.ui.view">
+    	<record id="view_elearning_course_session_form" model="ir.ui.view">
             <field name="name">jornamon.course.session.form</field>
             <field name="model">jornamon.course.session</field>
             <field name="arch" type="xml">
