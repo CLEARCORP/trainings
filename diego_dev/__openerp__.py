@@ -15,7 +15,10 @@ eLearning Managment
     """,
     'images':[],
     'depends':[],
-    'data':[],
+    'data':[
+        'diego_dev_view.xml',
+        'diego_dev_menu.xml',
+            ],
     'demo':[],
     'test':[],
     'installable': True,
