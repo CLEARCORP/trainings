@@ -6,7 +6,7 @@
             <field name="model">nuevo_modulo.course</field>
             <field name="arch" type="xml">
                 <form string="Course">
-                	<label for="code" class="oe_edit_only" string="Course code name:"/>
+                	<label for="code" class="oe_edit_only" string="Course code and name:"/>
                 	<h1>
                 		<field name="code" class="oe_inline" style="width: 6em"/> - 
                 		<field name="name" class="oe_inline"/>
@@ -42,5 +42,84 @@
               </p>
             </field>
         </record>
+        <record id="view_elearning_session_form" model="ir.ui.view">
+            <field name="name">nuevo_modulo.session.form</field>
+            <field name="model">nuevo_modulo.session</field>
+            <field name="arch" type="xml">
+                <form string="Session">
+                	<label for="subject" class="oe_edit_only" string="Subject name:"/>
+                	<h1>
+                		<field name="subject" class="oe_inline" style="width: 6em"/>
+                   	</h1>
+                	<group>
+                		<field name="start_time" class="oe_inline"/>
+                		<field name="end_time" class="oe_inline"/>
+                	</group>
+                </form>
+            </field>
+        </record>
+        <record id="view_elearning_session_tree" model="ir.ui.view">
+            <field name="name">nuevo_modulo.session.tree</field>
+            <field name="model">nuevo_modulo.session</field>
+            <field name="arch" type="xml">
+                <tree string="Sessions">
+                    <field name="subject"/>
+                    <field name="start_time"/>
+                    <field name="end_time"/>
+                </tree>
+            </field>
+        </record>
+		<record id="action_elearning_sessions" model="ir.actions.act_window">
+            <field name="name">Sessions</field>
+            <field name="res_model">nuevo_modulo.session</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+            <field name="help" type="html">
+              <p class="oe_view_nocontent_create">
+                Click to create a new session
+              </p><p>
+              	Set your sessions here.
+              </p>
+            </field>
+        </record>
+		<record id="view_elearning_student_form" model="ir.ui.view">
+            <field name="name">nuevo_modulo.student.form</field>
+            <field name="model">nuevo_modulo.student</field>
+            <field name="arch" type="xml">
+                <form string="Student">
+                	<label for="code" class="oe_edit_only" string="Student code and name:"/>
+                	<h1>
+                		<field name="code" class="oe_inline" style="width: 6em"/> - 
+                		<field name="name" class="oe_inline"/>
+                	</h1>                	
+                		<group>
+                		 	<field name="birthday"/>
+                		</group>                	
+                </form>
+            </field>
+        </record>
+        <record id="view_elearning_student_tree" model="ir.ui.view">
+            <field name="name">nuevo_modulo.student.tree</field>
+            <field name="model">nuevo_modulo.student</field>
+            <field name="arch" type="xml">
+                <tree string="Students">
+                    <field name="code"/>
+                    <field name="name"/>
+                </tree>
+            </field>
+        </record>
+		<record id="action_elearning_students" model="ir.actions.act_window">
+            <field name="name">Students</field>
+            <field name="res_model">nuevo_modulo.student</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+            <field name="help" type="html">
+              <p class="oe_view_nocontent_create">
+                Click to create a new student
+              </p><p>
+              	Include  students here.
+              </p>
+            </field>
+        </record>        
 	</data>
 </openerp>
