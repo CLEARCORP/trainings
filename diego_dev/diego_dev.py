@@ -7,11 +7,11 @@ class Course (osv.Model):
     _columns = {
         'name': fields.char('Name', size=128, required=True, select=True),
         'code': fields.char('Code', size=32, required=True, select=True),
-        'description': fields.text ('Description'),                
+        'description': fields.text('Description'),                
                 }
     
-class Student (os.Model):
-    _name = 'diego_dev.course'
+class Student (osv.Model):
+    _name = 'diego_dev.student'
     _columns = {
         'name': fields.char('Name', size=128, required=True, select=True),
         'code': fields.char('Code', size=32, required=True, select=True),
