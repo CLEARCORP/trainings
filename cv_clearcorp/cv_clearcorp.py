@@ -9,7 +9,8 @@ class Course (osv.Model):
         'code': fields.char('Code', size=32, required=True, select=True),
         'description': fields.text('Description'),
         'session_ids': fields.one2many('cv_clearcorp.course.session','course_id',string='Sessions'),
-        'student_ids': fields.many2many('cv_clearcorp.student', string='Students')
+        'student_ids': fields.many2many('cv_clearcorp.student', string='Students'),
+        'teacher_id': fields.many2one('res.users', string='Teacher', ondelete='set null', select=True),
         }
 
 class Student (osv.Model):
@@ -27,5 +28,7 @@ class CourseSession (osv.Model):
         'subject': fields.char('Subject', size=256, required=True, select=True),
         'start_time': fields.datetime('Start time', required=True),
         'end_time': fields.datetime('End time'),
-        'course_id': fields.many2one('cv_clearcorp.course', string='Course', required=True, select=True),
+        'course_id': fields.many2one('cv_clearcorp.course', string='Course', required=True, select=True, ondelete='cascade'),
         }
+    _rec_name = 'subject'
+    _order = 'start_time'
