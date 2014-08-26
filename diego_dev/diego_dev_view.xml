@@ -12,8 +12,13 @@
 	                		<field name="name" class="oe_inline" style ="width: 6em"/>
 	                		<field name="code" class="oe_inline" />
                 		</h1>
-                		
+	                		<group col="4">
+	                			<field name="teacher_id"/>
+	                	   </group>
 	                    <notebook>
+	                    	<page string="Sessions">
+		                    	<field name="session_ids" nolabel="1"/>
+                			</page>
 	                    	<page string = "Session">
 	                    		<field name="session_ids" nolabel="1"/>	
 	                    	</page>
@@ -23,7 +28,7 @@
 	                    </notebook>
                 </form>
              </field>
-           </record>
+        </record>
         <record id="view_elearning_course_tree" model="ir.ui.view">
             <field name="name">diego_dev.course.tree</field>
             <field name="model">diego_dev.course</field>
@@ -63,6 +68,11 @@
                         <group col="4">
 	                    	<field name="birthday"/>	
 	                    </group>
+	             <notebook>
+                	<page string="Courses">
+                			<field name="course_ids" nolabel="1"/>
+                		</page>
+                </notebook>
                 </form>
              </field>
            </record>
