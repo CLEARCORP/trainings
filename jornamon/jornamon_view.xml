@@ -2,7 +2,7 @@
 <openerp>
     <data>
     	<!-- Class Course -->
-    	<record id="view_elearnoing_course_form" model="ir.ui.view">
+    	<record id="view_elearning_course_form" model="ir.ui.view">
             <field name="name">jornamon.course.form</field>
             <field name="model">jornamon.course</field>
             <field name="arch" type="xml">
@@ -13,13 +13,18 @@
 	                	<field name="name" class="oe_inline"/>  
                 		
                 	</h1>
- 
+ 					<group>
+ 						<field name="teacher_id"/>
+ 					</group>
                     <notebook>
                     	<page string="Description">
                     		<field name="description" nolabel="1"/>
                     	</page>
-                    	<page string="Testing!!!!">
-                    		<h2> Esta es mi prueba </h2> 
+                    	<page string="Sessions">
+                    		<field name="session_ids" nolabel="1"/> 
+                    	</page>
+                    	<page string="Students">
+                    		<field name="student_ids" nolabel="1"/> 
                     	</page>
                     </notebook>
                  </form>
@@ -35,7 +40,6 @@
                 </tree>
             </field>
         </record>
-    	
         <record id="action_elearning_courses" model="ir.actions.act_window">
             <field name="name">Courses</field>
             <field name="res_model">jornamon.course</field>
@@ -50,7 +54,7 @@
             </field>
         </record>
         
- <!-- Class Student -->
+ 		<!-- Class Student -->
      	<record id="view_elearning_student_form" model="ir.ui.view">
             <field name="name">jornamon.student.form</field>
             <field name="model">jornamon.student</field>
@@ -62,10 +66,15 @@
 	                	<field name="name" class="oe_inline"/>  
                 		
                 	</h1>
- 
-                    <group col="4">                 	
+                	<group col="4">                 	
                     		<field name="birthday" />
-                   </group>
+                    </group>
+                    <notebook>
+                    	<page string="Courses">
+                    		<field name="course_ids" nolabel="1"/>
+                    	</page>
+                    </notebook>
+ 
                  </form>
             </field>
         </record>
@@ -81,7 +90,6 @@
                 </tree>
             </field>
         </record>
-    	
         <record id="action_elearning_student" model="ir.actions.act_window">
             <field name="name">Student</field>
             <field name="res_model">jornamon.student</field>
@@ -96,8 +104,8 @@
             </field>
         </record>
         
- <!-- Class CourseSession -->
-    	<record id="view_elearnoing_course_session_form" model="ir.ui.view">
+ 		<!-- Class CourseSession -->
+    	<record id="view_elearning_course_session_form" model="ir.ui.view">
             <field name="name">jornamon.course.session.form</field>
             <field name="model">jornamon.course.session</field>
             <field name="arch" type="xml">
@@ -106,7 +114,10 @@
                 	<h1>
 						<field name="subject" class="oe_inline"/>             		
                 	</h1>
-                		<group col="6">
+                		<group col="4">
+                			<group col="2" colspan="2">
+ 								<field name="course_id"/>
+ 							</group>
                 			<group col="2">
  								<field name="start_time"/>
  								<field name="end_time"/>
@@ -120,13 +131,13 @@
             <field name="model">jornamon.course.session</field>
             <field name="arch" type="xml">
                 <tree string="Courses">
+                	<field name="course_id"/>
                     <field name="subject"/>
                     <field name="start_time"/>
                     <field name="end_time"/>
                 </tree>
             </field>
         </record>
-    	
         <record id="action_elearning_course_session" model="ir.actions.act_window">
             <field name="name">Sessions</field>
             <field name="res_model">jornamon.course.session</field>
