@@ -16,6 +16,9 @@
                 		<page string="Sessions">
 		                    <field name="session_ids" nolabel="1"/>
                 		</page>
+                		<page string="Students">
+		                    <field name="student_ids" nolabel="1"/>
+                		</page>
                 		<page string="Description">
 		                    <field name="description" nolabel="1"/>
                 		</page>
@@ -61,6 +64,11 @@
                 	<group col="4">
                 		<field name="birthday"/>
                 	</group>
+                	<notebook>
+                		<page string="Courses">
+                			<field name="course_ids" nolabel="1"/>
+                		</page>
+                	</notebook>
                 </form>
             </field>
         </record>

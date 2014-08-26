@@ -8,7 +8,8 @@ class Course (osv.Model):
         'name': fields.char('Name', size=128, required=True, select=True),
         'code': fields.char('Code', size=32, required=True, select=True),
         'description': fields.text('Description'),
-        'session_ids': fields.one2many('cv_clearcorp.course.session','course_id',string='Sessions')
+        'session_ids': fields.one2many('cv_clearcorp.course.session','course_id',string='Sessions'),
+        'student_ids': fields.many2many('cv_clearcorp.student', string='Students')
         }
 
 class Student (osv.Model):
@@ -17,6 +18,7 @@ class Student (osv.Model):
         'name': fields.char('Name', size=128, required=True, select=True),
         'code': fields.char('Code', size=32, required=True, select=True),
         'birthday': fields.date('Birthday'),
+        'course_ids': fields.many2many('cv_clearcorp.course', string='Courses')
         }
 
 class CourseSession (osv.Model):
