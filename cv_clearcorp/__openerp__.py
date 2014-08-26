@@ -15,7 +15,10 @@ eLearning Management
     """,
     'images': [],
     'depends': [],
-    'data': [],
+    'data': [
+        'cv_clearcorp_view.xml',
+        'cv_clearcorp_menu.xml',
+        ],
     'demo': [],
     'test': [],
     'installable': True,
