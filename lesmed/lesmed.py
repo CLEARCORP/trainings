@@ -5,6 +5,37 @@ from openerp.osv import osv, fields
 class Course (osv.Model):
     _name = 'lesmed.course'
     
+    
+    def get_seats(self, cr, uid,ids,field_name,arg,context={}):
+        res = {} 
+        courses = self.browse(cr,uid, ids, context = context)
+        for course in courses:
+            
+            total_seats = course.total_seats
+            
+            students = course.student_ids
+            
+            occupied_seats = len(students)
+            
+            available_seats = total_seats  - occupied_seats
+            res[course.id] ={
+                               'available_seats' : available_seats,
+                               'occupied_seats' : occupied_seats,
+                            }
+        return res
+    
+    def get_occupied_seats(self, cr, uid,ids,field_name,arg,context={}):
+        
+        res = {}
+        for id in ids:
+            course = self.browse(cr,uid, id, context=context)
+            total_seats = course.total_seats
+            students = course.student_ids
+            occupied_seats = len(students)
+            res[id] = occupied_seats
+             
+        return res
+    
     #columnas de la tabla que se va a crear
     _columns = {
         #Nombre de la columna
@@ -15,7 +46,12 @@ class Course (osv.Model):
         
         'student_ids' : fields.many2many('lesmed.student', string = 'Students'),
         'teacher_id' : fields.many2one('res.users', string='Teacher', ondelete= 'set null', select = True),
-         
+        'total_seats': fields.integer('Total seats', required = True,),
+        'available_seats' : fields.function(get_seats ,multi='seats' ,type = 'integer',string = 'Available seats', readonly = 'True'),
+        'occupied_seats' : fields.function(get_seats, multi = 'seats',type = 'integer',string = 'Ocuppied seats', readonly = 'True'),
+        
+        
+        
         
         
                }
