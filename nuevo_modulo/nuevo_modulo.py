@@ -1,14 +1,15 @@
 # -*- coding: utf-8 -*-
 
+from openerp import api
 from openerp.osv import osv, fields
 
 class Course (osv.Model):
     _name = 'nuevo_modulo.course'
-    
-    def get_seats (self, cr, uid, ids, field_name, arg, context={}):
+   
+    @api.multi
+    def get_seats (self, field_name, arg):
         res = {}
-        courses = self.browse(cr, uid, ids, context=context)
-        for course in courses:
+        for course in self:
             total_seats = course.total_seats
             students = course.student_ids
             occupied_seats = len(students)
@@ -42,6 +43,22 @@ class Course (osv.Model):
          
                  }
     
+    _sql_constraints = [
+                        ('total_seats_positive','CHECK((total_seats > 0) AND (total_seats <= 100))', 'The course total seats has to be between 1 and 100 students'),
+                        ]
+    
+    @api.multi
+    def check_seats (self):
+        for course in self:
+            if len(course.student_ids) > course.total_seats:
+                return False
+        return True
+    
+    _constraints = [
+        (check_seats, 'The course has more students than seats', ['student_ids']),
+        (check_seats, 'You cannot set Total seats less than actual students', ['total_seats']),
+                    ]
+    
 class Partner (osv.Model):
     _name = 'res.partner'
     _inherit = 'res.partner'
@@ -53,8 +70,9 @@ class Partner (osv.Model):
         'student_code': fields.char('Student code', size=32),         
         }
     
-    def on_change_is_company (self, cr, uid, id, is_company, student, context={}):
-        res = self.onchange_type(cr, uid, id, is_company, context=context)
+    @api.multi
+    def on_change_is_company (self, is_company, student):
+        res = self.onchange_type(is_company)
         if is_company and student:
             res['value'].update({'student': False})
             res['warning'].update({'title': "Companies cannot be students",
