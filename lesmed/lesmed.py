@@ -18,9 +18,16 @@ class Course (osv.Model):
             occupied_seats = len(students)
             
             available_seats = total_seats  - occupied_seats
+            occupation_percentage = 0.0
+            
+            if total_seats> 0:
+                occupation_percentage = (occupied_seats / (total_seats*1.0))*100.0
+            else:
+                occupation_percentage = 0.0
             res[course.id] ={
                                'available_seats' : available_seats,
                                'occupied_seats' : occupied_seats,
+                               'occupation_percentage' : occupation_percentage,
                             }
         return res
     
@@ -32,6 +39,7 @@ class Course (osv.Model):
             total_seats = course.total_seats
             students = course.student_ids
             occupied_seats = len(students)
+            
             res[id] = occupied_seats
              
         return res
@@ -43,28 +51,43 @@ class Course (osv.Model):
         'code': fields.char ('Code', size = 32, required =  True),
         'description' : fields.text('Description'),
         'session_ids' : fields.one2many('lesmed.course.session', 'course_id',string = 'Sessions'),
-        
-        'student_ids' : fields.many2many('lesmed.student', string = 'Students'),
+        'student_ids' : fields.many2many('res.partner', string = 'Students', domain=[('student','=', 'True')]),
         'teacher_id' : fields.many2one('res.users', string='Teacher', ondelete= 'set null', select = True),
         'total_seats': fields.integer('Total seats', required = True,),
         'available_seats' : fields.function(get_seats ,multi='seats' ,type = 'integer',string = 'Available seats', readonly = 'True'),
         'occupied_seats' : fields.function(get_seats, multi = 'seats',type = 'integer',string = 'Ocuppied seats', readonly = 'True'),
-        
-        
-        
-        
-        
-               }
+        'occupation_percentage' : fields.function(get_seats, multi='seats', type='float', string = 'Percentage of occupation', readonly = 'True', digits = (4,2)),
 
-class Student (osv.Model):
-    _name = 'lesmed.student'
+        }
+    _defaults = {
+                 'teacher_id': (lambda self,cr, uid, ids, context = {}: uid) 
+                 }
+    
+    
+    
+    
+    
+    
+    
+    
+
+
+class Partner (osv.Model):
+    
+    _name = 'res.partner'
+    _inherit = 'res.partner'
     
     _columns = {
-        'name' : fields.char ('Name', size = 128, required = True, select= True),
-        'code' : fields.char ('Code', size = 32, required = True, select = True ),
+        'student' : fields.boolean('Student'),
+        'student_code' : fields.char ('Code', size = 32, required = True, select = True ),
         'birthday' : fields.date ('Birthday'),
         'course_ids': fields.many2many('lesmed.course', string = 'Courses'),
-                }
+                
+        }
+    
+    
+
+#
     
 class CourseSession (osv.Model):
     _name = 'lesmed.course.session'
