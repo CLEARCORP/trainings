@@ -12,7 +12,15 @@
                 		<field name="name" class="oe_inline"/>
                 	</h1>
                 	<group col="4">
-                		<field name="teacher_id"/>
+                		<group col="2">
+                			<field name="teacher_id"/>
+                		</group>
+                		<group col="2">
+                			<field name="total_seats"/>
+                			<field name="available_seats"/>
+                			<field name="occupied_seats"/>
+                			<field name="occupation_percentage" widget="progressbar"/>
+            			</group>
         			</group>
                 	<notebook>
                 		<page string="Students">
@@ -35,6 +43,7 @@
                 <tree string="Courses">
                     <field name="code"/>
                     <field name="name"/>
+                    <field name="occupation_percentage" widget="progressbar"/>
                 </tree>
             </field>
         </record>
@@ -77,6 +86,7 @@
             <field name="model">nuevo_modulo.session</field>
             <field name="arch" type="xml">
                 <tree string="Sessions">
+                	<field name="course_id"/>
                     <field name="subject"/>
                     <field name="start_time"/>
                     <field name="end_time"/>
@@ -96,42 +106,47 @@
               </p>
             </field>
         </record>
-		<record id="view_elearning_student_form" model="ir.ui.view">
-            <field name="name">nuevo_modulo.student.form</field>
-            <field name="model">nuevo_modulo.student</field>
-            <field name="arch" type="xml">
-                <form string="Student">
-                	<label for="code" class="oe_edit_only" string="Student code and name:"/>
-                	<h1>
-                		<field name="code" class="oe_inline" style="width: 6em"/> - 
-                		<field name="name" class="oe_inline"/>
-                	</h1>                	
-                		<group>
-                		 	<field name="birthday"/>
-                		</group> 
-                		<notebook>
-                			<page string="Courses">
-                				<field name="course_ids"/>
-        					</page>
-    					</notebook>               	
-                </form>
-            </field>
-        </record>
-        <record id="view_elearning_student_tree" model="ir.ui.view">
-            <field name="name">nuevo_modulo.student.tree</field>
-            <field name="model">nuevo_modulo.student</field>
-            <field name="arch" type="xml">
-                <tree string="Students">
-                    <field name="code"/>
-                    <field name="name"/>
-                </tree>
-            </field>
-        </record>
+        
+       
+		<record id="view_res_partner_form_student" model="ir.ui.view">
+            <field name="name">res_partner.form.student</field>
+            <field name="model">res.partner</field>
+            <field name="inherit_id" ref="base.view_partner_form"/>
+            <field name="arch" type="xml"> 
+            	<data>
+	            	<xpath expr="//page[@name='sales_purchases']/group/group/field[@name='supplier']" position="after">
+	            		<field name="student" attrs="{'readonly': [('is_company','=',True)]}"/>
+	            	</xpath>
+	            	<xpath expr="/form/sheet/div/div/field[@name='is_company']" position="attributes">
+	            		<attribute name="on_change">on_change_is_company(is_company, student)</attribute>
+	            	    <attribute name="attrs">{'readonly': [('student','=',True)]}</attribute>
+	            	</xpath>
+	            	<page name='sales_purchases' position="after">
+	            		<page name="elearning" string="eLearning">
+	            			<group col="6">
+	            				<group colspan="2">
+	            					<field name="student_code"/>
+            					</group>
+        					</group>
+	            			<label for="course_ids"/>
+	            			<field name="course_ids" nolabel="1"/>
+	            		</page>
+	            	</page>
+	             	<xpath expr="/form/sheet/group/group/field[@name='title']" position="after">
+	            		<field name="birthday"/>
+	            	</xpath>           	
+	            </data>	
+            </field>		
+    	</record>
+            
+        
 		<record id="action_elearning_students" model="ir.actions.act_window">
             <field name="name">Students</field>
-            <field name="res_model">nuevo_modulo.student</field>
+            <field name="res_model">res.partner</field>
             <field name="view_type">form</field>
             <field name="view_mode">tree,form</field>
+            <field name="domain">[('student','=',1)]</field>
+            <field name="context">{'default_student': 1}</field>
             <field name="help" type="html">
               <p class="oe_view_nocontent_create">
                 Click to create a new student
@@ -139,6 +154,37 @@
               	Include  students here.
               </p>
             </field>
-        </record>        
+        </record>    
+        
+        <record id="action_elearning_mystudents" model="ir.actions.act_window">
+            <field name="name"> My Students</field>
+            <field name="res_model">res.partner</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+            <field name="domain">['&amp;',('course_ids.teacher_id','=',uid),('student','=',1)]</field>
+            <field name="context">{'default_student': 1}</field>
+            <field name="help" type="html">
+              <p class="oe_view_nocontent_create">
+                Click to create a new student
+              </p><p>
+              	Include  students here.
+              </p>
+            </field>
+        </record>
+        
+        <record id="action_elearning_mycourses" model="ir.actions.act_window">
+            <field name="name">My Courses</field>
+            <field name="res_model">nuevo_modulo.course</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+            <field name="domain">[('teacher_id','=',uid)]</field>
+            <field name="help" type="html">
+              <p class="oe_view_nocontent_create">
+                Click to create a new student
+              </p><p>
+              	Include  students here.
+              </p>
+            </field>
+        </record>    
 	</data>
 </openerp>
