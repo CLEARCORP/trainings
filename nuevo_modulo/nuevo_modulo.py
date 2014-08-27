@@ -50,10 +50,17 @@ class Partner (osv.Model):
         'student': fields.boolean('Student'),
         'birthday':fields.date('Birthday'),
         'course_ids': fields.many2many('nuevo_modulo.course', string="Courses"),           
-        'student_code': fields.char('Student code', size=32),  
-                
-                }
+        'student_code': fields.char('Student code', size=32),         
+        }
     
+    def on_change_is_company (self, cr, uid, id, is_company, student, context={}):
+        res = self.onchange_type(cr, uid, id, is_company, context=context)
+        if is_company and student:
+            res['value'].update({'student': False})
+            res['warning'].update({'title': "Companies cannot be students",
+                              'message': "You changed the partner type to company, Student checkbox cleared"})
+        return res
+            
 class CourseSession (osv.Model):
     _name = 'nuevo_modulo.session'
     _columns = {
