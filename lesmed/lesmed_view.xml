@@ -12,8 +12,21 @@
                     	<field name="code" class = "oe_inline" style = "width: 20px"/>
                 	</h1>
                 	
-                	<group col = "4">
-                		<field name = "teacher_id" />
+                	<group col = "4">       		
+                		<group col = "2" colspan = "2">
+                			<field name = "teacher_id" />
+                		</group>
+                		
+                		<group col = "2" colspan="2">
+                			
+                			<field name = "total_seats"/>
+                			<field name = "available_seats"/>
+                			
+                				
+                			
+                			
+                			
+                		</group>
                 	</group>
                		<notebook>
                     	<page string = "Description">
@@ -40,6 +53,10 @@
                 <tree string="Courses">
                     <field name="code"/>
                     <field name="name"/>
+                    <field name="total_seats"/>
+                    <field name="available_seats"/>
+                    
+                    
                     
                 </tree>
             </field>
