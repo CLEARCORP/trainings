@@ -2,15 +2,34 @@
 
 from openerp.osv import osv, fields 
 
+
 class Course (osv.Model):
     _name = 'diego_dev.course'
+    
+    def get_seats(self, cr, uid, ids, field_name, arg, context={}):
+        res = {}
+        courses = self.browse(cr, uid, ids, context=context)
+        for course in courses:
+            total_seats = course.total_seats
+            students = course.student_ids
+            occupied_seats = len(students)
+            available_seats = total_seats-occupied_seats
+            res[course.id] =  {
+                               'available_seats':available_seats,
+                               'occupied_seats':occupied_seats,
+            }
+        return res     
+    
     _columns = {
         'name': fields.char('Name', size=128, required=True, select=True),
         'code': fields.char('Code', size=32, required=True, select=True),
         'description': fields.text('Description'),   
         'session_ids': fields.one2many('diego_dev.course.session','course_id', string='Session'),   
         'student_ids': fields.many2many('diego_dev.student', string='Students'), 
-        'teacher_id' : fields.many2one('res.users', string='Teacher', ondelete='set null', select=True)       
+        'teacher_id' : fields.many2one('res.users', string='Teacher', ondelete='set null', select=True),   
+        'total_seats': fields.integer('Total seats', required=True),
+        'available_seats': fields.function(get_seats, multi='seats',type='integer', string='Available seats',readonly=True),
+        'occupied_seats':fields.function(get_seats, multi='seats',type='integer', string='Occupied seats',readonly=True),
                 }
     
 class Student (osv.Model):

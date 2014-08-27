@@ -13,11 +13,19 @@
 	                		<field name="code" class="oe_inline" />
                 		</h1>
 	                		<group col="4">
-	                			<field name="teacher_id"/>
+	                			<group col="2">
+	                				<field name="teacher_id"/>
+	                				<field name="total_seats"/>
+	                	   		</group>
+	                	   		<group col="2">
+	                				<field name="available_seats"/>
+	                				<field name="occupied_seats"/>
+	                	   		</group>
 	                	   </group>
+	                	   
 	                    <notebook>
-	                    	<page string="Sessions">
-		                    	<field name="session_ids" nolabel="1"/>
+	                    	<page string="Students">
+		                    	<field name="student_ids" nolabel="1"/>
                 			</page>
 	                    	<page string = "Session">
 	                    		<field name="session_ids" nolabel="1"/>	
@@ -36,6 +44,7 @@
             	<tree string="Courses">
                     <field name="name"/>
                     <field name="code"/>
+                    <field name="total_seats"/>
                 </tree>
             </field>
         </record>      
