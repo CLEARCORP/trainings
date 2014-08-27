@@ -20,6 +20,7 @@
 	                		<field name="total_seats"/>
 	                		<field name="available_seats"/>
 	                		<field name="occupied_seats"/>
+	                		<field name="occupation_percentage" widget="progressbar"/>
 	                	</group>
                 	</group>
                 	<notebook>
@@ -45,6 +46,7 @@
                     <field name="name"/>
                     <field name="total_seats"/>
                     <field name="available_seats"/>
+	                <field name="occupation_percentage" widget="progressbar"/>
                 </tree>
             </field>
         </record>
@@ -61,45 +63,71 @@
               </p>
             </field>
         </record>
-
-		<!-- Class Student -->
-    	<record id="view_elearning_student_form" model="ir.ui.view">
-            <field name="name">cv_clearcorp.student.form</field>
-            <field name="model">cv_clearcorp.student</field>
-            <field name="arch" type="xml">
-                <form string="Student">
-                	<label for="code" class="oe_edit_only" string="Course code and name:"/>
-                	<h1>
-	                    [<field name="code" class="oe_inline" style="width: 6em"/>] 
-	                	<field name="name" class="oe_inline"/>
-                	</h1>
-                	<group col="4">
-                		<field name="birthday"/>
-                	</group>
-                	<notebook>
-                		<page string="Courses">
-                			<field name="course_ids" nolabel="1"/>
-                		</page>
-                	</notebook>
-                </form>
+    	<record id="action_elearning_my_courses" model="ir.actions.act_window">
+            <field name="name">My Courses</field>
+            <field name="res_model">cv_clearcorp.course</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+            <field name="domain">[('teacher_id','=',uid)]</field>
+            <field name="help" type="html">
+              <p class="oe_view_nocontent_create">
+                Click to create a new course.
+              </p><p>
+                Set your courses here.
+              </p>
             </field>
         </record>
-        <record id="view_elearning_student_tree" model="ir.ui.view">
-            <field name="name">cv_clearcorp.student.tree</field>
-            <field name="model">cv_clearcorp.student</field>
+
+		<!-- Class Student -->
+		<record id="view_res_partner_form_student" model="ir.ui.view">
+            <field name="name">res_partner.form.student</field>
+            <field name="model">res.partner</field>
+            <field name="inherit_id" ref="base.view_partner_form"/>
             <field name="arch" type="xml">
-                <tree string="Student">
-                    <field name="code"/>
-                    <field name="name"/>
-                    <field name="birthday"/>
-                </tree>
+            	<data>
+	            	<xpath expr="//page[@name='sales_purchases']/group/group/field[@name='supplier']" position="after">
+	            		<field name="student"/>
+	            	</xpath>
+	            	<page name="sales_purchases" position="after">
+	            		<page name="elearning" string="eLearning">
+	            			<group col="6">
+	            				<group colspan="2">
+	            					<field name="student_code"/>
+	            				</group>
+	            			</group>
+	            			<label for="course_ids"/>
+	            			<field name="course_ids">
+	            				<tree>
+	            					<field name="code"/>
+	            					<field name="name"/>
+	            				</tree>
+	            			</field>
+	            		</page>
+	            	</page>
+	            	<xpath expr="/form/sheet/group/group/field[@name='title']" position="after">
+	            		<field name="birthday"/>
+	            	</xpath>
+            	</data>
             </field>
         </record>
     	<record id="action_elearning_student" model="ir.actions.act_window">
             <field name="name">Students</field>
-            <field name="res_model">cv_clearcorp.student</field>
+            <field name="res_model">res.partner</field>
             <field name="view_type">form</field>
             <field name="view_mode">tree,form</field>
+            <field name="domain">[('student','=',1)]</field>
+            <field name="help" type="html">
+              <p class="oe_view_nocontent_create">
+                Click to register a new student.
+              </p>
+            </field>
+        </record>
+    	<record id="action_elearning_my_students" model="ir.actions.act_window">
+            <field name="name">My Students</field>
+            <field name="res_model">res.partner</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+            <field name="domain">['&amp;',('student','=',1),('course_ids.teacher_id','=',uid)]</field>
             <field name="help" type="html">
               <p class="oe_view_nocontent_create">
                 Click to register a new student.

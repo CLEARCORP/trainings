@@ -13,9 +13,14 @@ class Course (osv.Model):
             students = course.student_ids
             occupied_seats = len(students)
             available_seats = total_seats - occupied_seats
+            if total_seats:
+                occupation_percentage = (occupied_seats / (total_seats * 1.0)) * 100.0
+            else:
+                occupation_percentage = 0.0
             res[course.id] = {
                 'available_seats': available_seats,
                 'occupied_seats': occupied_seats,
+                'occupation_percentage': occupation_percentage,
             }
         return res
     
@@ -24,20 +29,28 @@ class Course (osv.Model):
         'code': fields.char('Code', size=32, required=True, select=True),
         'description': fields.text('Description'),
         'session_ids': fields.one2many('cv_clearcorp.course.session','course_id',string='Sessions'),
-        'student_ids': fields.many2many('cv_clearcorp.student', string='Students'),
+        'student_ids': fields.many2many('res.partner', string='Students', domain=[('student','=',1)]),
         'teacher_id': fields.many2one('res.users', string='Teacher', ondelete='set null', select=True),
         'total_seats': fields.integer('Total seats', required=True),
         'available_seats': fields.function(get_seats, multi='seats', type='integer', string='Available seats', readonly=True),
         'occupied_seats': fields.function(get_seats, multi='seats', type='integer', string='Occupied seats', readonly=True),
+        'occupation_percentage': fields.function(get_seats, multi='seats', type='float', string='Percentage of occupied seats', digits=(3,1), readonly=True),
+        }
+    
+    _defaults = {
+        'teacher_id': (lambda self, cr, uid, ids, context={}: uid),
+        'total_seats': 20,
         }
 
-class Student (osv.Model):
-    _name = 'cv_clearcorp.student'
+class Partner (osv.Model):
+    _name = 'res.partner'
+    _inherit = 'res.partner'
+    
     _columns = {
-        'name': fields.char('Name', size=128, required=True, select=True),
-        'code': fields.char('Code', size=32, required=True, select=True),
+        'student': fields.boolean('Student'),
         'birthday': fields.date('Birthday'),
-        'course_ids': fields.many2many('cv_clearcorp.course', string='Courses')
+        'course_ids': fields.many2many('cv_clearcorp.course', string='Courses'),
+        'student_code': fields.char('Student code', size=32),
         }
 
 class CourseSession (osv.Model):
