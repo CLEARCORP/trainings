@@ -11,6 +11,10 @@
                 		<field name="name" class = "oe_inline" style = "width: 20px"/> - 
                     	<field name="code" class = "oe_inline" style = "width: 20px"/>
                 	</h1>
+                	
+                	<group col = "4">
+                		<field name = "teacher_id" />
+                	</group>
                		<notebook>
                     	<page string = "Description">
                     		<field name = "description" nolabel= "1" />

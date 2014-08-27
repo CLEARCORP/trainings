@@ -14,6 +14,8 @@ class Course (osv.Model):
         'session_ids' : fields.one2many('lesmed.course.session', 'course_id',string = 'Sessions'),
         
         'student_ids' : fields.many2many('lesmed.student', string = 'Students'),
+        'teacher_id' : fields.many2one('res.users', string='Teacher', ondelete= 'set null', select = True),
+         
         
         
                }
@@ -34,8 +36,10 @@ class CourseSession (osv.Model):
         'subject' : fields.char('Subject', size=256, required = True , select = True),
         'start_time': fields.datetime('Start time', requiered = True),
         'end_time' : fields.datetime ('End time'),
-        'course_id': fields.many2one('lesmed.course',string ='Course', required = True, select = True)
+        'course_id': fields.many2one('lesmed.course',string ='Course', required = True, select = True, ondelete = 'cascade'),
                 }
+    _rec_name ='subject'
+    _order = 'start_time'
     
     
     
