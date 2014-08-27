@@ -52,6 +52,14 @@ class Partner (osv.Model):
         'course_ids': fields.many2many('cv_clearcorp.course', string='Courses'),
         'student_code': fields.char('Student code', size=32),
         }
+    
+    def on_change_is_company (self, cr, uid, id, is_company, student, context={}):
+        res = self.onchange_type(cr, uid, id, is_company, context=context)
+        if is_company and student:
+            res['value'].update({'student': False})
+            res['warning'].update({'title': "Companies cannot be students",
+                              'message': "You changed the partner type to company, and it was a student, we have blanked the student checkbox."})
+        return res
 
 class CourseSession (osv.Model):
     _name = 'cv_clearcorp.course.session'

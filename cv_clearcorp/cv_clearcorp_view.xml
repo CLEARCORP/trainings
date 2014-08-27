@@ -86,7 +86,7 @@
             <field name="arch" type="xml">
             	<data>
 	            	<xpath expr="//page[@name='sales_purchases']/group/group/field[@name='supplier']" position="after">
-	            		<field name="student"/>
+	            		<field name="student" attrs="{'readonly': [('is_company','=',True)]}"/>
 	            	</xpath>
 	            	<page name="sales_purchases" position="after">
 	            		<page name="elearning" string="eLearning">
@@ -107,6 +107,10 @@
 	            	<xpath expr="/form/sheet/group/group/field[@name='title']" position="after">
 	            		<field name="birthday"/>
 	            	</xpath>
+	            	<xpath expr="/form/sheet/div/div/field[@name='is_company']" position="attributes">
+	            		<attribute name="on_change">on_change_is_company(is_company, student)</attribute>
+	            		<attribute name="attrs">{'readonly': [('student','=',True)]}</attribute>
+	            	</xpath>
             	</data>
             </field>
         </record>
@@ -116,6 +120,7 @@
             <field name="view_type">form</field>
             <field name="view_mode">tree,form</field>
             <field name="domain">[('student','=',1)]</field>
+            <field name="context">{'default_student': 1}</field>
             <field name="help" type="html">
               <p class="oe_view_nocontent_create">
                 Click to register a new student.
@@ -128,6 +133,7 @@
             <field name="view_type">form</field>
             <field name="view_mode">tree,form</field>
             <field name="domain">['&amp;',('student','=',1),('course_ids.teacher_id','=',uid)]</field>
+            <field name="context">{'default_student': 1}</field>
             <field name="help" type="html">
               <p class="oe_view_nocontent_create">
                 Click to register a new student.
