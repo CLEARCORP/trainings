@@ -1,15 +1,16 @@
 # -*- coding: utf-8 -*
 
 from openerp.osv import osv, fields 
+from openerp import api
 
 
 class Course (osv.Model):
     _name = 'diego_dev.course'
     
-    def get_seats(self, cr, uid, ids, field_name, arg, context={}):
+    @api.multi
+    def get_seats(self, field_name, arg):
         res = {}
-        courses = self.browse(cr, uid, ids, context=context)
-        for course in courses:
+        for course in self:
             total_seats = course.total_seats
             students = course.student_ids
             occupied_seats = len(students)
@@ -22,7 +23,7 @@ class Course (osv.Model):
                                'available_seats':available_seats,
                                'occupied_seats':occupied_seats,
                                'occupation_percentage':occupation_percentage,
-            }
+                               }
         return res     
     
     _columns = {
@@ -41,6 +42,22 @@ class Course (osv.Model):
             'teacher_id': (lambda  self, cr, uid, this, context ={}: uid),
             'total_seats': 20,
                 }
+    _sql_constrains=[
+        ('total_seats_positice', 'CHECK[total_seats >= 0]  AND (total_seats <=100)','The course\'s total seats must be a positive number')
+                     ]
+    @api.multi
+    def check_seats(self):
+        for course in self:
+            if len(course.student_ids) > course.total_seats:
+                return False
+        return True
+    
+    
+    _constraints= [
+                   (check_seats, 'The course is full, you cannot add more students.', ['student_ids']),
+                   (check_seats, 'You cannot see a total seats', ['total_seats']),
+                   
+                   ]
     
 class Partner(osv.Model):
     _name = 'res.partner'
@@ -62,11 +79,44 @@ class Partner(osv.Model):
     
 class CourseSession(osv.Model):
     _name = 'diego_dev.course.session'
+    
+    @api.multi
+    def button_approve(self):
+        self.state='pending'
+        return True
+      
+    @api.multi
+    def button_done(self):
+        self.state='done'
+        return True
+    
+    @api.multi
+    def button_start(self):
+        self.state='open'
+        return True
+    
+    @api.multi
+    def button_cancel(self):
+        self.state='canceled'
+        return True
+    
+    @api.multi
+    def button_reset(self):
+        self.state='draft'
+        return True
+    
+    
     _columns = {
         'subject': fields.char('Subject', size=128, required=True, select=True),
         'start_time': fields.datetime('Start Time', required=True),
         'end_time': fields.datetime('End Time'),
         'course_id':fields.many2one('diego_dev.course', string='Course', required=True, select=True, ondelete='cascade'),
+        'state': fields.selection([('draft','Draft'),('pending', 'Pending'),('open','Open'),('done','Done'),('canceled','Canceled')],
+                                  string="State",select=True,required=True),
                 }
     _rec_name = 'subject'
     _order = 'start_time'
+    
+    _defaults ={
+                'state':'draft'
+                }

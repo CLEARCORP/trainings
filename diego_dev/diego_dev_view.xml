@@ -46,7 +46,7 @@
             	<tree string="Courses">
                     <field name="name"/>
                     <field name="code"/>
-                    <field name="total_seats"/>
+                    <field name="total_seats" sum="Total seats"/>
                      <field name="occupation_percentage" widget ="progressbar"/>        
                 </tree>
             </field>
@@ -167,7 +167,16 @@
             <field name="model">diego_dev.course.session</field>
             <field name="arch" type="xml">
                 <form string="Session">
-                	
+                	<header>
+                		<div style="float:left">
+                		<button name="button_approve" string ="Approve" class="oe_highlight" states="draft" type="object"/>
+                		<button name="button_start" string ="Start" class="oe_highlight" states="pending" type="object"/>
+                		<button name="button_done" string ="Done"  class="oe_highlight" states="open,pending" type="object"/>
+                		<button name="button_cancel" string ="Cancel" states="draft,pending,open" type="object"/>
+                		<button name="button_reset" string ="Reset to draft" class="oe_link" states="pending,open,done,canceled" type="object"/>
+                		</div>
+                		<field name ="state" widget="statusbar" style="float:right" statusbar_visible = "draft,pending,open,done" statusbar_colors  = '{"canceled":"red"}'/>
+                	</header>
                 	<label for ="code" class="oe_edit_only" string="Subject"/>
                 		<h1>
 	                		<field name="subject" class="oe_inline" style ="width: 6em"/> 
@@ -191,11 +200,12 @@
             <field name="name">diego_dev.course.session.tree</field>
             <field name="model">diego_dev.course.session</field>
             <field name="arch" type="xml">
-            	<tree string="Session">
+            	<tree string="Session" editable="Top" colors="green:state=='done'">
             		<field name="course_id"/>
                     <field name="subject"/>
                     <field name="start_time"/>
-                    <field name="end_time"/>                    
+                    <field name="end_time"/> 
+                    <field name="state"/>                    
                 </tree>
             </field>
         </record>      
