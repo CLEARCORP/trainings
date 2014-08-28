@@ -3,6 +3,7 @@
 from openerp import api
 from openerp.osv import osv, fields
 
+
 #las clases en python tienen que empezar con mayuscula en cada palabra
 class Course (osv.Model):
     _name = 'lesmed.course'
@@ -147,12 +148,17 @@ class CourseSession (osv.Model):
         
         
     _columns = {
-        'subject' : fields.char('Subject', size=256, required = True , select = True),
+        'subject' : fields.char('Subject', size=256, required = True , select = True, readonly = True, states = {'draft':[('readonly', False)]}),
         'start_time': fields.datetime('Start time', requiered = True),
         'end_time' : fields.datetime ('End time'),
         'course_id': fields.many2one('lesmed.course',string ='Course', required = True, select = True, ondelete = 'cascade'),
         'state': fields.selection([('draft','Draft'), ('pending','Pending'), ('open','Open'), ('done', 'Done'), ('cancelled', 'Cancelled')],
-                                  string = "State", select= True, required = 'True')
+                                  string = "State", select= True, required = 'True'),
+                
+        'teacher_id' : fields.related('course_id', 'teacher_id', type="many2one", relation = 'res.users',string = "Teacher", readonly = "True"),
+        
+        'occupied_seats' : fields.related('course_id','occupied_seats' ,type = "float", relation = 'res.users', string = 'Expected students', readonly = "True"),
+        
                 }
     _rec_name ='subject'
     _order = 'start_time'
