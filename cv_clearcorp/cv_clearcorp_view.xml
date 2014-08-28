@@ -197,11 +197,39 @@
                 </calendar>
             </field>
         </record>
+        <record id="view_elearning_course_session_search" model="ir.ui.view">
+            <field name="name">cv_clearcorp.course.session.search</field>
+            <field name="model">cv_clearcorp.course.session</field>
+            <field name="arch" type="xml">
+                <search string="Sessions search">
+                    <field name="subject"/>
+                    <field name="course_id"/>
+                    <field name="teacher_id"/>
+                    <filter name="draft_sessions"
+                    	    string="Draft Session"
+                    	    help="Filter the draft sessions"
+                    	    domain="[('state','=','draft')]"/>
+                    <filter name="pending_sessions"
+                    	    string="Pending Session"
+                    	    help="Filter the pending sessions"
+                    	    domain="[('state','=','pending')]"/>
+                    <filter name="open_sessions"
+                    	    string="Current Session"
+                    	    help="Filter the current sessions"
+                    	    domain="[('state','=','open')]"/>
+                    <filter name="current_month"
+                    	    string="Current month Session"
+                    	    help="Filter the current month sessions"
+                    	    domain="[('start_time','=','draft')]"/>
+                </search>
+            </field>
+        </record>
     	<record id="action_elearning_session" model="ir.actions.act_window">
             <field name="name">Sessions</field>
             <field name="res_model">cv_clearcorp.course.session</field>
             <field name="view_type">form</field>
-            <field name="view_mode">tree,form,calendar</field>
+            <field name="view_mode">calendar,tree,form</field>
+            <field name="search_view_id" ref="view_elearning_course_session_search"/>
             <field name="help" type="html">
               <p class="oe_view_nocontent_create">
                 Click to create a new session.
