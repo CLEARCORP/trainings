@@ -109,16 +109,18 @@ class CourseSession (osv.Model):
         return True
         
     _columns = {
-        'subject': fields.char('Subject', size=256, required=True, select=True),
-        'start_time': fields.datetime('Start time', required=True),
-        'end_time': fields.datetime('End time'),
-        'course_id': fields.many2one('nuevo_modulo.course', string='Course', required=True, select=True, ondelete='cascade'),
+        'subject': fields.char('Subject', size=256, required=True, select=True, readonly=True, states={'draft': [('readonly',False)]}),
+        'start_time': fields.datetime('Start time', required=True, readonly=True, states={'draft': [('readonly',False)]}),
+        'end_time': fields.datetime('End time', readonly=True, states={'draft': [('readonly',False)]}),
+        'course_id': fields.many2one('nuevo_modulo.course', string='Course', required=True, select=True, ondelete='cascade', readonly=True, states={'draft': [('readonly',False)]}),
         'state': fields.selection([('draft','Draft'),
                                    ('pending','Pending'),
                                    ('open','Open'),
                                    ('done','Done'),
                                    ('canceled','Canceled')],
                                   string="State", select=True, required=True),
+        'teacher_id': fields.related('course_id','teacher_id', type='many2one', relation='res.users', string='Teacher', readonly=True),
+        'expected_students': fields.related('course_id','occupied_seats',type='integer',string="Expected students", readonly=True ),
         }
     _rec_name ='subject'
     _order = 'start_time'

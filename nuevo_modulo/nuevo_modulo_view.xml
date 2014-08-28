@@ -82,6 +82,8 @@
                 	<group col="4">
                 		<group col="2" colspan="2">	
 							<field name="course_id"/>
+							<field name="teacher_id"/>
+							<field name="expected_students"/>
 	               		</group>
 	               		<group col="2">
                 			<field name="start_time" class="oe_inline"/>
@@ -95,7 +97,7 @@
             <field name="name">nuevo_modulo.session.tree</field>
             <field name="model">nuevo_modulo.session</field>
             <field name="arch" type="xml">
-                <tree string="Sessions" colors="green:state=='done'">
+                <tree string="Sessions" colors="green:state=='done'" fonts="bold:state=='open'">
                 	<field name="course_id"/>
                     <field name="subject"/>
                     <field name="start_time"/>
@@ -104,11 +106,21 @@
                 </tree>
             </field>
         </record>
+        <record id="view_elearning_session_calendar" model="ir.ui.view">
+            <field name="name">nuevo_modulo.session.calendar</field>
+            <field name="model">nuevo_modulo.session</field>
+            <field name="arch" type="xml">
+                <calendar string="Sessions" date_start="start_time" date_stop="end_time" color="teacher_id">
+                    <field name="subject"/>
+                    <field name="state"/>
+                </calendar>
+            </field>
+        </record>
 		<record id="action_elearning_sessions" model="ir.actions.act_window">
             <field name="name">Sessions</field>
             <field name="res_model">nuevo_modulo.session</field>
             <field name="view_type">form</field>
-            <field name="view_mode">tree,form</field>
+            <field name="view_mode">tree,form,calendar</field>
             <field name="help" type="html">
               <p class="oe_view_nocontent_create">
                 Click to create a new session
