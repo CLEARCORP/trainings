@@ -164,6 +164,8 @@
                 	<group col="4">
 	                	<group col="2" colspan="2">
 		                	<field name="course_id"/>
+		                	<field name="teacher_id"/>
+		                	<field name="occupied_seats"/>
 	                	</group>
 	                	<group col="2">
 		                	<field name="start_time"/>
@@ -186,11 +188,20 @@
                 </tree>
             </field>
         </record>
+        <record id="view_elearning_course_session_calendar" model="ir.ui.view">
+            <field name="name">Course Session</field>
+            <field name="model">cv_clearcorp.course.session</field>
+            <field name="arch" type="xml">
+                <calendar string="Sessions" date_start="start_time" date_stop="end_time" color="teacher_id">
+                    <field name="subject"/>
+                </calendar>
+            </field>
+        </record>
     	<record id="action_elearning_session" model="ir.actions.act_window">
             <field name="name">Sessions</field>
             <field name="res_model">cv_clearcorp.course.session</field>
             <field name="view_type">form</field>
-            <field name="view_mode">tree,form</field>
+            <field name="view_mode">tree,form,calendar</field>
             <field name="help" type="html">
               <p class="oe_view_nocontent_create">
                 Click to create a new session.
