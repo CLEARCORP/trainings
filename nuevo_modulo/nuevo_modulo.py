@@ -81,12 +81,50 @@ class Partner (osv.Model):
             
 class CourseSession (osv.Model):
     _name = 'nuevo_modulo.session'
+    
+    @api.multi
+    def button_approve (self):
+        #self.write({'state': 'pending'})
+        self.state = 'pending'
+        return True
+        
+    @api.multi
+    def button_cancel (self):       
+        self.state = 'canceled'
+        return True
+    
+    @api.multi
+    def button_start (self):       
+        self.state = 'open'
+        return True
+            
+    @api.multi
+    def button_done (self):       
+        self.state = 'done'
+        return True
+    
+    @api.multi
+    def button_reset (self):       
+        self.state = 'draft'
+        return True
+        
     _columns = {
         'subject': fields.char('Subject', size=256, required=True, select=True),
         'start_time': fields.datetime('Start time', required=True),
         'end_time': fields.datetime('End time'),
         'course_id': fields.many2one('nuevo_modulo.course', string='Course', required=True, select=True, ondelete='cascade'),
+        'state': fields.selection([('draft','Draft'),
+                                   ('pending','Pending'),
+                                   ('open','Open'),
+                                   ('done','Done'),
+                                   ('canceled','Canceled')],
+                                  string="State", select=True, required=True),
         }
     _rec_name ='subject'
     _order = 'start_time'
+    
+    _defaults = {
+         'state': 'draft',
+         
+                 }
  

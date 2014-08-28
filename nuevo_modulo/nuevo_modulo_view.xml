@@ -65,6 +65,16 @@
             <field name="model">nuevo_modulo.session</field>
             <field name="arch" type="xml">
                 <form string="Session">
+                	<header>
+                		<div style="float:left">
+	                		<button name="button_approve" class="oe_highlight" string="Aprove" states="draft" type="object"/>
+	                		<button name="button_start" class="oe_highlight" string="Start" states="pending" type="object"/>
+	                		<button name="button_done" class="oe_highlight" string="Done" states="open,pending" type="object"/>
+	                		<button name="button_cancel" string="Cancel" states="draft,pending,open" type="object"/>
+	                		<button name="button_reset" class="oe_link" string="Reset to draft" states="done,pending,open,canceled" type="object"/>
+                		</div>
+                		<field name="state" widget="statusbar" style="float:right" statusbar_visible="draft,pending,open,done" statusbar_colors='{"draft":"green"}'/>
+                	</header>	
                 	<label for="subject" class="oe_edit_only" string="Subject name:"/>
                 	<h1>
                 		<field name="subject" class="oe_inline" style="width: 6em"/>
