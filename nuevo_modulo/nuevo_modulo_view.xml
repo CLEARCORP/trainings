@@ -116,11 +116,39 @@
                 </calendar>
             </field>
         </record>
+        <record id="view_elearning_session_search" model="ir.ui.view">
+            <field name="name">nuevo_modulo.session.search</field>
+            <field name="model">nuevo_modulo.session</field>
+            <field name="arch" type="xml">
+                <search string="Sessions search">
+                    <field name="subject"/>
+                    <field name="course_id"/>
+                    <field name="teacher_id"/>
+                    <filter name="draft_sessions" 
+                    	    string="Draft Sessions"
+                    	    help="Filter the draft sessions"
+                    	    domain="[('state','=','draft')]"/>
+                   	<filter name="pending_sessions" 
+                    	    string="Pending Sessions"
+                    	    help="Filter the pending sessions"
+                    	    domain="[('state','=','pending')]"/>
+                    <filter name="open_sessions" 
+                    	    string="Open Sessions"
+                    	    help="Filter the open sessions"
+                    	    domain="[('state','=','open')]"/>
+                    <filter name="current_month_sessions" 
+                    	    string="Current month"
+                    	    help="Filter the current month sessions"
+                    	    domain="['&amp;',('start_time','&lt;=',time.strftime('%Y-%m-31')),('start_time','&gt;=',time.strftime('%Y-%m-01'))]"/>
+                </search>
+            </field>
+        </record>        
 		<record id="action_elearning_sessions" model="ir.actions.act_window">
             <field name="name">Sessions</field>
             <field name="res_model">nuevo_modulo.session</field>
             <field name="view_type">form</field>
-            <field name="view_mode">tree,form,calendar</field>
+            <field name="view_mode">calendar,tree,form</field>
+            <field name="search_view_id" ref="view_elearning_session_search"/>
             <field name="help" type="html">
               <p class="oe_view_nocontent_create">
                 Click to create a new session
