@@ -95,11 +95,12 @@
             <field name="name">nuevo_modulo.session.tree</field>
             <field name="model">nuevo_modulo.session</field>
             <field name="arch" type="xml">
-                <tree string="Sessions">
+                <tree string="Sessions" colors="green:state=='done'">
                 	<field name="course_id"/>
                     <field name="subject"/>
                     <field name="start_time"/>
                     <field name="end_time"/>
+                    <field name="state"/>
                 </tree>
             </field>
         </record>

@@ -1,15 +1,18 @@
 # -*- coding: utf-8 -*-
+
+from openerp import api
 from openerp.osv import osv, fields
 
 #las clases en python tienen que empezar con mayuscula en cada palabra
 class Course (osv.Model):
     _name = 'lesmed.course'
     
-    
-    def get_seats(self, cr, uid,ids,field_name,arg,context={}):
+    @api.multi
+    def get_seats(self,field_name,arg):
         res = {} 
-        courses = self.browse(cr,uid, ids, context = context)
-        for course in courses:
+        
+        #courses = self.browse(cr,uid, ids, context = context)
+        for course in self:
             
             total_seats = course.total_seats
             
@@ -44,6 +47,13 @@ class Course (osv.Model):
              
         return res
     
+    @api.multi
+    def check_seats(self):
+        for course in self:
+            if len(course.student_ids)> course.total_seats:
+                return False
+        return True
+    
     #columnas de la tabla que se va a crear
     _columns = {
         #Nombre de la columna
@@ -60,15 +70,19 @@ class Course (osv.Model):
 
         }
     _defaults = {
-                 'teacher_id': (lambda self,cr, uid, ids, context = {}: uid) 
+                 'teacher_id': (lambda self,cr, uid, ids, context = {}: uid),
+                 'total_seats': 20, 
+                 
+                 
                  }
-    
-    
-    
-    
-    
-    
-    
+    _sql_constraints = [ ('total_seats_positive', 'CHECK(total_seats>= 0)', 'The course\'s total seats must be a positive number'),
+                        
+                        
+                        ]
+    _constraints= [
+                   (check_seats, 'The course is full, you cannot add more students.', ['student_ids']),
+                   (check_seats, 'You cannot set a total seats limit under the number if actual students.', ['total_seats'])
+                   ]
     
 
 
@@ -85,21 +99,68 @@ class Partner (osv.Model):
                 
         }
     
+    @api.multi
+    def on_change_is_company(self,is_company,student):
+        res = self.onchange_type(is_company)
+        #res = {'value' : {}, 'domain':{}, 'warning':{}}
+        if is_company & student:
+            res['value'].update({'student':False})
+            res['warning'].update({'title': "Companies cannot be students", 'message' : "You changed the partner type to company. We blanked the student checkbox."}),
+                                                                                                                                                              
+        return res
     
 
 #
     
 class CourseSession (osv.Model):
     _name = 'lesmed.course.session'
+    
+    
+    '''
+    #version 7
+    def approve(self, cr, uid, ids, context = {}):
+        self.write(cr, uid, ids,{'state' : 'pending'}, context = context )
+        return True
+       ''' 
+    #version 8
+    @api.multi
+    def button_approve(self):
+        self.state = 'pending'
+        return True
+    @api.multi
+    def button_start(self):
+        self.state = 'open'
+        return True
+    @api.multi
+    def button_done(self):
+        self.state = 'done'
+        return True
+    @api.multi
+    def button_cancel(self):
+        self.state = 'canceled'
+        return True
+    @api.multi
+    def button_reset(self):
+        self.state = 'draft'
+        return True
+
+        
+        
     _columns = {
         'subject' : fields.char('Subject', size=256, required = True , select = True),
         'start_time': fields.datetime('Start time', requiered = True),
         'end_time' : fields.datetime ('End time'),
         'course_id': fields.many2one('lesmed.course',string ='Course', required = True, select = True, ondelete = 'cascade'),
+        'state': fields.selection([('draft','Draft'), ('pending','Pending'), ('open','Open'), ('done', 'Done'), ('cancelled', 'Cancelled')],
+                                  string = "State", select= True, required = 'True')
                 }
     _rec_name ='subject'
     _order = 'start_time'
-    
+     
+    _defaults = {
+                 'state' : 'draft'
+                 
+                 }
     
     
     

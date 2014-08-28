@@ -19,7 +19,7 @@
                 		
                 		<group col = "2" colspan="2">
                 			
-                			<field name = "total_seats"/>
+                			<field name = "total_seats" />
                 			<field name = "occupied_seats"/>
                 			<field name = "available_seats"/>
                 			<field name = "occupation_percentage" widget = "progressbar"/>
@@ -101,6 +101,7 @@
             <field name="view_type">form</field>
             <field name="view_mode">tree,form</field>
             <field name="domain">[('course_ids.teacher_id', '=', uid)]</field>
+            <field name="context">{'default_student':1} </field>
             
             <field name="help" type="html">
               <p class="oe_view_nocontent_create">
@@ -123,7 +124,7 @@
     	<field name = "arch" type = "xml">
     		<data>
 	    		<xpath expr = "//page[@name='sales_purchases']/group/group/field[@name='supplier']" position="after"> 		
-	    			<field name = "student" />
+	    			<field name = "student" attrs="{'readonly' : [('is_company', '=', True)]}"/>
 	    		</xpath>
 	    		<page  name = "sales_purchases" position="after">
 	    			<page name="elearning" string = "eLearning">
@@ -132,10 +133,9 @@
 	    						<field name = "student_code"/>
 	    					</group>			
 	    				</group>
-	    				<label for = "course_ids"/>
+	    				<label for = "course_ids"/>{
 	    				<field name = "course_ids" nolabel ="1">
-	    					<tree>
-	    						
+	    					<tree>    						
 	    						<field name = "name"/>
 	    						<field name = "code" />
 	    					</tree>
@@ -143,11 +143,17 @@
 	    						
 	    			</page>
 	    		</page>
-	    		<xpath expr = "/form/sheet/group/group/field[@name='title']" position="after">
-	    			
-	    			<field name = "birthday"/>
-	    			
+	    		<xpath expr = "/form/sheet/group/group/field[@name='title']" position="after">  			
+	    			<field name = "birthday"/>    			
 	    		</xpath>
+	    		
+	    		<xpath expr = "/form/sheet/div/div/field[@name='is_company']" position="attributes">  			
+	    			<attribute name = "on_change">on_change_is_company(is_company, student) </attribute>
+	    			<attribute name = "attrs">{'readonly':[('student', '=', True)]}</attribute>		
+	    		</xpath>
+	    		
+	    		
+	    		
     		</data>
     	</field>
     	
@@ -195,6 +201,7 @@
             <field name="res_model">res.partner</field>
             <field name="view_type">form</field>
             <field name="view_mode">tree,form</field>
+            <field name="context">{'default_student':1} </field>
             
             <field name="help" type="html">
               <p class="oe_view_nocontent_create">
@@ -213,6 +220,19 @@
             <field name="model">lesmed.course.session</field>
             <field name="arch" type="xml">
                 <form string="Session">
+                	<header>
+                		<div style = "float:left">
+	                		<button name = "button_approve" string = "Approve" class = "oe_highlight" states = "draft" type="object"/>
+	                		<button name = "button_start" string = "Start" class = "oe_highlight" states = "pending" type="object"/>
+	                		<button name = "button_done" string = "Done" class = "oe_highlight" states = "open, pending" type="object"/>
+	                		<button name = "button_cancel" string = "Cancel" class = "oe_highlight" states = "open, pending, draft" type="object"/>
+	                		<button name = "button_reset" string = "Reset to draft" class = "oe_link" states = "open, pending, canceled,done" type="object"/>
+	                		
+              		
+	                		<field name = "state" widget = "statusbar" style = "float:right" status_visible = "draft, pending, open, done" statusbar_colors = "{'canceled' : 'red'}"    />
+                		</div>
+                	</header>
+                	
                 	<label for ="subject" class="oe_edit_only" string="Session subject: "/>
                 	<h1>
                 		<field name="subject" class = "oe_inline" /> - 
@@ -237,11 +257,12 @@
             <field name="name">lesmed.course.session.tree</field>
             <field name="model">lesmed.course.session</field>
             <field name="arch" type="xml">
-                <tree string="Session">
+                <tree string="Session" colors="green:state=='done'">
                     <field name="subject"/>
                     <field name="start_time"/>
                     <field name="end_time"/>
                     <field name="course_id"/>
+                    <field name="state"/>
                     
                     
                 </tree>
@@ -261,10 +282,7 @@
                 Set your courses session here.
               </p>
             </field>
-        </record>
-    	
-    	
-    	
+        </record>  	
     	
     </data>
 </openerp>
