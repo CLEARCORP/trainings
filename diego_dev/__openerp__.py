@@ -19,7 +19,8 @@ eLearning Managment
         'diego_dev_view.xml',
         'diego_dev_menu.xml',
             ],
-    'demo':[],
+    'demo':[
+            'diego_dev_demo.xml'],
     'test':[],
     'installable': True,
     'auto_install': False,

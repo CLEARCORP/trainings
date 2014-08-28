@@ -9,7 +9,7 @@
 		
 		<menuitem id="menu_elearning_courses" name="Course" parent= "menu_elearning_conf" action ="action_elearning_courses" sequence="1"/>
 		<menuitem id="menu_elearning_student" name="Student" parent= "menu_elearning_sub" action ="action_elearning_student" sequence="2"/>
-		<menuitem id="menu_elearning_session" name="Session" parent= "menu_elearning_sub" action ="action_elearning_course_session" sequence="3"/>
+		<menuitem id="menu_elearning_session" name="Session" parent= "menu_elearning_sub" action ="action_elearning_session" sequence="3"/>
 		
 		<menuitem id="menu_elearning_my_courses" name="My courses" parent= "menu_elearning_teacher" action ="action_elearning_my_courses" sequence="2"/>
 		<menuitem id="menu_elearning_my_students" name="My Students" parent= "menu_elearning_teacher" action ="action_elearning_my_students" sequence="3"/>
