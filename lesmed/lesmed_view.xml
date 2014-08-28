@@ -226,24 +226,24 @@
 	                		<button name = "button_start" string = "Start" class = "oe_highlight" states = "pending" type="object"/>
 	                		<button name = "button_done" string = "Done" class = "oe_highlight" states = "open, pending" type="object"/>
 	                		<button name = "button_cancel" string = "Cancel" class = "oe_highlight" states = "open, pending, draft" type="object"/>
-	                		<button name = "button_reset" string = "Reset to draft" class = "oe_link" states = "open, pending, canceled,done" type="object"/>
-	                		
-              		
+	                		<button name = "button_reset" string = "Reset to draft" class = "oe_link" states = "open, pending, canceled,done" type="object"/>		
 	                		<field name = "state" widget = "statusbar" style = "float:right" status_visible = "draft, pending, open, done" statusbar_colors = "{'canceled' : 'red'}"    />
                 		</div>
                 	</header>
                 	
                 	<label for ="subject" class="oe_edit_only" string="Session subject: "/>
                 	<h1>
-                		<field name="subject" class = "oe_inline" /> - 
+                		<field name="subject" class = "oe_inline" attrs = "{'readonly' : [('state', 'in', ['pending', 'open', 'done', 'canceled'])]} " /> - 
                 	</h1>
                 	<group col = "4">
                 		<group col = "2" colspan = "2">
-                			<field  name = "course_id"/>               			
+                			<field name = "course_id"/>
+                			 
+                			               			
                 		</group>
                 		<group col = "2">
-                			<field  name = "start_time"/>
-                			<field  name = "end_time"/>
+                			<field name = "start_time"/>
+                			<field name = "end_time"/>
                 		</group>
                 	</group>	
                	
@@ -268,12 +268,44 @@
                 </tree>
             </field>
         </record>
+        
+        <record id="view_elearning_courseSession_calendar" model="ir.ui.view">
+            <field name="name">lesmed.course.session.calendar</field>
+            <field name="model">lesmed.course.session</field>
+            <field name="arch" type="xml">
+                <calendar string="Session" date_start="start_time" date_stop="end_time" color="teacher_id">
+                    <field name="subject"/>
+                    
+                    
+                </calendar>
+            </field>
+        </record>
+        <record id="view_elearning_courseSession_search" model="ir.ui.view">
+            <field name="name">lesmed.course.session.search</field>
+            <field name="model">lesmed.course.session</field>
+            <field name="arch" type="xml">
+                <search string="Session search">
+                    <field name="subject"/>
+                    <field name="course_id"/>
+                    <field name="teacher_id"/>
+                    <filter name="draft_sessions" string="Draft Sessions" help="Filter the draft sessions" domain="[('state', '=', 'draft')]" />
+                    <filter name="pending_sessions" string="Pending Sessions" help="Filter the pending sessions" domain="[('state', '=', 'pending')]" />
+                    <filter name="open_sessions" string="Current Sessions" help="Filter the current sessions" domain="[('state', '=', 'open')]" />
+                    <filter name="current_month_sessions" string="Current month Sessions" help="Filter the current month" 
+                    	domain="['&amp;',('start_time', '&lt;=', time.strftime('%Y-%m-31')'), ('start_time', '&gt;'=,time.strftime('%Y-%m-01') )]" />
+                    
+                    
+                    
+                </search>
+            </field>
+        </record>
     		
     	<record id="action_elearning_courseSession" model="ir.actions.act_window">
             <field name="name">CourseSession</field>
             <field name="res_model">lesmed.course.session</field>
             <field name="view_type">form</field>
-            <field name="view_mode">tree,form</field>
+            <field name="view_mode">calendar,tree,form</field>
+            <field name="search_view_id" ref="view_elearning_courseSession_search" />
             <field name="help" type="html">
               <p class="oe_view_nocontent_create">
                 Click to create a new course session
