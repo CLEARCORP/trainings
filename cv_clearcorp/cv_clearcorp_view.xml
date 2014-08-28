@@ -41,10 +41,10 @@
             <field name="name">cv_clearcorp.course.tree</field>
             <field name="model">cv_clearcorp.course</field>
             <field name="arch" type="xml">
-                <tree string="Courses">
+                <tree string="Courses" >
                     <field name="code"/>
                     <field name="name"/>
-                    <field name="total_seats"/>
+                    <field name="total_seats" sum="Total seats"/>
                     <field name="available_seats"/>
 	                <field name="occupation_percentage" widget="progressbar"/>
                 </tree>
@@ -147,6 +147,16 @@
             <field name="model">cv_clearcorp.course.session</field>
             <field name="arch" type="xml">
                 <form string="Sessions">
+                	<header>
+                		<div style="float:left">
+	                		<button name="button_approve" string="Approve" class="oe_highlight" states="draft" type="object"/>
+	                		<button name="button_start" string="Start" class="oe_highlight" states="pending" type="object"/>
+	                		<button name="button_done" string="Done" class="oe_highlight" states="open,pending" type="object"/>
+	                		<button name="button_cancel" string="Cancel" states="draft,pending,open" type="object"/>
+	                		<button name="button_reset" string="Reset to draft" class="oe_link" states="pending,open,done,canceled" type="object"/>
+                		</div>
+                		<field name="state" widget="statusbar" style="float:right" statusbar_visible="draft,pending,open,done" statusbar_color='{"draft":"red"}'/>
+                	</header>
                 	<label for="subject" class="oe_edit_only" string="Session subject:"/>
                 	<h1>
 	                    <field name="subject" class="oe_inline"/>
@@ -167,11 +177,12 @@
             <field name="name">cv_clearcorp.course.session.tree</field>
             <field name="model">cv_clearcorp.course.session</field>
             <field name="arch" type="xml">
-                <tree string="Sessions">
+                <tree string="Sessions" colors="green:state=='done'" fonts="bold:state=='open'">
                 	<field name="course_id"/>
                     <field name="subject"/>
                     <field name="start_time"/>
                     <field name="end_time"/>
+                    <field name="state"/>
                 </tree>
             </field>
         </record>
