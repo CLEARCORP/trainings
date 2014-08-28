@@ -46,7 +46,7 @@
                 <tree string="Courses">
                     <field name="code"/>
                     <field name="name"/>
-                    <field name="total_seats"/>
+                    <field name="total_seats" sum="Total seats"/>
  					<field name="occupied_seats"/>
  					<field name="available_seats"/>
  					<field name="occupation_percentage" widget="progressbar"/>
@@ -91,7 +91,7 @@
             <field name="arch" type="xml">
             	<data>
             		<xpath expr="//page[@name='sales_purchases']/group/group/field[@name='supplier']" position="after">
-            			<field name="student"/>
+            			<field name="student" attrs="{'readonly':[('is_company','=',True)]}"/>
             		</xpath>
             		
             		<xpath  expr="/form/sheet/group/group/field[@name='title']" position="after">
@@ -109,6 +109,11 @@
             				<field name="course_ids"/>
             			</page>
             		</page>
+            		<xpath  expr="/form/sheet/div/div/field[@name='is_company']" position="attributes">
+            			<attribute name="on_change">on_change_is_company(is_company, student)</attribute>
+            			<attribute name="attrs">{'readonly':[('student','=',True)]}</attribute>
+            		</xpath>
+            		
             	</data>
             </field>
         </record>
@@ -118,6 +123,7 @@
             <field name="res_model">res.partner</field>
             <field name="view_type">form</field>
             <field name="domain">[('student','=',1)]</field>
+            <field name="context">{'default_student': 1}</field>
             <field name="view_mode">tree,form</field>
             <field name="help" type="html">
               <p class="oe_view_nocontent_create">
@@ -133,6 +139,7 @@
             <field name="res_model">res.partner</field>
             <field name="view_type">form</field>
             <field name="domain">['&amp;',('student','=',1),('course_ids.teacher_id','=',uid)]</field>
+            <field name="context">{'default_student': 1}</field>
             <field name="view_mode">tree,form</field>
             <field name="help" type="html">
               <p class="oe_view_nocontent_create">
@@ -150,6 +157,18 @@
             <field name="model">jornamon.course.session</field>
             <field name="arch" type="xml">
                 <form string="Session">
+                	
+	                	<header>
+	                		<div style="float:lef">
+		                		<button name="button_approve" string="Approve" class="oe_highlight" states="draft" type="object"></button>
+		                		<button name="button_start" string="Start" class="oe_highlight" states="pending" type="object"></button>
+		                		<button name="button_done" string="Done" class="oe_highlight" states="open,pending" type="object"></button>
+		                		<button name="button_cancel" string="Cancel" states="draft,open,pending" type="object"></button>
+		                		<button name="button_reset" string="Reset to Draft" class="oe_link" states="pending,open,done,canceled" type="object"></button>
+	                		</div>
+	                		<field name="state" widget="statusbar" style="float:right" statusbar_visible="draft,pending,open,done" statusbar_colors="{'canceled': 'red'}"/>
+	                	</header>
+                	
                 	<label for="subject" class="oe_edit_only" string="Session subject:"/>
                 	<h1>
 						<field name="subject" class="oe_inline"/>             		
@@ -166,15 +185,17 @@
                  </form>
             </field>
         </record>
+        
         <record id="view_elearning_course_session_tree" model="ir.ui.view">
             <field name="name">jornamon.course.session.tree</field>
             <field name="model">jornamon.course.session</field>
             <field name="arch" type="xml">
-                <tree string="Courses">
+                <tree string="Courses" editable="top" colors="green:state=='done'" fonts="bold:state=='open'">
                 	<field name="course_id"/>
                     <field name="subject"/>
                     <field name="start_time"/>
                     <field name="end_time"/>
+                    <field name="state"/>
                 </tree>
             </field>
         </record>
