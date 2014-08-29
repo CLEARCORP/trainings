@@ -17,6 +17,7 @@ eLearning Management
     'depends': [],
     'data': [
         'cv_clearcorp_view.xml',
+        'wizard/add_student_to_session.xml',
         'cv_clearcorp_menu.xml',
         'cv_clearcorp_workflow.xml',
         ],

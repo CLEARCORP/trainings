@@ -173,6 +173,11 @@
 		                	<field name="duration"/>
 	                	</group>
 	                </group>
+	                <notebook>
+	                	<page string="Students">
+	                		<field name="student_ids" nolabel="1"/>
+	                	</page>
+	                </notebook>
                 </form>
             </field>
         </record>
