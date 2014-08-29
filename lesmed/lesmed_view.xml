@@ -292,10 +292,7 @@
                     <filter name="pending_sessions" string="Pending Sessions" help="Filter the pending sessions" domain="[('state', '=', 'pending')]" />
                     <filter name="open_sessions" string="Current Sessions" help="Filter the current sessions" domain="[('state', '=', 'open')]" />
                     <filter name="current_month_sessions" string="Current month Sessions" help="Filter the current month" 
-                    	domain="['&amp;',('start_time', '&lt;=', time.strftime('%Y-%m-31')'), ('start_time', '&gt;'=,time.strftime('%Y-%m-01') )]" />
-                    
-                    
-                    
+                    	domain="['&amp;',('start_time', '&lt;=', time.strftime('%Y-%m-31')), ('start_time', '&gt;=',time.strftime('%Y-%m-01'))]" />            
                 </search>
             </field>
         </record>

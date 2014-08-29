@@ -19,7 +19,10 @@ eLearning Management
         'cv_clearcorp_view.xml',
         'cv_clearcorp_menu.xml',
         ],
-    'demo': [],
+    'demo': [
+        'demo/cv_clearcorp_demo.xml',
+        'demo/cv_clearcorp.course.csv',
+        ],
     'test': [],
     'installable': True,
     'auto_install': False,
