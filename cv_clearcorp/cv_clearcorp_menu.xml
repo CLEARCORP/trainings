@@ -8,8 +8,11 @@
 
     	<menuitem id="menu_elearning_students" name="Students" parent="menu_elearning_sub" action="action_elearning_student" sequence="2"/>
     	<menuitem id="menu_elearning_course_sessions" name="Sessions" parent="menu_elearning_sub" action="action_elearning_session" sequence="1"/>
+    	<menuitem id="menu_elearning_course_session_wizard" name="Add students to sessions" parent="menu_elearning_sub" action="action_elearning_session_wizard" sequence="10"/>
+
     	<menuitem id="menu_elearning_my_courses" name="My Courses" parent="menu_elearning_teacher" action="action_elearning_my_courses" sequence="1"/>
     	<menuitem id="menu_elearning_my_students" name="My Students" parent="menu_elearning_teacher" action="action_elearning_my_students" sequence="2"/>
+
     	<menuitem id="menu_elearning_courses" name="Courses" parent="menu_elearning_conf" action="action_elearning_courses" sequence="1"/>
     </data>
 </openerp>

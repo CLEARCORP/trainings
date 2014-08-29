@@ -3,6 +3,8 @@
 from datetime import datetime, timedelta
 from openerp import api
 from openerp.osv import osv, fields
+from openerp.tools.translate import _
+
 
 class Course (osv.Model):
     _name = 'cv_clearcorp.course'
@@ -45,7 +47,7 @@ class Course (osv.Model):
         }
     
     _sql_constraints = [
-        ('total_seats_positive', 'CHECK( (total_seats >= 0) AND (total_seats <= 100) )', 'The course\'s total seats must be a positive number.'),
+        ('total_seats_positive', 'CHECK( (total_seats >= 0) AND (total_seats <= 100) )', _('The course\'s total seats must be a positive number.')),
         ]
     
     @api.multi
@@ -56,8 +58,8 @@ class Course (osv.Model):
         return True
     
     _constraints = [
-        (check_seats, 'The course has more students than seats.', ['student_ids']),
-        (check_seats, 'You cannot set a total seats limit under the number of actual students.', ['total_seats']),
+        (check_seats, _('The course has more students than seats.'), ['student_ids']),
+        (check_seats, _('You cannot set a total seats limit under the number of actual students.'), ['total_seats']),
         ]
 
 class Partner (osv.Model):
@@ -76,13 +78,13 @@ class Partner (osv.Model):
         res = self.onchange_type(is_company)
         if is_company and student:
             res['value'].update({'student': False})
-            res['warning'].update({'title': "Companies cannot be students",
-                              'message': "You changed the partner type to company, and it was a student, we have blanked the student checkbox."})
+            res['warning'].update({'title': _("Companies cannot be students"),
+                              'message': _("You changed the partner type to company, and it was a student, we have blanked the student checkbox.")})
         return res
 
 class CourseSession (osv.Model):
     _name = 'cv_clearcorp.course.session'
-    
+    """
     @api.multi
     def button_approve (self):
         #self.write({'state': 'pending'})
@@ -104,6 +106,7 @@ class CourseSession (osv.Model):
     def button_reset (self):
         self.state = 'draft'
         return True
+    """
     
     @api.multi
     def get_end_time (self, field_names, arg):
@@ -128,6 +131,7 @@ class CourseSession (osv.Model):
         'occupied_seats': fields.related('course_id', 'occupied_seats', type='integer', string='Expected students', readonly=True, store=True),
         'duration': fields.float('Duration', digits=(2,1), states={'draft': [('readonly',False)]}),
         'color': fields.integer('Color'),
+        'student_ids': fields.many2many('res.partner', string="Students"),
         }
     _rec_name = 'subject'
     _order = 'start_time'

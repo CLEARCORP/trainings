@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+    	<record id="view_elearning_session_wizard_form" model="ir.ui.view">
+    		<field name="name">cv_clearcorp.course.session.wizard.form</field>
+    		<field name="model">cv_clearcorp.course.session.wizard</field>
+    		<field name="arch" type="xml">
+    			<form>
+    				<group col="1">
+	    				<label for="student_ids" string="Select the students:"/>
+	    				<field name="student_ids" nolabel="1">
+	    					<tree editable="top">
+	    						<field name="student_id"/>
+	    					</tree>
+	    				</field>
+	    				<label for="session_ids" string="Select the attended sessions:"/>
+	    				<field name="session_ids" nolabel="1">
+	    					<tree editable="top">
+	    						<field name="session_id"/>
+	    					</tree>
+	    				</field>
+    				</group>
+    			</form>
+    		</field>
+    	</record>
+    	<record id="action_elearning_session_wizard" model="ir.actions.act_window">
+            <field name="name">Add Students to Sessions</field>
+            <field name="res_model">cv_clearcorp.course.session.wizard</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">form</field>
+            <field name="target">new</field>
+        </record>
+	</data>
+</openerp>
