@@ -179,7 +179,7 @@
             <field name="name">cv_clearcorp.course.session.tree</field>
             <field name="model">cv_clearcorp.course.session</field>
             <field name="arch" type="xml">
-                <tree string="Sessions" colors="green:state=='done'" fonts="bold:state=='open'">
+                <tree string="Sessions" colors="red:state=='pending',blue:state=='open',green:state=='done',gray:state=='canceled'" fonts="bold:state=='open'">
                 	<field name="course_id"/>
                     <field name="subject"/>
                     <field name="start_time"/>
@@ -195,6 +195,17 @@
                 <calendar string="Sessions" date_start="start_time" date_stop="end_time" color="teacher_id">
                     <field name="subject"/>
                 </calendar>
+            </field>
+        </record>
+        <record id="view_elearning_course_session_graph" model="ir.ui.view">
+            <field name="name">cv_clearcorp.course.session.graph</field>
+            <field name="model">cv_clearcorp.course.session</field>
+            <field name="arch" type="xml">
+                <graph string="Sessions" type="bar">
+                    <field name="teacher_id" type="row"/>
+                    <field name="course_id" type="col"/>
+                    <field name="duration" type="measure"/>
+                </graph>
             </field>
         </record>
         <record id="view_elearning_course_session_search" model="ir.ui.view">
@@ -217,10 +228,29 @@
                     	    string="Current Session"
                     	    help="Filter the current sessions"
                     	    domain="[('state','=','open')]"/>
+                    <separator/>
                     <filter name="current_month"
                     	    string="Current month Session"
                     	    help="Filter the current month sessions"
-                    	    domain="[('start_time','=','draft')]"/>
+                    	    domain="['&amp;',('start_time','&lt;=',time.strftime('%Y-%m-31')),('start_time','&gt;=',time.strftime('%Y-%m-01'))]"/>
+                    <group string="Group By">
+	                    <filter name="course_id_group"
+	                    	    string="Course"
+	                    	    help="Group sessions by course"
+	                    	    context="{'group_by': 'course_id'}"/>
+	                    <filter name="teacher_id_group"
+	                    	    string="Teacher"
+	                    	    help="Group sessions by teacher"
+	                    	    context="{'group_by': 'teacher_id'}"/>
+	                    <filter name="month_group"
+	                    	    string="Month"
+	                    	    help="Group sessions by month"
+	                    	    context="{'group_by': 'start_time'}"/>
+	                    <filter name="state_group"
+	                    	    string="State"
+	                    	    help="Group sessions by state"
+	                    	    context="{'group_by': 'state'}"/>
+                    </group>
                 </search>
             </field>
         </record>
@@ -228,7 +258,7 @@
             <field name="name">Sessions</field>
             <field name="res_model">cv_clearcorp.course.session</field>
             <field name="view_type">form</field>
-            <field name="view_mode">calendar,tree,form</field>
+            <field name="view_mode">calendar,tree,form,graph</field>
             <field name="search_view_id" ref="view_elearning_course_session_search"/>
             <field name="help" type="html">
               <p class="oe_view_nocontent_create">
