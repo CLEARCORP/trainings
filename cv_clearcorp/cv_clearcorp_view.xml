@@ -208,6 +208,15 @@
                 </graph>
             </field>
         </record>
+        <record id="view_elearning_course_session_gantt" model="ir.ui.view">
+            <field name="name">cv_clearcorp.course.session.gantt</field>
+            <field name="model">cv_clearcorp.course.session</field>
+            <field name="arch" type="xml">
+                <gantt string="Sessions" default_group_by="teacher_id" date_start="start_time" date_delay="duration">
+                    <field name="subject"/>
+                </gantt>
+            </field>
+        </record>
         <record id="view_elearning_course_session_kanban" model="ir.ui.view">
             <field name="name">cv_clearcorp.course.session.kanban</field>
             <field name="model">cv_clearcorp.course.session</field>
@@ -217,10 +226,8 @@
                 	<templates>
                 		<t t-name="kanban-box">
                 			<div t-attf-class="oe_kanban_card
-                				oe_kanban_global_click_edit
-                				oe_kanban_color_#{kanban_getcolor(record.color.raw_value)}
-                				oe_semantic_html_override
-                				#{record.group_fancy==1 ? 'oe_kanban_card_fancy' :''}">
+                				oe_kanban_global_click
+                				oe_kanban_color_#{kanban_getcolor(record.color.raw_value)}">
                 				<div class="oe_dropdown_kanban">
                 					<div class="oe_dropdown_toggle">
                 						<span class="oe_e">í</span>
@@ -292,7 +299,7 @@
             <field name="name">Sessions</field>
             <field name="res_model">cv_clearcorp.course.session</field>
             <field name="view_type">form</field>
-            <field name="view_mode">kanban,tree,form,calendar,graph</field>
+            <field name="view_mode">kanban,tree,form,calendar,graph,gantt</field>
             <field name="search_view_id" ref="view_elearning_course_session_search"/>
             <field name="help" type="html">
               <p class="oe_view_nocontent_create">
