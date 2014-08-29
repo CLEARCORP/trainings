@@ -17,10 +17,13 @@ eLearning Managment
     'depends':[],
     'data':[
         'diego_dev_view.xml',
+        'wizard/add_student_to_session.xml',
         'diego_dev_menu.xml',
+        'diego_dev_demo.xml',
+        'diego_dev_workflow.xml',
             ],
     'demo':[
-            'diego_dev_demo.xml'],
+            ],
     'test':[],
     'installable': True,
     'auto_install': False,
