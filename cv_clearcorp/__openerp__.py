@@ -18,6 +18,7 @@ eLearning Management
     'data': [
         'cv_clearcorp_view.xml',
         'cv_clearcorp_menu.xml',
+        'cv_clearcorp_workflow.xml',
         ],
     'demo': [
         'demo/cv_clearcorp_demo.xml',
