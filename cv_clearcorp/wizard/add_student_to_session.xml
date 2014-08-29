@@ -6,6 +6,10 @@
     		<field name="model">cv_clearcorp.course.session.wizard</field>
     		<field name="arch" type="xml">
     			<form>
+    				<header>
+    					<button name="add_students" type="object" class="oe_highlight" string="Add students"/>
+    					<button special="cancel" type="special" string="Cancel"/>
+    				</header>
     				<group col="1">
 	    				<label for="student_ids" string="Select the students:"/>
 	    				<field name="student_ids" nolabel="1">
