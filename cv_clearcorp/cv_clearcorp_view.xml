@@ -149,11 +149,11 @@
                 <form string="Sessions">
                 	<header>
                 		<div style="float:left">
-	                		<button name="button_approve" string="Approve" class="oe_highlight" states="draft" type="object"/>
-	                		<button name="button_start" string="Start" class="oe_highlight" states="pending" type="object"/>
-	                		<button name="button_done" string="Done" class="oe_highlight" states="open,pending" type="object"/>
-	                		<button name="button_cancel" string="Cancel" states="draft,pending,open" type="object"/>
-	                		<button name="button_reset" string="Reset to draft" class="oe_link" states="pending,open,done,canceled" type="object"/>
+	                		<button name="signal_approve" string="Approve" class="oe_highlight" states="draft,canceled" type="workflow"/>
+	                		<button name="signal_start" string="Start" class="oe_highlight" states="pending" type="workflow"/>
+	                		<button name="signal_done" string="Done" class="oe_highlight" states="open" type="workflow"/>
+	                		<button name="signal_cancel" string="Cancel" states="draft,pending,open" type="workflow"/>
+	                		<button name="signal_draft" string="Reset to draft" class="oe_link" states="pending" type="workflow"/>
                 		</div>
                 		<field name="state" widget="statusbar" style="float:right" statusbar_visible="draft,pending,open,done" statusbar_color='{"draft":"red"}'/>
                 	</header>
@@ -170,6 +170,7 @@
 	                	<group col="2">
 		                	<field name="start_time"/>
 		                	<field name="end_time"/>
+		                	<field name="duration"/>
 	                	</group>
 	                </group>
                 </form>
