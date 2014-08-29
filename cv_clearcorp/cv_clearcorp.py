@@ -127,6 +127,7 @@ class CourseSession (osv.Model):
         'teacher_id': fields.related('course_id', 'teacher_id', type='many2one', relation='res.users', string='Teacher', readonly=True, store=True),
         'occupied_seats': fields.related('course_id', 'occupied_seats', type='integer', string='Expected students', readonly=True, store=True),
         'duration': fields.float('Duration', digits=(2,1), states={'draft': [('readonly',False)]}),
+        'color': fields.integer('Color'),
         }
     _rec_name = 'subject'
     _order = 'start_time'
