@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+    	<record id="wkf_cv_clearcorp_session" model="workflow">
+    		<field name="name">eLearning Session</field>
+    		<field name="on_create" eval="True"/>
+    		<field name="osv">cv_clearcorp.course.session</field>
+    	</record>
+    	
+    	<record id="wkf_act_cv_clearcorp_session_draft" model="workflow.activity">
+    		<field name="name">draft</field>
+    		<field name="wkf_id" ref="wkf_cv_clearcorp_session"/>
+    		<field name="kind">dummy</field>
+    		<field name="flow_start" eval="True"/>
+    		<field name="flow_stop" eval="False"/>
+    	</record>
+    	<record id="wkf_act_cv_clearcorp_session_pending" model="workflow.activity">
+    		<field name="name">pending</field>
+    		<field name="wkf_id" ref="wkf_cv_clearcorp_session"/>
+    		<field name="kind">function</field>
+    		<field name="flow_start" eval="False"/>
+    		<field name="flow_stop" eval="False"/>
+    	</record>
+    	<record id="wkf_act_cv_clearcorp_session_open" model="workflow.activity">
+    		<field name="name">open</field>
+    		<field name="wkf_id" ref="wkf_cv_clearcorp_session"/>
+    		<field name="kind">function</field>
+    		<field name="flow_start" eval="False"/>
+    		<field name="flow_stop" eval="False"/>
+    	</record>
+    	<record id="wkf_act_cv_clearcorp_session_done" model="workflow.activity">
+    		<field name="name">done</field>
+    		<field name="wkf_id" ref="wkf_cv_clearcorp_session"/>
+    		<field name="kind">function</field>
+    		<field name="flow_start" eval="False"/>
+    		<field name="flow_stop" eval="True"/>
+    	</record>
+    	<record id="wkf_act_cv_clearcorp_session_canceled" model="workflow.activity">
+    		<field name="name">canceled</field>
+    		<field name="wkf_id" ref="wkf_cv_clearcorp_session"/>
+    		<field name="kind">function</field>
+    		<field name="flow_start" eval="False"/>
+    		<field name="flow_stop" eval="True"/>
+    	</record>
+    	
+    	<record id="wkf_tran_cv_clearcorp_session_approve" model="workflow.transition">
+    		<field name="sequence">10</field>
+    		<field name="act_from" ref="wkf_act_cv_clearcorp_session_draft"/>
+    		<field name="act_to" ref="wkf_act_cv_clearcorp_session_pending"/>
+    		<field name="signal"></field>
+    		<field name="condition">True</field>
+    	</record>
+    	<record id="wkf_tran_cv_clearcorp_session_open" model="workflow.transition">
+    		<field name="sequence">10</field>
+    		<field name="act_from" ref="wkf_act_cv_clearcorp_session_pending"/>
+    		<field name="act_to" ref="wkf_act_cv_clearcorp_session_open"/>
+    		<field name="signal"></field>
+    		<field name="condition">True</field>
+    	</record>
+    	<record id="wkf_tran_cv_clearcorp_session_done" model="workflow.transition">
+    		<field name="sequence">10</field>
+    		<field name="act_from" ref="wkf_act_cv_clearcorp_session_open"/>
+    		<field name="act_to" ref="wkf_act_cv_clearcorp_session_done"/>
+    		<field name="signal"></field>
+    		<field name="condition">True</field>
+    	</record>
+    	<record id="wkf_tran_cv_clearcorp_session_draft_cancel" model="workflow.transition">
+    		<field name="sequence">10</field>
+    		<field name="act_from" ref="wkf_act_cv_clearcorp_session_draft"/>
+    		<field name="act_to" ref="wkf_act_cv_clearcorp_session_canceled"/>
+    		<field name="signal"></field>
+    		<field name="condition">True</field>
+    	</record>
+    	<record id="wkf_tran_cv_clearcorp_session_pending_cancel" model="workflow.transition">
+    		<field name="sequence">10</field>
+    		<field name="act_from" ref="wkf_act_cv_clearcorp_session_pending"/>
+    		<field name="act_to" ref="wkf_act_cv_clearcorp_session_canceled"/>
+    		<field name="signal"></field>
+    		<field name="condition">True</field>
+    	</record>
+    	<record id="wkf_tran_cv_clearcorp_session_open_cancel" model="workflow.transition">
+    		<field name="sequence">10</field>
+    		<field name="act_from" ref="wkf_act_cv_clearcorp_session_open"/>
+    		<field name="act_to" ref="wkf_act_cv_clearcorp_session_canceled"/>
+    		<field name="signal"></field>
+    		<field name="condition">True</field>
+    	</record>
+    	<record id="wkf_tran_cv_clearcorp_session_pending_draft" model="workflow.transition">
+    		<field name="sequence">10</field>
+    		<field name="act_from" ref="wkf_act_cv_clearcorp_session_pending"/>
+    		<field name="act_to" ref="wkf_act_cv_clearcorp_session_draft"/>
+    		<field name="signal"></field>
+    		<field name="condition">True</field>
+    	</record>
+    </data>
+</openerp>
