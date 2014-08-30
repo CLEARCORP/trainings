@@ -16,7 +16,11 @@ This app is only for testing purposes. Most liely it will never do something use
     """,
     'website' : 'http://google.com',
     'images' : [],
-    'depends' : [],
+    'depends' : [
+        'base',
+        'mail',
+        'board',
+    ],
     'data' : [
         'jornamon_view.xml',
         'wizard/add_student_to_session.xml',

@@ -15,7 +15,9 @@ This app is used to manage
    -Classes
 ''',
     'images': [],
-    'depends': [],
+    'depends': [
+                'mail',
+                ],
     'data': [
          'nuevo_modulo_view.xml',
          'wizard/add_student_to_session.xml',

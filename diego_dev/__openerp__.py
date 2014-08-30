@@ -14,7 +14,7 @@ eLearning Managment
     *Teachers
     """,
     'images':[],
-    'depends':[],
+    'depends':['mail'],
     'data':[
         'diego_dev_view.xml',
         'wizard/add_student_to_session.xml',
