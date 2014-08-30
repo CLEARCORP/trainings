@@ -1,7 +1,10 @@
 # -*- coding: utf-8 -*-
 
+from datetime import datetime, timedelta
 from openerp import api
 from openerp.osv import osv, fields
+from openerp.tools.translate import _
+
 
 class Course (osv.Model):
     _name = 'jornamon.course'
@@ -46,7 +49,7 @@ class Course (osv.Model):
         }
     
     _sql_constraints = [
-        ('total_seats_positive', 'CHECK(total_seats >=0)', 'Total seats must be a positive number'),
+        ('total_seats_positive', 'CHECK(total_seats >=0)', _('Total seats must be a positive number')),
         ]
     
     @api.multi
@@ -84,8 +87,7 @@ class Partner (osv.Model):
             res['value'].update({'student': False})
             res['warning'].update({'title': "Companies cannot be students",
                            'message': "You changed the partner type to company and it was a student. We have remove the student check"}) 
-        return res
-    
+        return   
        
 class Student (osv.Model):
     _name = "jornamon.student"
@@ -99,13 +101,15 @@ class Student (osv.Model):
     
 class CourseSession (osv.Model):   
     _name = 'jornamon.course.session'
-    
+
+    """
+Estos son los métodos que cambiaban los estados de las sesiones antes de hacerlo como WorkFlow
     #Versión de la función como se haría en v7
-    """
-    def button_approve (self, cr, uid, ids, context={}):
-        self.write(cr, uid, ids, {'state': 'pending'}, context=context)
-        return True
-    """
+    
+    #def button_approve (self, cr, uid, ids, context={}):
+    #   self.write(cr, uid, ids, {'state': 'pending'}, context=context)
+    #    return True
+    
     
     #Versión de la función como se haría en v8
     @api.multi
@@ -133,11 +137,31 @@ class CourseSession (osv.Model):
     def button_reset (self):
         self.state= 'draft'
         return True
+  **** Terminan los antiguos botones de cambio de estado
+    """
+    @api.multi
+    def signal_reset_to_draft(self):
+        # go from canceled state to draft state
+        self.write({'state': 'draft'})
+        self.delete_workflow()
+        self.create_workflow()
+        return True
+    
+    @api.multi
+    def get_end_time (self, field_names, arg):
+        res = {}
+        for session in self:
+            end_time = datetime.strptime(session.start_time, '%Y-%m-%d %H:%M:%S') + timedelta(hours=session.duration)
+            res[session.id] = datetime.strftime(end_time, '%Y-%m-%d %H:%M:%S')
       
+        return res
+    
+    
+    
     _columns = {
         'subject' : fields.char('Subject', size=256, required=True, select=True, readonly=True, states={'draft':[('readonly',False)]}),
         'start_time' : fields.datetime('Start time', required=True, readonly=True, states={'draft':[('readonly',False)]}),
-        'end_time' : fields.datetime('End time', readonly=True, states={'draft':[('readonly',False)]}),
+        'end_time' : fields.function(get_end_time, type='datetime', string='End time', readonly=True),
         'course_id' : fields.many2one('jornamon.course', string='Course', required=True, select=True, ondelete='cascade'),
         'state': fields.selection([('draft','Draft'),
                                    ('pending','Pending'),
@@ -146,7 +170,11 @@ class CourseSession (osv.Model):
                                    ('canceled','Canceled')],
                                   string="State", select=True, required=True),
         'teacher_id': fields.related('course_id','teacher_id', type='many2one', relation='res.users', string='Teacher', readonly=True, store=True),
-        'occupied_seats': fields.related('course_id', 'occupied_seats', string="Expected Students", type='integer', readonly=True)
+        'occupied_seats': fields.related('course_id', 'occupied_seats', string="Expected Students", type='integer', readonly=True, store=True),
+        'duration': fields.float('Duration', digits=(2,1), readonly=True, states={'draft':[('readonly',False)]}),
+        'color': fields.integer('Color'),
+        #Este no es related de el de Course, porque es como una especie de lista de asistencia
+        'student_ids': fields.many2many('res.partner', string="Students"),
         }
     
     _rec_name = 'subject'

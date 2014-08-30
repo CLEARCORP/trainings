@@ -1,0 +1,407 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+#	* nuevo_modulo
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 8.0rc1\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2014-08-29 18:55+0000\n"
+"PO-Revision-Date: 2014-08-29 18:55+0000\n"
+"Last-Translator: <>\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#: model:ir.actions.act_window,name:nuevo_modulo.action_elearning_mystudents
+#. module: nuevo_modulo
+msgid " My Students"
+msgstr "Mis estudiantes"
+
+#: model:ir.actions.act_window,help:nuevo_modulo.action_elearning_courses
+#. module: nuevo_modulo
+msgid "<p class=\"oe_view_nocontent_create\">\n"
+"                Click to create a new course\n"
+"              </p><p>\n"
+"              	Set your courses here.\n"
+"              </p>\n"
+"            "
+msgstr "<p class=\"oe_view_nocontent_create\">\n"
+"                Haga click para crear un nuevo curso\n"
+"              </p><p>\n"
+"              	Incluya aqui sus cursos.\n"
+"              </p>\n"
+"            "
+
+#: model:ir.actions.act_window,help:nuevo_modulo.action_elearning_sessions
+#. module: nuevo_modulo
+msgid "<p class=\"oe_view_nocontent_create\">\n"
+"                Click to create a new session\n"
+"              </p><p>\n"
+"              	Set your sessions here.\n"
+"              </p>\n"
+"            "
+msgstr ""
+
+#: model:ir.actions.act_window,help:nuevo_modulo.action_elearning_mycourses
+#: model:ir.actions.act_window,help:nuevo_modulo.action_elearning_mystudents
+#: model:ir.actions.act_window,help:nuevo_modulo.action_elearning_students
+#. module: nuevo_modulo
+msgid "<p class=\"oe_view_nocontent_create\">\n"
+"                Click to create a new student\n"
+"              </p><p>\n"
+"              	Include  students here.\n"
+"              </p>\n"
+"            "
+msgstr ""
+
+#: view:nuevo_modulo.session:nuevo_modulo.view_elearning_session_form
+#. module: nuevo_modulo
+msgid "Approve"
+msgstr "Aprobar"
+
+#: field:nuevo_modulo.course,available_seats:0
+#. module: nuevo_modulo
+msgid "Available seats"
+msgstr "Espacios disponibles"
+
+#: field:res.partner,birthday:0
+#. module: nuevo_modulo
+msgid "Birthday"
+msgstr "Fecha de nacimiento"
+
+#: view:nuevo_modulo.session:nuevo_modulo.view_elearning_session_form
+#. module: nuevo_modulo
+msgid "Cancel"
+msgstr "Cancelar"
+
+#: selection:nuevo_modulo.session,state:0
+#. module: nuevo_modulo
+msgid "Canceled"
+msgstr "Cancelado"
+
+#: field:nuevo_modulo.course,code:0
+#. module: nuevo_modulo
+msgid "Code"
+msgstr "Codigo"
+
+#: field:nuevo_modulo.session,color:0
+#. module: nuevo_modulo
+msgid "Color"
+msgstr "Color"
+
+#: model:ir.ui.menu,name:nuevo_modulo.menu_elearning_conf
+#. module: nuevo_modulo
+msgid "Configuration"
+msgstr "Configuración"
+
+#: view:nuevo_modulo.course:nuevo_modulo.view_elearning_course_form
+#: view:nuevo_modulo.session:nuevo_modulo.view_elearning_session_search
+#: field:nuevo_modulo.session,course_id:0
+#. module: nuevo_modulo
+msgid "Course"
+msgstr "Curso"
+
+#: view:nuevo_modulo.course:nuevo_modulo.view_elearning_course_form
+#. module: nuevo_modulo
+msgid "Course code and name:"
+msgstr "Codigo de curso y nombre"
+
+#: model:ir.actions.act_window,name:nuevo_modulo.action_elearning_courses
+#: model:ir.ui.menu,name:nuevo_modulo.menu_elearning_courses
+#: view:nuevo_modulo.course:nuevo_modulo.view_elearning_course_tree
+#: field:res.partner,course_ids:0
+#. module: nuevo_modulo
+msgid "Courses"
+msgstr "Cursos"
+
+#: field:nuevo_modulo.course,create_uid:0
+#: field:nuevo_modulo.session,create_uid:0
+#. module: nuevo_modulo
+msgid "Created by"
+msgstr "Creado por"
+
+#: field:nuevo_modulo.course,create_date:0
+#: field:nuevo_modulo.session,create_date:0
+#. module: nuevo_modulo
+msgid "Created on"
+msgstr "Creado en"
+
+#: view:nuevo_modulo.session:nuevo_modulo.view_elearning_session_search
+#. module: nuevo_modulo
+msgid "Current month"
+msgstr ""
+
+#: view:nuevo_modulo.session:nuevo_modulo.view_elearning_session_kanban
+#. module: nuevo_modulo
+msgid "Delete"
+msgstr ""
+
+#: view:nuevo_modulo.course:nuevo_modulo.view_elearning_course_form
+#: field:nuevo_modulo.course,description:0
+#. module: nuevo_modulo
+msgid "Description"
+msgstr ""
+
+#: view:nuevo_modulo.session:nuevo_modulo.view_elearning_session_form
+#: selection:nuevo_modulo.session,state:0
+#. module: nuevo_modulo
+msgid "Done"
+msgstr ""
+
+#: selection:nuevo_modulo.session,state:0
+#. module: nuevo_modulo
+msgid "Draft"
+msgstr ""
+
+#: view:nuevo_modulo.session:nuevo_modulo.view_elearning_session_search
+#. module: nuevo_modulo
+msgid "Draft Sessions"
+msgstr ""
+
+#: field:nuevo_modulo.session,duration:0
+#. module: nuevo_modulo
+msgid "Duration"
+msgstr ""
+
+#: field:nuevo_modulo.session,end_time:0
+#. module: nuevo_modulo
+msgid "End time"
+msgstr ""
+
+#: field:nuevo_modulo.session,expected_students:0
+#. module: nuevo_modulo
+msgid "Expected students"
+msgstr ""
+
+#: view:nuevo_modulo.session:nuevo_modulo.view_elearning_session_search
+#. module: nuevo_modulo
+msgid "Filter the current month sessions"
+msgstr ""
+
+#: view:nuevo_modulo.session:nuevo_modulo.view_elearning_session_search
+#. module: nuevo_modulo
+msgid "Filter the draft sessions"
+msgstr ""
+
+#: view:nuevo_modulo.session:nuevo_modulo.view_elearning_session_search
+#. module: nuevo_modulo
+msgid "Filter the open sessions"
+msgstr ""
+
+#: view:nuevo_modulo.session:nuevo_modulo.view_elearning_session_search
+#. module: nuevo_modulo
+msgid "Filter the pending sessions"
+msgstr ""
+
+#: view:nuevo_modulo.session:nuevo_modulo.view_elearning_session_search
+#. module: nuevo_modulo
+msgid "Group by"
+msgstr ""
+
+#: view:nuevo_modulo.session:nuevo_modulo.view_elearning_session_search
+#. module: nuevo_modulo
+msgid "Group sessions by course"
+msgstr ""
+
+#: view:nuevo_modulo.session:nuevo_modulo.view_elearning_session_search
+#. module: nuevo_modulo
+msgid "Group sessions by month"
+msgstr ""
+
+#: view:nuevo_modulo.session:nuevo_modulo.view_elearning_session_search
+#. module: nuevo_modulo
+msgid "Group sessions by state"
+msgstr ""
+
+#: view:nuevo_modulo.session:nuevo_modulo.view_elearning_session_search
+#. module: nuevo_modulo
+msgid "Group sessions by teacher"
+msgstr ""
+
+#: field:nuevo_modulo.course,id:0
+#: field:nuevo_modulo.session,id:0
+#. module: nuevo_modulo
+msgid "ID"
+msgstr ""
+
+#: field:nuevo_modulo.course,write_uid:0
+#: field:nuevo_modulo.session,write_uid:0
+#. module: nuevo_modulo
+msgid "Last Updated by"
+msgstr ""
+
+#: field:nuevo_modulo.course,write_date:0
+#: field:nuevo_modulo.session,write_date:0
+#. module: nuevo_modulo
+msgid "Last Updated on"
+msgstr ""
+
+#: model:ir.actions.act_window,name:nuevo_modulo.action_elearning_mycourses
+#: model:ir.ui.menu,name:nuevo_modulo.menu_elearning_mycourses
+#. module: nuevo_modulo
+msgid "My Courses"
+msgstr ""
+
+#: model:ir.ui.menu,name:nuevo_modulo.menu_elearning_mystudents
+#. module: nuevo_modulo
+msgid "My students"
+msgstr ""
+
+#: field:nuevo_modulo.course,name:0
+#. module: nuevo_modulo
+msgid "Name"
+msgstr ""
+
+#: field:nuevo_modulo.course,occupied_seats:0
+#. module: nuevo_modulo
+msgid "Occupied seats"
+msgstr ""
+
+#: selection:nuevo_modulo.session,state:0
+#. module: nuevo_modulo
+msgid "Open"
+msgstr ""
+
+#: view:nuevo_modulo.session:nuevo_modulo.view_elearning_session_search
+#. module: nuevo_modulo
+msgid "Open Sessions"
+msgstr ""
+
+#: model:ir.model,name:nuevo_modulo.model_res_partner
+#. module: nuevo_modulo
+msgid "Partner"
+msgstr ""
+
+#: selection:nuevo_modulo.session,state:0
+#. module: nuevo_modulo
+msgid "Pending"
+msgstr ""
+
+#: view:nuevo_modulo.session:nuevo_modulo.view_elearning_session_search
+#. module: nuevo_modulo
+msgid "Pending Sessions"
+msgstr ""
+
+#: field:nuevo_modulo.course,occupation_percentage:0
+#. module: nuevo_modulo
+msgid "Percentage of occupied seats"
+msgstr ""
+
+#: view:nuevo_modulo.session:nuevo_modulo.view_elearning_session_form
+#. module: nuevo_modulo
+msgid "Session"
+msgstr ""
+
+#: model:ir.actions.act_window,name:nuevo_modulo.action_elearning_sessions
+#: model:ir.ui.menu,name:nuevo_modulo.menu_elearning_sessions
+#: view:nuevo_modulo.course:nuevo_modulo.view_elearning_course_form
+#: field:nuevo_modulo.course,session_ids:0
+#: view:nuevo_modulo.session:nuevo_modulo.view_elearning_session_calendar
+#: view:nuevo_modulo.session:nuevo_modulo.view_elearning_session_gantt
+#: view:nuevo_modulo.session:nuevo_modulo.view_elearning_session_graph
+#: view:nuevo_modulo.session:nuevo_modulo.view_elearning_session_tree
+#. module: nuevo_modulo
+msgid "Sessions"
+msgstr ""
+
+#: view:nuevo_modulo.session:nuevo_modulo.view_elearning_session_search
+#. module: nuevo_modulo
+msgid "Sessions search"
+msgstr ""
+
+#: view:nuevo_modulo.session:nuevo_modulo.view_elearning_session_form
+#. module: nuevo_modulo
+msgid "Start"
+msgstr ""
+
+#: field:nuevo_modulo.session,start_time:0
+#. module: nuevo_modulo
+msgid "Start time"
+msgstr ""
+
+#: view:nuevo_modulo.session:nuevo_modulo.view_elearning_session_search
+#: field:nuevo_modulo.session,state:0
+#. module: nuevo_modulo
+msgid "State"
+msgstr ""
+
+#: field:res.partner,student:0
+#. module: nuevo_modulo
+msgid "Student"
+msgstr ""
+
+#: field:res.partner,student_code:0
+#. module: nuevo_modulo
+msgid "Student code"
+msgstr ""
+
+#: model:ir.actions.act_window,name:nuevo_modulo.action_elearning_students
+#: model:ir.ui.menu,name:nuevo_modulo.menu_elearning_students
+#: view:nuevo_modulo.course:nuevo_modulo.view_elearning_course_form
+#: field:nuevo_modulo.course,student_ids:0
+#. module: nuevo_modulo
+msgid "Students"
+msgstr ""
+
+#: field:nuevo_modulo.session,subject:0
+#. module: nuevo_modulo
+msgid "Subject"
+msgstr ""
+
+#: view:nuevo_modulo.session:nuevo_modulo.view_elearning_session_form
+#. module: nuevo_modulo
+msgid "Subject name:"
+msgstr ""
+
+#: view:nuevo_modulo.session:nuevo_modulo.view_elearning_session_search
+#: field:nuevo_modulo.session,teacher_id:0
+#. module: nuevo_modulo
+msgid "Teacher"
+msgstr ""
+
+#: model:ir.ui.menu,name:nuevo_modulo.menu_elearning_teacher
+#: field:nuevo_modulo.course,teacher_id:0
+#. module: nuevo_modulo
+msgid "Teachers"
+msgstr ""
+
+#: constraint:nuevo_modulo.course:0
+#. module: nuevo_modulo
+msgid "The course has more students than seats"
+msgstr ""
+
+#: sql_constraint:nuevo_modulo.course:0
+#. module: nuevo_modulo
+msgid "The course total seats has to be between 1 and 100 students"
+msgstr ""
+
+#: field:nuevo_modulo.course,total_seats:0
+#. module: nuevo_modulo
+msgid "Total seats"
+msgstr ""
+
+#: constraint:nuevo_modulo.course:0
+#. module: nuevo_modulo
+msgid "You cannot set Total seats less than actual students"
+msgstr ""
+
+#: model:ir.ui.menu,name:nuevo_modulo.menu_elearning
+#: model:ir.ui.menu,name:nuevo_modulo.menu_elearning_sub
+#: view:res.partner:nuevo_modulo.view_res_partner_form_student
+#. module: nuevo_modulo
+msgid "eLearning"
+msgstr ""
+
+#: view:res.partner:nuevo_modulo.view_res_partner_form_student
+#. module: nuevo_modulo
+msgid "on_change_is_company(is_company, student)"
+msgstr ""
+
+#: view:res.partner:nuevo_modulo.view_res_partner_form_student
+#. module: nuevo_modulo
+msgid "{'readonly': [('student','=',True)]}"
+msgstr ""
+

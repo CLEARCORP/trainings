@@ -160,11 +160,13 @@
                 	
 	                	<header>
 	                		<div style="float:lef">
-		                		<button name="button_approve" string="Approve" class="oe_highlight" states="draft" type="object"></button>
-		                		<button name="button_start" string="Start" class="oe_highlight" states="pending" type="object"></button>
-		                		<button name="button_done" string="Done" class="oe_highlight" states="open,pending" type="object"></button>
-		                		<button name="button_cancel" string="Cancel" states="draft,open,pending" type="object"></button>
-		                		<button name="button_reset" string="Reset to Draft" class="oe_link" states="pending,open,done,canceled" type="object"></button>
+		                		<button name="signal_approve" string="Approve" class="oe_highlight" states="draft" type="workflow" groups="jornamon.group_jornamon_teacher"></button>
+		                		<button name="signal_open" string="Start" class="oe_highlight" states="pending" type="workflow" groups="jornamon.group_jornamon_teacher"></button>
+		                		<button name="signal_done" string="Done" class="oe_highlight" states="open" type="workflow" groups="jornamon.group_jornamon_teacher"></button>
+		                		<button name="signal_cancel" string="Cancel" states="draft,open,pending" type="workflow" groups="jornamon.group_jornamon_teacher"></button>
+		                		<button name="signal_draft" string="Reset to Draft" class="oe_link" states="pending" type="workflow" groups="jornamon.group_jornamon_teacher"></button>
+		                		<!-- Este último botón es para reiniciarlo aunque estemos al final del flujo -->
+		                		<button name="signal_reset_to_draft" string="Reset to Draft" class="oe_link" states="done,canceled" type="object"></button>
 	                		</div>
 	                		<field name="state" widget="statusbar" style="float:right" statusbar_visible="draft,pending,open,done" statusbar_colors="{'canceled': 'red'}"/>
 	                	</header>
@@ -183,9 +185,16 @@
  							</group>
                 			<group col="2">
  								<field name="start_time"/>
+ 								<field name="duration"/>
  								<field name="end_time"/>
                     		</group>
                     	</group>
+                    	<notebook>
+                    		<page string="Students">
+                    			<field name="student_ids" nolabel="1"/>
+                    		</page>
+                    		
+                    	</notebook>
                  </form>
             </field>
         </record>
@@ -199,6 +208,7 @@
                     <field name="subject"/>
                     <field name="start_time"/>
                     <field name="end_time"/>
+                    <field name="duration"/>
                     <field name="state"/>
                 </tree>
             </field>
@@ -211,6 +221,67 @@
             	<calendar string="Courses" date_start="start_time" date_stop="end_time" color="teacher_id">
                     <field name="subject"/>
                 </calendar>
+            </field>
+        </record>
+        
+        <record id="view_elearning_course_session_graph" model="ir.ui.view">
+            <field name="name">Course Session Graph</field>
+            <field name="model">jornamon.course.session</field>
+            <field name="arch" type="xml">
+            	<graph string="Sessions" type="bar">
+                    <field name="course_id" type="row"/>
+                    <field name="duration" type="measure"/>
+                </graph>
+            </field>
+        </record>
+        
+        <record id="view_elearning_course_session_gantt" model="ir.ui.view">
+            <field name="name">Course Session Gantt</field>
+            <field name="model">jornamon.course.session</field>
+            <field name="arch" type="xml">
+            	<gantt string="Gantt" default_group_by="teacher_id" date_start="start_time" date_delay="duration">
+                    <level link="course_id" object="jornamon.course">
+                    	<field name="subject"/>
+							
+                    </level>
+                </gantt>
+            </field>
+        </record>
+        
+        <record id="view_elearning_course_session_kanban" model="ir.ui.view">
+            <field name="name">Course Session Kanban</field>
+            <field name="model">jornamon.course.session</field>
+            <field name="arch" type="xml">
+            	<kanban default_group_by="state">
+            		<field name="color"/>
+            		<templates>
+            			<t t-name="kanban-box">
+            				<div t-attf-class="oe_kanban_card 
+				            				   oe_kanban_global_click 
+				            				   oe_kanban_color_#{kanban_getcolor(record.color.raw_value)}
+				            				  ">
+            					<div class="oe_dropdown_kanban">
+            						<div class="oe_dropdown_toggle">
+            							<span class="oe_e">í</span>
+            							<ul class="oe_dropdown_menu">
+            								<li><a type="delete">Delete</a></li>
+            								<li><ul class="oe_kanban_colorpicker" data-field="color"/></li>
+            							</ul>
+									</div>
+								</div>
+								<div t-attf-class="oe_kanban_content">
+									<div><b><field name="subject"/><br/></b></div>
+									<div><i><field name="course_id"/><br/></i></div>
+									<div><field name="start_time"/><br/></div>
+									<div>Duration: <field name="duration"/>h<br/></div>
+								</div>	
+							</div>	
+							
+						</t>
+            			
+            		</templates>
+                    
+                </kanban>
             </field>
         </record>
         
@@ -274,8 +345,8 @@
             <field name="name">Sessions</field>
             <field name="res_model">jornamon.course.session</field>
             <field name="view_type">form</field>
-            <field name="view_mode">calendar,tree,form</field>
-            <field name="search_vie_id" ref="view_elearning_course_session_search"/>
+            <field name="view_mode">kanban,calendar,tree,form,graph,gantt</field>
+            <field name="search_view_id" ref="view_elearning_course_session_search"/>
             <field name="help" type="html">
               <p class="oe_view_nocontent_create">
                 Click to create a new session.

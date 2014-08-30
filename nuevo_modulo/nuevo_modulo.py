@@ -1,7 +1,9 @@
 # -*- coding: utf-8 -*-
 
+from datetime import datetime, timedelta
 from openerp import api
 from openerp.osv import osv, fields
+from openerp.tools.translate import _
 
 class Course (osv.Model):
     _name = 'nuevo_modulo.course'
@@ -54,6 +56,8 @@ class Course (osv.Model):
                 return False
         return True
     
+ 
+    
     _constraints = [
         (check_seats, 'The course has more students than seats', ['student_ids']),
         (check_seats, 'You cannot set Total seats less than actual students', ['total_seats']),
@@ -83,35 +87,21 @@ class CourseSession (osv.Model):
     _name = 'nuevo_modulo.session'
     
     @api.multi
-    def button_approve (self):
-        #self.write({'state': 'pending'})
-        self.state = 'pending'
-        return True
-        
-    @api.multi
-    def button_cancel (self):       
-        self.state = 'canceled'
-        return True
+    def get_end_time (self, field_names, arg):
+        res = {}
+        for session in self:
+            end_time = datetime.strptime(session.start_time, '%Y-%m-%d %H:%M:%S') + timedelta(hours=session.duration)
+            res[session.id] = datetime.strftime(end_time, '%Y-%m-%d %H:%M:%S')
+        return res   
     
     @api.multi
-    def button_start (self):       
-        self.state = 'open'
-        return True
-            
-    @api.multi
-    def button_done (self):       
-        self.state = 'done'
-        return True
-    
-    @api.multi
-    def button_reset (self):       
-        self.state = 'draft'
-        return True
+    def boton (self):
+        return res
         
     _columns = {
         'subject': fields.char('Subject', size=256, required=True, select=True, readonly=True, states={'draft': [('readonly',False)]}),
         'start_time': fields.datetime('Start time', required=True, readonly=True, states={'draft': [('readonly',False)]}),
-        'end_time': fields.datetime('End time', readonly=True, states={'draft': [('readonly',False)]}),
+        'end_time': fields.function(get_end_time, type='datetime', string='End time', readonly=True),
         'course_id': fields.many2one('nuevo_modulo.course', string='Course', required=True, select=True, ondelete='cascade', readonly=True, states={'draft': [('readonly',False)]}),
         'state': fields.selection([('draft','Draft'),
                                    ('pending','Pending'),
@@ -119,8 +109,11 @@ class CourseSession (osv.Model):
                                    ('done','Done'),
                                    ('canceled','Canceled')],
                                   string="State", select=True, required=True),
-        'teacher_id': fields.related('course_id','teacher_id', type='many2one', relation='res.users', string='Teacher', readonly=True),
-        'expected_students': fields.related('course_id','occupied_seats',type='integer',string="Expected students", readonly=True ),
+        'teacher_id': fields.related('course_id','teacher_id', type='many2one', relation='res.users', string='Teacher', store=True, readonly=True),
+        'expected_students': fields.related('course_id','occupied_seats',type='integer',string="Expected students", readonly=True, store=True),
+        'duration': fields.float('Duration', digits=(2,1), states={'draft': [('readonly',False)]}),
+        'color': fields.integer('Color'),
+        'student_ids': fields.many2many('res.partner')
         }
     _rec_name ='subject'
     _order = 'start_time'

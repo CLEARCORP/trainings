@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+	<data>
+		<record id="wkf_nuevo_modulo_session" model="workflow">
+			<field name="name">eLearning Session</field>
+			<field name="on_create">True</field>
+			<field name="osv">nuevo_modulo.session</field>
+			
+		</record>
+		<record id="wkf_act_nuevo_modulo_session_draft" model="workflow.activity">
+			<field name="name">draft</field>
+			<field name="wkf_id" ref="wkf_nuevo_modulo_session"/>
+			<field name="kind">function</field>
+			<field name="flow_start" eval="True"/>
+			<field name="flow_stop" eval="False"/>
+			<field name="action">write({'state':'draft'})</field>
+		</record>
+		<record id="wkf_act_nuevo_modulo_session_pending" model="workflow.activity">
+			<field name="name">pending</field>
+			<field name="wkf_id" ref="wkf_nuevo_modulo_session"/>
+			<field name="kind">function</field>
+			<field name="flow_start" eval="False"/>
+			<field name="flow_stop" eval="False"/>
+			<field name="action">write({'state':'pending'})</field>
+		</record>
+		<record id="wkf_act_nuevo_modulo_session_open" model="workflow.activity">
+			<field name="name">open</field>
+			<field name="wkf_id" ref="wkf_nuevo_modulo_session"/>
+			<field name="kind">function</field>
+			<field name="flow_start" eval="False"/>
+			<field name="flow_stop" eval="False"/>
+			<field name="action">write({'state':'open'})</field>
+		</record>
+		<record id="wkf_act_nuevo_modulo_session_done" model="workflow.activity">
+			<field name="name">done</field>
+			<field name="wkf_id" ref="wkf_nuevo_modulo_session"/>
+			<field name="kind">function</field>
+			<field name="flow_start" eval="False"/>
+			<field name="flow_stop" eval="True"/>
+			<field name="action">write({'state':'done'})</field>
+		</record>
+		<record id="wkf_act_nuevo_modulo_session_cancel" model="workflow.activity">
+			<field name="name">cancel</field>
+			<field name="wkf_id" ref="wkf_nuevo_modulo_session"/>
+			<field name="kind">function</field>
+			<field name="flow_start" eval="False"/>
+			<field name="flow_stop" eval="True"/>
+			<field name="action">write({'state':'canceled'})</field>
+		</record>
+				
+		<record id="wkf_tran_nuevo_modulo_session_draft_to_pending" model="workflow.transition">
+			<field name="sequence">10</field>
+			<field name="act_from" ref="wkf_act_nuevo_modulo_session_draft"/>
+			<field name="act_to" ref="wkf_act_nuevo_modulo_session_pending"/>
+			<field name="signal">signal_approve</field>
+			<field name="condition">True</field>
+		</record>
+		<record id="wkf_tran_nuevo_modulo_session_draft_to_cancel" model="workflow.transition">
+			<field name="sequence">10</field>
+			<field name="act_from" ref="wkf_act_nuevo_modulo_session_draft"/>
+			<field name="act_to" ref="wkf_act_nuevo_modulo_session_cancel"/>
+			<field name="signal">signal_cancel</field>
+			<field name="condition">True</field>
+		</record>
+		<record id="wkf_tran_nuevo_modulo_session_pending_to_open" model="workflow.transition">
+			<field name="sequence">10</field>
+			<field name="act_from" ref="wkf_act_nuevo_modulo_session_pending"/>
+			<field name="act_to" ref="wkf_act_nuevo_modulo_session_open"/>
+			<field name="signal">signal_start</field>
+			<field name="condition">True</field>
+		</record>
+		<record id="wkf_tran_nuevo_modulo_session_open_to_done" model="workflow.transition">
+			<field name="sequence">10</field>
+			<field name="act_from" ref="wkf_act_nuevo_modulo_session_open"/>
+			<field name="act_to" ref="wkf_act_nuevo_modulo_session_done"/>
+			<field name="signal">signal_done</field>
+			<field name="condition">True</field>
+		</record>
+		<record id="wkf_tran_nuevo_modulo_session_pending_to_draft" model="workflow.transition">
+			<field name="sequence">10</field>
+			<field name="act_from" ref="wkf_act_nuevo_modulo_session_pending"/>
+			<field name="act_to" ref="wkf_act_nuevo_modulo_session_draft"/>
+			<field name="signal">signal_reset</field>
+			<field name="condition">True</field>
+		</record>
+		<record id="wkf_tran_nuevo_modulo_session_pending_to_cancel" model="workflow.transition">
+			<field name="sequence">10</field>
+			<field name="act_from" ref="wkf_act_nuevo_modulo_session_pending"/>
+			<field name="act_to" ref="wkf_act_nuevo_modulo_session_cancel"/>
+			<field name="signal">signal_cancel</field>
+			<field name="condition">True</field>
+		</record>
+		<record id="wkf_tran_nuevo_modulo_session_open_to_cancel" model="workflow.transition">
+			<field name="sequence">10</field>
+			<field name="act_from" ref="wkf_act_nuevo_modulo_session_open"/>
+			<field name="act_to" ref="wkf_act_nuevo_modulo_session_cancel"/>
+			<field name="signal">signal_cancel</field>
+			<field name="condition">True</field>
+		</record>
+	</data>
+</openerp>

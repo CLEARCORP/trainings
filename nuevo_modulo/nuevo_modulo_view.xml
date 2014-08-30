@@ -67,11 +67,10 @@
                 <form string="Session">
                 	<header>
                 		<div style="float:left">
-	                		<button name="button_approve" class="oe_highlight" string="Aprove" states="draft" type="object"/>
-	                		<button name="button_start" class="oe_highlight" string="Start" states="pending" type="object"/>
-	                		<button name="button_done" class="oe_highlight" string="Done" states="open,pending" type="object"/>
-	                		<button name="button_cancel" string="Cancel" states="draft,pending,open" type="object"/>
-	                		<button name="button_reset" class="oe_link" string="Reset to draft" states="done,pending,open,canceled" type="object"/>
+	                		<button name="signal_approve" class="oe_highlight" string="Approve" states="draft" type="workflow"/>
+	                		<button name="signal_start" class="oe_highlight" string="Start" states="pending" type="workflow"/>
+	                		<button name="signal_done" class="oe_highlight" string="Done" states="open" type="workflow"/>
+	                		<button name="signal_cancel" string="Cancel" states="draft,pending,open" type="workflow"/>
                 		</div>
                 		<field name="state" widget="statusbar" style="float:right" statusbar_visible="draft,pending,open,done" statusbar_colors='{"draft":"green"}'/>
                 	</header>	
@@ -88,8 +87,14 @@
 	               		<group col="2">
                 			<field name="start_time" class="oe_inline"/>
                 			<field name="end_time" class="oe_inline"/>
+                			<field name="duration"/>
                 		</group>
 					</group>
+					<notebook>
+						<page string="Students">
+							<field name="student_ids"/>
+						</page>
+					</notebook>
 				</form>
             </field>
         </record>
@@ -136,18 +141,89 @@
                     	    string="Open Sessions"
                     	    help="Filter the open sessions"
                     	    domain="[('state','=','open')]"/>
-                    <filter name="current_month_sessions" 
-                    	    string="Current month"
-                    	    help="Filter the current month sessions"
-                    	    domain="['&amp;',('start_time','&lt;=',time.strftime('%Y-%m-31')),('start_time','&gt;=',time.strftime('%Y-%m-01'))]"/>
+            	    <separator/>
+	                    <filter name="current_month_sessions" 
+	                    	    string="Current month"
+	                    	    help="Filter the current month sessions"
+	                    	    domain="['&amp;',('start_time','&lt;=',time.strftime('%Y-%m-31')),('start_time','&gt;=',time.strftime('%Y-%m-01'))]"/>           	    	
+	    		    <group string="Group by">		
+	    				<filter name="course_id_group"
+	    						string="Course"
+	    						help="Group sessions by course"
+	    						context="{'group_by': 'course_id'}"/>
+	    				<filter name="teacher_id_group"
+	    						string="Teacher"
+	    						help="Group sessions by teacher"
+	    						context="{'group_by': 'teacher_id'}"/>
+	    				<filter name="current_month_group"
+	    						string="Current month"
+	    						help="Group sessions by month"
+	    						context="{'group_by': 'start_time'}"/>   	
+	    				<filter name="state_group"
+	    						string="State"
+	    						help="Group sessions by state"
+	    						context="{'group_by': 'state'}"/>   						    						
+					</group>
                 </search>
             </field>
-        </record>        
+        </record>  
+        <record id="view_elearning_session_graph" model="ir.ui.view">
+            <field name="name">nuevo_modulo.session.graph</field>
+            <field name="model">nuevo_modulo.session</field>
+            <field name="arch" type="xml">
+                <graph string="Sessions" type="bar">
+                    <field name="course_id"/>
+                    <field name="expected_students" operator="+"/>
+                    <field name="duration" operator="+"/>
+                </graph>
+            </field>
+        </record>   
+        <record id="view_elearning_session_gantt" model="ir.ui.view">
+            <field name="name">nuevo_modulo.session.gantt</field>
+            <field name="model">nuevo_modulo.session</field>
+            <field name="arch" type="xml">
+                <gantt string="Sessions" default_group_by="teacher_id" date_start="start_time" date_delay="duration">
+                    	<field name="subject"/>           
+                </gantt>
+            </field>
+        </record>  
+        <record id="view_elearning_session_kanban" model="ir.ui.view">
+            <field name="name">nuevo_modulo.session.kanban</field>
+            <field name="model">nuevo_modulo.session</field>
+            <field name="arch" type="xml">
+                <kanban default_group_by="state">
+                	<field name="color"/>
+                	<templates>
+                		<t t-name="kanban-box">
+                			<div t-attf-class="oe_kanban_card
+                			    oe_kanban_global_click
+                				oe_kanban_color_#{kanban_getcolor(record.color.raw_value)}">
+	                			<div class="oe_dropdown_kanban">
+	                				<div class="oe_dropdown_toggle">
+	                					<span class="oe_e">o</span>
+	                					<ul class="oe_dropdown_menu">
+	                						<li><a type ="delete">Delete</a></li>
+	                						<li><ul class="oe_kanban_colorpicker" data-field="color"/></li>
+	                					</ul>
+	                				</div>
+	                			</div>
+	                			<div t-attf-class="oe_kanban_content">
+	                				<div><b><field name="subject"/></b></div>
+	                				<div><i><field name="course_id"/></i></div>
+	                				<div><field name="start_time"/> - <field name="end_time"/></div>
+	                				<div><field name="duration"/></div>
+	                			</div>
+                			</div>
+                		</t>	
+                	</templates>
+                </kanban>
+            </field>
+        </record>            
 		<record id="action_elearning_sessions" model="ir.actions.act_window">
             <field name="name">Sessions</field>
             <field name="res_model">nuevo_modulo.session</field>
             <field name="view_type">form</field>
-            <field name="view_mode">calendar,tree,form</field>
+            <field name="view_mode">kanban,calendar,tree,form,graph,gantt</field>
             <field name="search_view_id" ref="view_elearning_session_search"/>
             <field name="help" type="html">
               <p class="oe_view_nocontent_create">

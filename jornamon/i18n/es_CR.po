@@ -1,0 +1,446 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+#	* jornamon
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 8.0rc1\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2014-08-29 18:55+0000\n"
+"PO-Revision-Date: 2014-08-29 18:55+0000\n"
+"Last-Translator: <>\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#: model:ir.actions.act_window,help:jornamon.action_elearning_my_students
+#: model:ir.actions.act_window,help:jornamon.action_elearning_student
+#. module: jornamon
+msgid "<p class=\"oe_view_nocontent_create\">\n"
+"                Click to add a new student.\n"
+"              </p><p>\n"
+"                Manage your students here.\n"
+"              </p>\n"
+"            "
+msgstr "<p class=\"oe_view_nocontent_create\">\n"
+"                Click para crear nuevo estudiante.\n"
+"              </p><p>\n"
+"                Gestione sus estudiantes aquí.\n"
+"              </p>\n"
+"            "
+
+#: model:ir.actions.act_window,help:jornamon.action_elearning_courses
+#: model:ir.actions.act_window,help:jornamon.action_elearning_my_courses
+#. module: jornamon
+msgid "<p class=\"oe_view_nocontent_create\">\n"
+"                Click to create a new course.\n"
+"              </p><p>\n"
+"                Set your courses here.\n"
+"              </p>\n"
+"            "
+msgstr "<p class=\"oe_view_nocontent_create\">\n"
+"                Clickpara nuevo curso.\n"
+"              </p><p>\n"
+"                Establece cursos aquí.\n"
+"              </p>\n"
+"            "
+
+#: model:ir.actions.act_window,help:jornamon.action_elearning_course_session
+#. module: jornamon
+msgid "<p class=\"oe_view_nocontent_create\">\n"
+"                Click to create a new session.\n"
+"              </p><p>\n"
+"                Set your sessions here.\n"
+"              </p>\n"
+"            "
+msgstr "<p class=\"oe_view_nocontent_create\">\n"
+"                Click para nueva lección.\n"
+"              </p><p>\n"
+"                Crea tus lecciones aquí.\n"
+"              </p>\n"
+"            "
+
+#: view:jornamon.course.session:jornamon.view_elearning_course_session_form
+#. module: jornamon
+msgid "Approve"
+msgstr "Aprobar"
+
+#: field:jornamon.course,occupied_seats:0
+#. module: jornamon
+msgid "Atendees"
+msgstr "Estudiantes"
+
+#: field:jornamon.course,available_seats:0
+#. module: jornamon
+msgid "Available seats"
+msgstr "Asientos disponibles"
+
+#: field:jornamon.student,birthday:0
+#: field:res.partner,birthday:0
+#. module: jornamon
+msgid "Birthday"
+msgstr "Cumpleaños"
+
+#: view:jornamon.course.session:jornamon.view_elearning_course_session_form
+#. module: jornamon
+msgid "Cancel"
+msgstr "Cancelar"
+
+#: selection:jornamon.course.session,state:0
+#. module: jornamon
+msgid "Canceled"
+msgstr "Cancelado"
+
+#: field:jornamon.course,code:0
+#: field:jornamon.student,code:0
+#. module: jornamon
+msgid "Code"
+msgstr "Código"
+
+#: field:jornamon.course.session,color:0
+#. module: jornamon
+msgid "Color"
+msgstr "Color"
+
+#: model:ir.ui.menu,name:jornamon.menu_elearning_conf
+#. module: jornamon
+msgid "Configuration"
+msgstr "Configuración"
+
+#: view:jornamon.course:jornamon.view_elearning_course_form
+#: view:jornamon.course.session:jornamon.view_elearning_course_session_search
+#: field:jornamon.course.session,course_id:0
+#. module: jornamon
+msgid "Course"
+msgstr "Curso"
+
+#: view:jornamon.course:jornamon.view_elearning_course_form
+#. module: jornamon
+msgid "Course code and name:"
+msgstr "Código y nombre del curso"
+
+#: model:ir.actions.act_window,name:jornamon.action_elearning_courses
+#: model:ir.ui.menu,name:jornamon.menu_elearning_courses
+#: view:jornamon.course:jornamon.view_elearning_cours_tree
+#: view:jornamon.course.session:jornamon.view_elearning_course_session_calendar
+#: view:jornamon.course.session:jornamon.view_elearning_course_session_tree
+#: field:jornamon.student,course_ids:0
+#: field:res.partner,course_ids:0
+#. module: jornamon
+msgid "Courses"
+msgstr "Cursos"
+
+#: field:jornamon.course,create_uid:0
+#: field:jornamon.course.session,create_uid:0
+#: field:jornamon.student,create_uid:0
+#. module: jornamon
+msgid "Created by"
+msgstr "Creado por"
+
+#: field:jornamon.course,create_date:0
+#: field:jornamon.course.session,create_date:0
+#: field:jornamon.student,create_date:0
+#. module: jornamon
+msgid "Created on"
+msgstr "Creado el"
+
+#: view:jornamon.course.session:jornamon.view_elearning_course_session_search
+#. module: jornamon
+msgid "Current month"
+msgstr "Mes actual"
+
+#: view:jornamon.course.session:jornamon.view_elearning_course_session_kanban
+#. module: jornamon
+msgid "Delete"
+msgstr "Borrar"
+
+#: view:jornamon.course:jornamon.view_elearning_course_form
+#: field:jornamon.course,description:0
+#. module: jornamon
+msgid "Description"
+msgstr "Descripción"
+
+#: view:jornamon.course.session:jornamon.view_elearning_course_session_form
+#: selection:jornamon.course.session,state:0
+#. module: jornamon
+msgid "Done"
+msgstr "Hecho"
+
+#: selection:jornamon.course.session,state:0
+#. module: jornamon
+msgid "Draft"
+msgstr "Borrador"
+
+#: view:jornamon.course.session:jornamon.view_elearning_course_session_search
+#. module: jornamon
+msgid "Draft Sessions"
+msgstr "Sesiones borrador"
+
+#: field:jornamon.course.session,duration:0
+#. module: jornamon
+msgid "Duration"
+msgstr "Duración"
+
+#: view:jornamon.course.session:jornamon.view_elearning_course_session_kanban
+#. module: jornamon
+msgid "Duration:"
+msgstr "Duración:"
+
+#: field:jornamon.course.session,end_time:0
+#. module: jornamon
+msgid "End time"
+msgstr "Fecha fin"
+
+#: field:jornamon.course.session,occupied_seats:0
+#. module: jornamon
+msgid "Expected Students"
+msgstr "Estudiantes esperados"
+
+#: view:jornamon.course.session:jornamon.view_elearning_course_session_search
+#. module: jornamon
+msgid "Filter current month"
+msgstr "Filtrar mes actual"
+
+#: view:jornamon.course.session:jornamon.view_elearning_course_session_search
+#. module: jornamon
+msgid "Filter the draft sessions"
+msgstr "Filtrar sesiones borrador"
+
+#: view:jornamon.course.session:jornamon.view_elearning_course_session_search
+#. module: jornamon
+msgid "Filter the open sessions"
+msgstr "Filtrar lecciones abiertas"
+
+#: view:jornamon.course.session:jornamon.view_elearning_course_session_search
+#. module: jornamon
+msgid "Filter the pending sessions"
+msgstr "Filtrar lecciones pendietes"
+
+#: view:jornamon.course.session:jornamon.view_elearning_course_session_gantt
+#. module: jornamon
+msgid "Gantt"
+msgstr "Gantt"
+
+#: view:jornamon.course.session:jornamon.view_elearning_course_session_search
+#. module: jornamon
+msgid "Group By"
+msgstr "Agrupar por"
+
+#: view:jornamon.course.session:jornamon.view_elearning_course_session_search
+#. module: jornamon
+msgid "Group sessions by Date"
+msgstr "Agrupar sesiones por fecha"
+
+#: view:jornamon.course.session:jornamon.view_elearning_course_session_search
+#. module: jornamon
+msgid "Group sessions by State"
+msgstr "Agrupar lecciones por estado"
+
+#: view:jornamon.course.session:jornamon.view_elearning_course_session_search
+#. module: jornamon
+msgid "Group sessions by course"
+msgstr "Agrupar sesiones por curso"
+
+#: view:jornamon.course.session:jornamon.view_elearning_course_session_search
+#. module: jornamon
+msgid "Group sessions by teacher"
+msgstr ""
+
+#: field:jornamon.course,id:0
+#: field:jornamon.course.session,id:0
+#: field:jornamon.student,id:0
+#. module: jornamon
+msgid "ID"
+msgstr ""
+
+#: field:jornamon.course,write_uid:0
+#: field:jornamon.course.session,write_uid:0
+#: field:jornamon.student,write_uid:0
+#. module: jornamon
+msgid "Last Updated by"
+msgstr ""
+
+#: field:jornamon.course,write_date:0
+#: field:jornamon.course.session,write_date:0
+#: field:jornamon.student,write_date:0
+#. module: jornamon
+msgid "Last Updated on"
+msgstr ""
+
+#: view:jornamon.course.session:jornamon.view_elearning_course_session_search
+#. module: jornamon
+msgid "Month"
+msgstr "Mes"
+
+#: model:ir.actions.act_window,name:jornamon.action_elearning_my_courses
+#. module: jornamon
+msgid "My Courses"
+msgstr "Mis cursos"
+
+#: model:ir.ui.menu,name:jornamon.menu_elearning_my_courses
+#. module: jornamon
+msgid "My Curses"
+msgstr "Mis cursos"
+
+#: model:ir.actions.act_window,name:jornamon.action_elearning_my_students
+#: model:ir.ui.menu,name:jornamon.menu_elearning_my_students
+#. module: jornamon
+msgid "My Students"
+msgstr "Mis estudiantes"
+
+#: field:jornamon.course,name:0
+#: field:jornamon.student,name:0
+#. module: jornamon
+msgid "Name"
+msgstr "Nombre"
+
+#: selection:jornamon.course.session,state:0
+#. module: jornamon
+msgid "Open"
+msgstr "Abierto"
+
+#: model:ir.model,name:jornamon.model_res_partner
+#. module: jornamon
+msgid "Partner"
+msgstr "Empresa"
+
+#: selection:jornamon.course.session,state:0
+#. module: jornamon
+msgid "Pending"
+msgstr ""
+
+#: view:jornamon.course.session:jornamon.view_elearning_course_session_search
+#. module: jornamon
+msgid "Pending Sessions"
+msgstr ""
+
+#: field:jornamon.course,occupation_percentage:0
+#. module: jornamon
+msgid "Percentage of occupied seats"
+msgstr ""
+
+#: view:jornamon.course.session:jornamon.view_elearning_course_session_form
+#. module: jornamon
+msgid "Reset to Draft"
+msgstr ""
+
+#: view:jornamon.course.session:jornamon.view_elearning_course_session_form
+#. module: jornamon
+msgid "Session"
+msgstr ""
+
+#: view:jornamon.course.session:jornamon.view_elearning_course_session_form
+#. module: jornamon
+msgid "Session subject:"
+msgstr ""
+
+#: model:ir.actions.act_window,name:jornamon.action_elearning_course_session
+#: model:ir.ui.menu,name:jornamon.menu_elearning_corse_session
+#: view:jornamon.course:jornamon.view_elearning_course_form
+#: view:jornamon.course.session:jornamon.view_elearning_course_session_graph
+#. module: jornamon
+msgid "Sessions"
+msgstr ""
+
+#: view:jornamon.course.session:jornamon.view_elearning_course_session_search
+#. module: jornamon
+msgid "Sessions search"
+msgstr ""
+
+#: view:jornamon.course.session:jornamon.view_elearning_course_session_form
+#. module: jornamon
+msgid "Start"
+msgstr ""
+
+#: field:jornamon.course.session,start_time:0
+#. module: jornamon
+msgid "Start time"
+msgstr ""
+
+#: view:jornamon.course.session:jornamon.view_elearning_course_session_search
+#: field:jornamon.course.session,state:0
+#. module: jornamon
+msgid "State"
+msgstr ""
+
+#: model:ir.actions.act_window,name:jornamon.action_elearning_student
+#: field:res.partner,student:0
+#. module: jornamon
+msgid "Student"
+msgstr ""
+
+#: field:res.partner,student_code:0
+#. module: jornamon
+msgid "Student Code"
+msgstr ""
+
+#: model:ir.ui.menu,name:jornamon.menu_elearning_students
+#: view:jornamon.course:jornamon.view_elearning_course_form
+#: field:jornamon.course,student_ids:0
+#. module: jornamon
+msgid "Students"
+msgstr ""
+
+#: field:jornamon.course.session,subject:0
+#. module: jornamon
+msgid "Subject"
+msgstr ""
+
+#: model:ir.ui.menu,name:jornamon.menu_elearning_teacher
+#: field:jornamon.course,teacher_id:0
+#: view:jornamon.course.session:jornamon.view_elearning_course_session_search
+#: field:jornamon.course.session,teacher_id:0
+#. module: jornamon
+msgid "Teacher"
+msgstr ""
+
+#: constraint:jornamon.course:0
+#. module: jornamon
+msgid "The course has more student than seats, you cannot add more students."
+msgstr ""
+
+#: view:jornamon.course:jornamon.view_elearning_cours_tree
+#: field:jornamon.course,total_seats:0
+#. module: jornamon
+msgid "Total seats"
+msgstr ""
+
+#: sql_constraint:jornamon.course:0
+#. module: jornamon
+msgid "Total seats must be a positive number"
+msgstr ""
+
+#: constraint:jornamon.course:0
+#. module: jornamon
+msgid "You cannot set a number of seats smaller than the number of registered students."
+msgstr ""
+
+#: model:ir.ui.menu,name:jornamon.menu_elearning
+#: model:ir.ui.menu,name:jornamon.menu_elearning_sub
+#: view:res.partner:jornamon.view_res_partner_form_student
+#. module: jornamon
+msgid "eLearning"
+msgstr ""
+
+#: view:res.partner:jornamon.view_res_partner_form_student
+#. module: jornamon
+msgid "on_change_is_company(is_company, student)"
+msgstr ""
+
+#: view:jornamon.course.session:jornamon.view_elearning_course_session_search
+#. module: jornamon
+msgid "open Sessions"
+msgstr ""
+
+#: field:jornamon.course,session_ids:0
+#. module: jornamon
+msgid "unknown"
+msgstr ""
+
+#: view:res.partner:jornamon.view_res_partner_form_student
+#. module: jornamon
+msgid "{'readonly':[('student','=',True)]}"
+msgstr ""
+
