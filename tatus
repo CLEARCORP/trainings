@@ -1,0 +1,528 @@
+[33mcommit 809612ce595b5fb1ed724546ad7b9867585c0be1[m
+Author: Oscar Gutierrez L <ogutierrez@transcomer.com>
+Date:   Thu Aug 28 11:46:23 2014 -0600
+
+    Filtros
+
+[33mcommit e1297630a9b83202fc3ba9d6a23e2382cccb73ac[m
+Author: Lesmed Gutiérrez <lesmedgutiar.16@gmail.com>
+Date:   Thu Aug 28 11:12:49 2014 -0600
+
+    Cambios de las 11am. filters, search
+
+[33mcommit 254b604206e544a24c034e8a5918bd924256ef78[m
+Author: Carlos Vásquez <carlos.vasquez@clearcorp.co.cr>
+Date:   Thu Aug 28 10:53:49 2014 -0600
+
+    Search view
+
+[33mcommit 015e288c1de166a1c9accec8a99816b1d0556ae2[m
+Author: Oscar Gutierrez L <ogutierrez@transcomer.com>
+Date:   Thu Aug 28 10:16:08 2014 -0600
+
+    Estados readonly
+
+[33mcommit 8869f0d21b2b24e6ffce486000967eb5c2a0ab39[m
+Author: Carlos Vásquez <carlos.vasquez@clearcorp.co.cr>
+Date:   Thu Aug 28 09:59:04 2014 -0600
+
+    Vistas avanzadas y related
+
+[33mcommit 772171616c7fe6813a76b9f1954110b75da9e768[m
+Merge: b56f00a 58e5e77
+Author: Jorge Nadal <jorge.nadal@gmail.com>
+Date:   Wed Aug 27 18:56:24 2014 -0600
+
+    Merge branch '2014-08-technical-costa-rica' of github.com:/CLEARCORP/trainings into 2014-08-technical-costa-rica
+
+[33mcommit b56f00a8ff99f2b05cef4aac6faca75195f949e2[m
+Author: Jorge Nadal <jorge.nadal@gmail.com>
+Date:   Wed Aug 27 18:56:00 2014 -0600
+
+    Todo bien
+
+[33mcommit 58e5e7745690d97bde295977208db8e10ea7f3bd[m
+Merge: 7a29ea5 c00bdcc
+Author: Lesmed Gutiérrez <lesmedgutiar.16@gmail.com>
+Date:   Wed Aug 27 18:55:44 2014 -0600
+
+    Merge branch '2014-08-technical-costa-rica' of github.com:/CLEARCORP/trainings into 2014-08-technical-costa-rica
+
+[33mcommit c00bdcc5f809004380208afb8c41e1e5a0ccbfe0[m
+Author: Oscar Gutierrez L <ogutierrez@transcomer.com>
+Date:   Wed Aug 27 18:53:19 2014 -0600
+
+    Mejoras
+
+[33mcommit 7a29ea582632de426aac2a7d4b5f87f62da7fa35[m
+Author: Lesmed Gutiérrez <lesmedgutiar.16@gmail.com>
+Date:   Wed Aug 27 18:53:18 2014 -0600
+
+    2014-08-27. Cambiols de las 7pm. funciones de v8, statusbar, constraint, buttons.
+
+[33mcommit 3a05c13a7af73c0c04634237e2089271309e82cb[m
+Merge: 17d30d5 cbae2e2
+Author: Carlos Vásquez <carlos.vasquez@clearcorp.co.cr>
+Date:   Wed Aug 27 18:52:39 2014 -0600
+
+    Merge branch '2014-08-technical-costa-rica' of github.com:/CLEARCORP/trainings into 2014-08-technical-costa-rica
+
+[33mcommit 17d30d54662aa07782b193cc03a0d23e5bc685fd[m
+Author: Carlos Vásquez <carlos.vasquez@clearcorp.co.cr>
+Date:   Wed Aug 27 18:52:27 2014 -0600
+
+    Constraints, buttons, api 8
+
+[33mcommit cbae2e2434e5b4d87c14471ddd04784e6bb87ae9[m
+Author: Oscar Gutierrez L <ogutierrez@transcomer.com>
+Date:   Wed Aug 27 18:47:08 2014 -0600
+
+    States
+
+[33mcommit d1a559574bc3c6cbba4dfcc422cbdb70baf6f84f[m
+Merge: 7506057 0597aec
+Author: Oscar Gutierrez L <ogutierrez@transcomer.com>
+Date:   Wed Aug 27 17:39:53 2014 -0600
+
+    Merge branch '2014-08-technical-costa-rica' of github.com:/CLEARCORP/trainings into 2014-08-technical-costa-rica
+
+[33mcommit 75060579ec3c2e214c39b2fa6b4b0f7531a090ef[m
+Author: Oscar Gutierrez L <ogutierrez@transcomer.com>
+Date:   Wed Aug 27 17:39:08 2014 -0600
+
+    Constraints on Total seats  and new students
+
+[33mcommit 0597aec736508e0c619fdef5be71898e79954523[m
+Author: Diego Alfaro <lda.190@gmail.com>
+Date:   Wed Aug 27 16:50:51 2014 -0600
+
+    Integracion de red only y is company
+
+[33mcommit 91f87fb3e63fd5bf8a25857186a2d626dda1ebc0[m
+Merge: 936003d f51b7c1
+Author: Diego Alfaro <lda.190@gmail.com>
+Date:   Wed Aug 27 16:50:36 2014 -0600
+
+    Merge branch '2014-08-technical-costa-rica' of github.com:/CLEARCORP/trainings into 2014-08-technical-costa-rica
+
+[33mcommit f51b7c1471c7dba1f4727c8282532fceacc37044[m
+Merge: 16ecbd3 026830f
+Author: Carlos Vásquez <carlos.vasquez@clearcorp.co.cr>
+Date:   Wed Aug 27 16:48:05 2014 -0600
+
+    Merge branch '2014-08-technical-costa-rica' of github.com:/CLEARCORP/trainings into 2014-08-technical-costa-rica
+
+[33mcommit 16ecbd32a3fc2696221e38ad49bdd1176343274c[m
+Author: Carlos Vásquez <carlos.vasquez@clearcorp.co.cr>
+Date:   Wed Aug 27 16:47:49 2014 -0600
+
+    Onchange, attrs
+
+[33mcommit 026830f3508c049a203f79459c44a65f95e9b2c7[m
+Author: Oscar Gutierrez L <ogutierrez@transcomer.com>
+Date:   Wed Aug 27 16:46:49 2014 -0600
+
+    Control de empresa estudiante
+
+[33mcommit b2e13f7a146c897eb6ef2946bdf2ed3dea48a14c[m
+Merge: 42a2853 02b6cbd
+Author: Lesmed Gutiérrez <lesmedgutiar.16@gmail.com>
+Date:   Wed Aug 27 12:59:43 2014 -0600
+
+    Merge branch '2014-08-technical-costa-rica' of github.com:/CLEARCORP/trainings into 2014-08-technical-costa-rica
+
+[33mcommit 02b6cbd40bc9a7d186f2766061a820c5f64350cf[m
+Merge: d9a66c2 5b972ee
+Author: Oscar Gutierrez L <ogutierrez@transcomer.com>
+Date:   Wed Aug 27 12:59:19 2014 -0600
+
+    Merge branch '2014-08-technical-costa-rica' of github.com:/CLEARCORP/trainings into 2014-08-technical-costa-rica
+
+[33mcommit d9a66c253d1d91085c495a223b7c17051a0f5f01[m
+Author: Oscar Gutierrez L <ogutierrez@transcomer.com>
+Date:   Wed Aug 27 12:58:49 2014 -0600
+
+    My courses and students
+
+[33mcommit 5b972eece2443470b66e52b3dbaabda4f11bc994[m
+Author: Jorge Nadal <jorge.nadal@gmail.com>
+Date:   Wed Aug 27 12:58:27 2014 -0600
+
+    Funcionando
+
+[33mcommit 42a2853457df15b9291c280b2b0eaa7ce13f2f58[m
+Author: Lesmed Gutiérrez <lesmedgutiar.16@gmail.com>
+Date:   Wed Aug 27 12:57:31 2014 -0600
+
+    2014-08-27 cambios de la 1pm.  defaults, where, partner
+
+[33mcommit e5a47b5e9d144d80933b072208700f586d15ac21[m
+Merge: 7f57130 ceca588
+Author: Carlos Vásquez <carlos.vasquez@clearcorp.co.cr>
+Date:   Wed Aug 27 12:57:25 2014 -0600
+
+    Merge branch '2014-08-technical-costa-rica' of github.com:/CLEARCORP/trainings into 2014-08-technical-costa-rica
+
+[33mcommit 7f5713070c91cc4a7baa96a4e0da828461ed1467[m
+Author: Carlos Vásquez <carlos.vasquez@clearcorp.co.cr>
+Date:   Wed Aug 27 12:56:57 2014 -0600
+
+    My courses, My students, dominio en students, defaults en curso.
+
+[33mcommit ceca58839b9960be255209858e21b045ea8f02c7[m
+Merge: d8705da ab72f95
+Author: Lesmed Gutiérrez <lesmedgutiar.16@gmail.com>
+Date:   Tue Aug 26 18:57:01 2014 -0600
+
+    Merge branch '2014-08-technical-costa-rica' of github.com:/CLEARCORP/trainings into 2014-08-technical-costa-rica
+
+[33mcommit d8705da1759ea64f25a751adea08104c1f41ea13[m
+Author: Lesmed Gutiérrez <lesmedgutiar.16@gmail.com>
+Date:   Tue Aug 26 18:55:57 2014 -0600
+
+    2014-08-26 cambios de las 7pm. calculo de capacidad de los cursos
+
+[33mcommit 936003da520437129973d7748ab7dc5d3b7ac633[m
+Author: Diego Alfaro <lda.190@gmail.com>
+Date:   Tue Aug 26 18:55:02 2014 -0600
+
+    Fuction disponibles y no disponibles
+
+[33mcommit ab72f95fce0f81bf0db586d5a113a3cdc6d9cc8a[m
+Merge: 2c20f54 3734eb8
+Author: Oscar Gutierrez L <ogutierrez@transcomer.com>
+Date:   Tue Aug 26 18:54:47 2014 -0600
+
+    Merge branch '2014-08-technical-costa-rica' of github.com:/CLEARCORP/trainings into 2014-08-technical-costa-rica
+
+[33mcommit 2c20f54fe705f6b98ff3a9f44c11da291314aee9[m
+Author: Oscar Gutierrez L <ogutierrez@transcomer.com>
+Date:   Tue Aug 26 18:53:30 2014 -0600
+
+    nuevo_modulo con available seats
+
+[33mcommit 3734eb889fea9b4f5d81fcbfd8dba2c8e1aacecf[m
+Merge: 7608e47 b6a11de
+Author: Jorge Nadal <jorge.nadal@gmail.com>
+Date:   Tue Aug 26 18:53:12 2014 -0600
+
+    Merge branch '2014-08-technical-costa-rica' of github.com:/CLEARCORP/trainings into 2014-08-technical-costa-rica
+
+[33mcommit 7608e47281d9ac2ded5f755238a08238d672f6d8[m
+Author: Jorge Nadal <jorge.nadal@gmail.com>
+Date:   Tue Aug 26 18:52:44 2014 -0600
+
+    Calculo de sitios en un solo metodo. Funciona
+
+[33mcommit b6a11de275f13f29a91528537a8f5d66dbcb8049[m
+Author: Carlos Vásquez <carlos.vasquez@clearcorp.co.cr>
+Date:   Tue Aug 26 18:52:19 2014 -0600
+
+    Método funcional único
+
+[33mcommit 1cdd02e5068ce8e0c664b3a6129231aa23750855[m
+Author: Carlos Vásquez <carlos.vasquez@clearcorp.co.cr>
+Date:   Tue Aug 26 17:50:05 2014 -0600
+
+    Campos funcionales
+
+[33mcommit 82ef480db298ee5525830a0cf807869bac47dde5[m
+Author: Lesmed Gutiérrez <lesmedgutiar.16@gmail.com>
+Date:   Tue Aug 26 17:31:34 2014 -0600
+
+    2014-08-26 cambios de las 5:30
+
+[33mcommit 2a4ae3e3b1dbfd6e0b2be0bb2e24c774d964e3db[m
+Merge: ae67917 c2388fc
+Author: Oscar Gutierrez L <ogutierrez@transcomer.com>
+Date:   Tue Aug 26 17:27:51 2014 -0600
+
+    Merge branch '2014-08-technical-costa-rica' of github.com:/CLEARCORP/trainings into 2014-08-technical-costa-rica
+
+[33mcommit c2388fc7901c9fd426bcd9a2294414f8608c2138[m
+Merge: 9da4fb7 4cb6972
+Author: Jorge Nadal <jorge.nadal@gmail.com>
+Date:   Tue Aug 26 17:27:24 2014 -0600
+
+    Merge branch '2014-08-technical-costa-rica' of github.com:/CLEARCORP/trainings into 2014-08-technical-costa-rica
+
+[33mcommit 9da4fb7de03ae2d5a490f95693176c6aefb46a2e[m
+Merge: a00de2b 0a0d445
+Author: Jorge Nadal <jorge.nadal@gmail.com>
+Date:   Tue Aug 26 17:26:52 2014 -0600
+
+    Merge branch '2014-08-technical-costa-rica' of github.com:/CLEARCORP/trainings into 2014-08-technical-costa-rica
+
+[33mcommit 4cb69724d760c09dcf146b7e205ce47d4d966dfe[m
+Merge: 438e279 0a0d445
+Author: Diego Alfaro <lda.190@gmail.com>
+Date:   Tue Aug 26 17:26:51 2014 -0600
+
+    Merge branch '2014-08-technical-costa-rica' of github.com:/CLEARCORP/trainings into 2014-08-technical-costa-rica
+
+[33mcommit 438e2795c5b185a4bfc10bacd2ff3ec7aff6421c[m
+Author: Diego Alfaro <lda.190@gmail.com>
+Date:   Tue Aug 26 17:25:59 2014 -0600
+
+    Agregador el teacher
+
+[33mcommit 0a0d4459f8f1f1c42b6f7c5915edbff4c0818472[m
+Merge: 032fe25 adcc910
+Author: Carlos Vásquez <carlos.vasquez@clearcorp.co.cr>
+Date:   Tue Aug 26 17:25:42 2014 -0600
+
+    Merge branch '2014-08-technical-costa-rica' of github.com:/CLEARCORP/trainings into 2014-08-technical-costa-rica
+
+[33mcommit ae67917049f38aa341ad2cf215ef5eac85492a7f[m
+Author: Oscar Gutierrez L <ogutierrez@transcomer.com>
+Date:   Tue Aug 26 17:25:37 2014 -0600
+
+    Actualiza nuevo_modulo con teachers
+
+[33mcommit a00de2ba1bb83b16b2c9de3ddd3b941627246bf5[m
+Author: Jorge Nadal <jorge.nadal@gmail.com>
+Date:   Tue Aug 26 17:25:33 2014 -0600
+
+    Added teacher to courses (system user)
+
+[33mcommit 032fe2551db8a161d010c0803e7999d32056e027[m
+Author: Carlos Vásquez <carlos.vasquez@clearcorp.co.cr>
+Date:   Tue Aug 26 17:20:18 2014 -0600
+
+    Ondeletes y teacher del curso
+
+[33mcommit adcc91084dfae1464703c619a72603befbf8b2bb[m
+Merge: 147ac15 292dc23
+Author: Lesmed Gutiérrez <lesmedgutiar.16@gmail.com>
+Date:   Tue Aug 26 17:01:07 2014 -0600
+
+    Merge branch '2014-08-technical-costa-rica' of github.com:/CLEARCORP/trainings into 2014-08-technical-costa-rica
+
+[33mcommit 292dc234037a1b33930df587f94ce3abfac8cfce[m
+Merge: 8fea6f1 1c87428
+Author: Diego Alfaro <lda.190@gmail.com>
+Date:   Tue Aug 26 16:58:50 2014 -0600
+
+    Merge branch '2014-08-technical-costa-rica' of github.com:/CLEARCORP/trainings into 2014-08-technical-costa-rica
+    
+    Conflicts:
+    	diego_dev/diego_dev.pyc
+
+[33mcommit 147ac1525edbdb1308246d24e78d72d08badd6bf[m
+Author: Lesmed Gutiérrez <lesmedgutiar.16@gmail.com>
+Date:   Tue Aug 26 16:58:11 2014 -0600
+
+    2014-08-26 Cambios de las 5pm. Students y Courses relacionados
+
+[33mcommit 8fea6f1cbf59c9df422286ffc890daa29ba8feb6[m
+Author: Diego Alfaro <lda.190@gmail.com>
+Date:   Tue Aug 26 16:56:37 2014 -0600
+
+    Last commit
+
+[33mcommit 1c87428626e54be033a264e773a6f2bbf2447887[m
+Author: Carlos Vásquez <carlos.vasquez@clearcorp.co.cr>
+Date:   Tue Aug 26 16:52:46 2014 -0600
+
+    Enlace entre student y course
+
+[33mcommit 609f3a4b25ae6af70040bab9ecafa4a25f534efb[m
+Author: Lesmed Gutiérrez <lesmedgutiar.16@gmail.com>
+Date:   Tue Aug 26 16:01:34 2014 -0600
+
+    view actualizado
+
+[33mcommit f0e8c14e78ae20115164d49f07aef8f6cb537dea[m
+Author: Lesmed Gutiérrez <lesmedgutiar.16@gmail.com>
+Date:   Tue Aug 26 15:57:59 2014 -0600
+
+    2014-08-26 cambios de las 4pm, session y courses  relacionados
+
+[33mcommit a935626ca606b9bd19facb091250710afec40929[m
+Author: Carlos Vásquez <carlos.vasquez@clearcorp.co.cr>
+Date:   Tue Aug 26 15:56:01 2014 -0600
+
+    Conexión entre session y course.
+
+[33mcommit 13eccb94f32c7de3a1146f3a1f70a53c2d0023b1[m
+Author: Carlos Vásquez <carlos.vasquez@clearcorp.co.cr>
+Date:   Tue Aug 26 15:35:08 2014 -0600
+
+    Quitar .pyc de Diego
+
+[33mcommit 15983e034ed9e9d5a6e7fda886f48a5af40b0aba[m
+Merge: ac36606 7a836a0
+Author: Carlos Vásquez <carlos.vasquez@clearcorp.co.cr>
+Date:   Tue Aug 26 15:30:38 2014 -0600
+
+    Merge pull request #5 from CLEARCORP/diego-CTEC
+    
+    Push new
+
+[33mcommit 7a836a03e81aa648573f393113283c5d3342a4f9[m
+Author: Diego Alfaro <lda.190@gmail.com>
+Date:   Tue Aug 26 15:24:56 2014 -0600
+
+    Win
+
+[33mcommit ac3660610d7120fa392c139f1f1d21503963f268[m
+Merge: 9775b0c a92e4d4
+Author: Carlos Vásquez <carlos.vasquez@clearcorp.co.cr>
+Date:   Tue Aug 26 15:15:37 2014 -0600
+
+    Merge pull request #4 from CLEARCORP/lesmed-CTEC
+    
+    Lesmed ctec
+
+[33mcommit 9775b0c1995ce602d2555978330d9646a7e8b01a[m
+Merge: aa7b5ef e2b1e45
+Author: Carlos Vásquez <carlos.vasquez@clearcorp.co.cr>
+Date:   Tue Aug 26 15:12:29 2014 -0600
+
+    Merge pull request #3 from CLEARCORP/Oscar
+    
+    Oscar
+
+[33mcommit aa7b5ef2eee9c5e7de99528c6458ec56faf14e92[m
+Merge: 3022418 aa08141
+Author: Carlos Vásquez <carlos.vasquez@clearcorp.co.cr>
+Date:   Tue Aug 26 15:12:16 2014 -0600
+
+    Merge pull request #2 from CLEARCORP/jornamon
+    
+    Jornamon
+
+[33mcommit aa0814126608ea1e8d2175cf46e164c42a85817c[m
+Author: Jorge Nadal <jorge.nadal@gmail.com>
+Date:   Tue Aug 26 15:06:17 2014 -0600
+
+    New classes views actions and menu items for Students and CourseSessions
+
+[33mcommit a92e4d4679f5a4febdfa8006609f357459a383c2[m
+Author: Lesmed Gutiérrez <lesmedgutiar.16@gmail.com>
+Date:   Tue Aug 26 15:06:12 2014 -0600
+
+    2014-08-26 cambios de las 3pm
+
+[33mcommit e2b1e457175c9725364ece8d998a1a3b0d788f76[m
+Author: Oscar Gutierrez L <ogutierrez@transcomer.com>
+Date:   Tue Aug 26 15:05:50 2014 -0600
+
+    SE incluyen Students y Sessions
+
+[33mcommit 59b2203dca66c7202159d02da3a5ea78960ce71c[m
+Author: Diego Alfaro <lda.190@gmail.com>
+Date:   Tue Aug 26 14:44:06 2014 -0600
+
+    Clases con algo que le falta
+
+[33mcommit 30224180adfa4a90d01eacef0ef793658b5b4ddd[m
+Author: Carlos Vásquez <carlos.vasquez@clearcorp.co.cr>
+Date:   Tue Aug 26 14:39:30 2014 -0600
+
+    Nuevas clases session y student, con sus vistas.
+
+[33mcommit 5207afa04678ff5a79f407643f8a61adcdd55f69[m
+Author: Diego Alfaro <lda.190@gmail.com>
+Date:   Tue Aug 26 12:57:13 2014 -0600
+
+    Agregado lineas al XML
+
+[33mcommit ebd3954b4a5b333fa99a44bffffc6e4b78e191e1[m
+Author: Lesmed Gutiérrez <lesmedgutiar.16@gmail.com>
+Date:   Tue Aug 26 12:55:41 2014 -0600
+
+    2014-08-26 cambios de la 1pm
+
+[33mcommit 705bfff50f4ee70e7a2611a45197b82d294e9f40[m
+Author: Carlos Vásquez <carlos.vasquez@clearcorp.co.cr>
+Date:   Tue Aug 26 12:55:08 2014 -0600
+
+    Vista de course form y tree
+
+[33mcommit 42a67d0fc40d0b318862e678c5e4ac2c001e1e75[m
+Author: Oscar Gutierrez L <ogutierrez@transcomer.com>
+Date:   Tue Aug 26 12:54:51 2014 -0600
+
+    Formato actualizado de la vista
+
+[33mcommit 6954a285f2611d1998fdac03385737e92fa2725b[m
+Author: Jorge Nadal <jorge.nadal@gmail.com>
+Date:   Tue Aug 26 12:54:42 2014 -0600
+
+    Improves in course view
+
+[33mcommit 23e556eaf007dba5f82aedf9459c31bb0b7e6f4d[m
+Author: Lesmed Gutiérrez <lesmedgutiar.16@gmail.com>
+Date:   Tue Aug 26 11:50:50 2014 -0600
+
+    2014-08-26 cambios del medio dia
+
+[33mcommit f96b962b7f77d66fe05c5a9222f3a234cb3c6670[m
+Author: Jorge Nadal <jorge.nadal@gmail.com>
+Date:   Tue Aug 26 11:50:50 2014 -0600
+
+    New menu and window action
+
+[33mcommit 1014396abf23261fc5ba54314878b0bdb5120424[m
+Author: Diego Alfaro <lda.190@gmail.com>
+Date:   Tue Aug 26 11:50:12 2014 -0600
+
+    Nuevo objetos courses, ya hay un menu y una accion para la vista
+
+[33mcommit 1ed2d56e7dd5d22fa093073fd7c9b4eaa24e498b[m
+Author: Oscar Gutierrez L <ogutierrez@transcomer.com>
+Date:   Tue Aug 26 11:49:55 2014 -0600
+
+    Nuevo objeto course, con menu y accion para el objeto
+
+[33mcommit b5925218dd9e2f7d59ec513d2ab1986db216bf28[m
+Author: Carlos Vásquez <carlos.vasquez@clearcorp.co.cr>
+Date:   Tue Aug 26 11:49:48 2014 -0600
+
+    Nuevo objeto courses, ya hay un menú y una acción para el objeto.
+
+[33mcommit 58c1cdb460e59401ce0279f1ba5e68f0d06109e7[m
+Merge: 2f2154b 756dd9b
+Author: Carlos Vásquez <carlos.vasquez@clearcorp.co.cr>
+Date:   Mon Aug 25 18:47:50 2014 -0600
+
+    Merge pull request #1 from CLEARCORP/diego-CTEC
+    
+    Version incial del modulo diego-dev, no hace nada por ahora, pero si apa...
+
+[33mcommit a361aa5038fe4d1e25d409d0d6de78fc0a20cccf[m
+Author: Lesmed Gutiérrez <lesmedgutiar.16@gmail.com>
+Date:   Mon Aug 25 18:40:30 2014 -0600
+
+    Primera version de eLearning, Lesmed Gutiérrez.xD
+
+[33mcommit d53f1f70680fef812e1cc35233691dfc67e763b0[m
+Author: Oscar Gutierrez L <ogutierrez@transcomer.com>
+Date:   Mon Aug 25 18:36:20 2014 -0600
+
+    Version inicial del modulo nuevo-modulo
+
+[33mcommit 756dd9bd42bb4401843e673a70ae390c89a78006[m
+Author: Diego Alfaro <lda.190@gmail.com>
+Date:   Mon Aug 25 18:35:51 2014 -0600
+
+    Version incial del modulo diego-dev, no hace nada por ahora, pero si aparece en la lista
+
+[33mcommit c29e4111a8c28955428865a02f5a1c08d6ad83b0[m
+Author: Jorge Nadal <jorge.nadal@gmail.com>
+Date:   Mon Aug 25 18:35:46 2014 -0600
+
+    Versión inicial del módulo jornamon. No hace nada, pero ya carga correctamente en la lista de módulos.
+
+[33mcommit 2f2154b20539f500d0ad5a8209556c8ddae8a16d[m
+Author: Carlos Vásquez <carlos.vasquez@clearcorp.co.cr>
+Date:   Mon Aug 25 18:35:39 2014 -0600
+
+    Versión inicial del módulo cv-clearcorp, no hace nada por ahora, pero sí aparece en la lista.
+
+[33mcommit 0aaa8695da0f65e256668b85ff15dda7f98f3ca6[m
+Author: Carlos Vásquez <carlos.vasquez@clearcorp.co.cr>
+Date:   Mon Aug 25 12:51:51 2014 -0600
+
+    Initial commit

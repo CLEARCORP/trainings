@@ -1,0 +1,7 @@
+id,code,description,name,teacher_id/id,total_seats
+__export__.nuevo_modulo_course_1,CE,Este es el detalle del curso de entrenamiento,Curso de Entrenamiento,base.user_root,4
+__export__.nuevo_modulo_course_2,CP,Este es el detalle del curso de practica,Curso de practica,__export__.res_users_4,8
+,TE1,Este es un curso teorico 001,Curso teorico 001,,10
+,TE2,Este es un curso teorico 002,Curso teorico 002,,15
+,TE3,Este es un curso teorico 003,Curso teorico 003,,20
+,TE4,Este es un curso teorico 004,Curso teorico 004,,20

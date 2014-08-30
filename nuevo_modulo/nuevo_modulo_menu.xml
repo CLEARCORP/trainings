@@ -3,13 +3,14 @@
     <data>
     	<menuitem id="menu_elearning" name="eLearning" sequence="20"/>
 		<menuitem id="menu_elearning_sub" name="eLearning" parent="menu_elearning" sequence="1"/>
-		<menuitem id="menu_elearning_teacher" name="Teachers" parent="menu_elearning" sequence="5"/>
-		<menuitem id="menu_elearning_conf" name="Configuration" parent="menu_elearning_sub" sequence="50"/>
+		<menuitem id="menu_elearning_teacher" name="Teachers" parent="menu_elearning" sequence="5" groups="group_nuevo_modulo_teacher"/>
+		<menuitem id="menu_elearning_conf" name="Configuration" parent="menu_elearning_sub" sequence="50" groups="group_nuevo_modulo_admin"/>
 		
 		<menuitem id="menu_elearning_courses" name="Courses" parent="menu_elearning_conf" action="action_elearning_courses" sequence="1"/>
 		<menuitem id="menu_elearning_mycourses" name="My Courses" parent="menu_elearning_teacher" action="action_elearning_mycourses" sequence="1"/>
 		<menuitem id="menu_elearning_mystudents" name="My students" parent="menu_elearning_teacher" action="action_elearning_mystudents" sequence="1"/>
 		<menuitem id="menu_elearning_sessions" name="Sessions" parent="menu_elearning_sub" action="action_elearning_sessions" sequence="1"/>
 		<menuitem id="menu_elearning_students" name="Students" parent="menu_elearning_sub" action="action_elearning_students" sequence="2"/>
+		<menuitem id="menu_elearning_wizard" name="Wizard add students to sessions" parent="menu_elearning_sub"  groups="group_nuevo_modulo_admin" action="action_elearning_session_wizard" sequence="2"/>
 	</data>
 </openerp>

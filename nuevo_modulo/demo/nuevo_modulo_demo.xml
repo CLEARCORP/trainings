@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+	<data noupdate="1">
+		<record id="course_ci_1234" model="nuevo_modulo.course">
+			<field name="name">Ingles 2</field>
+			<field name="code">CI1234</field>
+			<field name="total_seats">20</field>
+			<field name="Description">Curso de Ingles 2</field>
+			<field name="teacher_id" ref="base.user_root"/>
+		</record>
+	</data>
+</openerp>
