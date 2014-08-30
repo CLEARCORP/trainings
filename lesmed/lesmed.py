@@ -3,6 +3,8 @@
 from openerp import api
 from openerp.osv import osv, fields
 
+from  datetime import datetime, timedelta
+
 
 #las clases en python tienen que empezar con mayuscula en cada palabra
 class Course (osv.Model):
@@ -144,6 +146,19 @@ class CourseSession (osv.Model):
     def button_reset(self):
         self.state = 'draft'
         return True
+    
+    
+    
+    
+    @api.multi
+    def get_end_time(self, field_names, arg):
+        res= {}
+        for session in self:
+            end_time = (datetime.strptime(session.start_time, '%Y-%m-%d %H:%M:%S') + timedelta(hours = session.duration))
+            res[session.id] = datetime.srtftime(end_time, '%Y-%m-%d %H:%M:%S')
+            return res
+    
+        
 
         
         
@@ -158,6 +173,7 @@ class CourseSession (osv.Model):
         'teacher_id' : fields.related('course_id', 'teacher_id', type="many2one", relation = 'res.users',string = "Teacher", readonly = "True"),
         
         'occupied_seats' : fields.related('course_id','occupied_seats' ,type = "float", relation = 'res.users', string = 'Expected students', readonly = "True"),
+        'duration' : fields.float('Duration', digits = (2,1), states = {'draft': [('readonly', False)]}),
         
                 }
     _rec_name ='subject'

@@ -19,10 +19,13 @@ This app is only for testing purposes. Most liely it will never do something use
     'depends' : [],
     'data' : [
         'jornamon_view.xml',
-        'jornamon_menu.xml',          
-              ],
+        'jornamon_menu.xml',           
+        ],
     'qweb' : [],
-    'demo' : [],
+    'demo' : [
+        'demo/jornamon_demo.xml',
+        'demo/jornamon.course.csv', 
+        ],
     'test' : [],
     'installable' : True,
     'auto_install' : False,  

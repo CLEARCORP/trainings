@@ -171,11 +171,15 @@
                 	
                 	<label for="subject" class="oe_edit_only" string="Session subject:"/>
                 	<h1>
-						<field name="subject" class="oe_inline"/>             		
+						<field name="subject" class="oe_inline"/>     
+						<!-- <field name="subject" class="oe_inline" attrs="{'readonly': '[('state','in','['pending','open','done','canceled'])]'}"/> -->             		
+												        		
                 	</h1>
                 		<group col="4">
                 			<group col="2" colspan="2">
  								<field name="course_id"/>
+ 								<field name="teacher_id"/>
+ 								<field name="occupied_seats"/>
  							</group>
                 			<group col="2">
  								<field name="start_time"/>
@@ -199,11 +203,79 @@
                 </tree>
             </field>
         </record>
+        
+        <record id="view_elearning_course_session_calendar" model="ir.ui.view">
+            <field name="name">Course Session</field>
+            <field name="model">jornamon.course.session</field>
+            <field name="arch" type="xml">
+            	<calendar string="Courses" date_start="start_time" date_stop="end_time" color="teacher_id">
+                    <field name="subject"/>
+                </calendar>
+            </field>
+        </record>
+        
+        <record id="view_elearning_course_session_search" model="ir.ui.view">
+            <field name="name">jornamon.course.session.search</field>
+            <field name="model">jornamon.course.session</field>
+            <field name="arch" type="xml">
+            	<search string="Sessions search">
+                    <field name="subject"/>
+                    <field name="course_id"/>
+                    <field name="teacher_id"/>
+                    <filter name="draft_sessions" 
+                    	string="Draft Sessions"
+                    	help="Filter the draft sessions"
+                    	domain="[('state','=','draft')]">
+                    </filter>
+                    <filter name="pending_sessions" 
+                    	string="Pending Sessions"
+                    	help="Filter the pending sessions"
+                    	domain="[('state','=','pending')]">
+                    </filter>
+                    <filter name="open_sessions" 
+                    	string="open Sessions"
+                    	help="Filter the open sessions"
+                    	domain="[('state','=','open')]">
+                    </filter>
+                    <!-- Este <separator/> divide los filtros en grupo, para que figuren independientes entre sí, como un AND-->
+                    <separator/>
+                    <filter name="current_month" 
+                    	string="Current month"
+                    	help="Filter current month"
+                    	domain="['&amp;',('start_time','&lt;=',time.strftime('%Y-%m-31')),('start_time','&gt;=',time.strftime('%Y-%m-01'))]">
+                    </filter>
+                    <group string="Group By">
+	                    <filter name="course_id_group"
+	                    		string="Course"
+	                    		help="Group sessions by course"
+	                    		context="{'group_by':'course_id'}">
+	                    </filter>
+	                    <filter name="teacher_id_group"
+	                    		string="Teacher"
+	                    		help="Group sessions by teacher"
+	                    		context="{'group_by':'teacher_id'}">
+	                    </filter>
+	                    <filter name="month_group"
+	                    		string="Month"
+	                    		help="Group sessions by Date"
+	                    		context="{'group_by':'start_time'}">
+	                    </filter>
+	                    <filter name="state_group"
+	                    		string="State"
+	                    		help="Group sessions by State"
+	                    		context="{'group_by':'state'}">
+	                    </filter>
+                    </group>
+             </search>
+            </field>
+        </record>
+        
         <record id="action_elearning_course_session" model="ir.actions.act_window">
             <field name="name">Sessions</field>
             <field name="res_model">jornamon.course.session</field>
             <field name="view_type">form</field>
-            <field name="view_mode">tree,form</field>
+            <field name="view_mode">calendar,tree,form</field>
+            <field name="search_vie_id" ref="view_elearning_course_session_search"/>
             <field name="help" type="html">
               <p class="oe_view_nocontent_create">
                 Click to create a new session.

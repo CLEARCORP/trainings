@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data noupdate="1">
+    	<record id="course_ci_1213" model="cv_clearcorp.course">
+    		<field name="name">Inglés 2</field>
+    		<field name="code">CI-1312</field>
+    		<field name="total_seats">40</field>
+    		<field name="description">Inglés para computación 2</field>
+    		<field name="teacher_id" ref="base.user_root"/>
+    	</record>
+	</data>
+</openerp>

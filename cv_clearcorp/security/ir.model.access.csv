@@ -1,0 +1,16 @@
+id,name,model_id/id,group_id/id,perm_read,perm_write,perm_create,perm_unlink
+,,cv_clearcorp.course,group_cv_clearcorp_user,1,0,0,0
+,,cv_clearcorp.course.session,group_cv_clearcorp_user,1,0,0,0
+,,cv_clearcorp.course.session.wizard,group_cv_clearcorp_user,0,0,0,0
+,,cv_clearcorp.course.session.wizard.sessions,group_cv_clearcorp_user,0,0,0,0
+,,cv_clearcorp.course.session.wizard.students,group_cv_clearcorp_user,0,0,0,0
+,,cv_clearcorp.course,group_cv_clearcorp_teacher,1,0,0,0
+,,cv_clearcorp.course.session,group_cv_clearcorp_teacher,1,1,1,1
+,,cv_clearcorp.course.session.wizard,group_cv_clearcorp_teacher,1,1,1,1
+,,cv_clearcorp.course.session.wizard.sessions,group_cv_clearcorp_teacher,1,1,1,1
+,,cv_clearcorp.course.session.wizard.students,group_cv_clearcorp_teacher,1,1,1,1
+,,cv_clearcorp.course,group_cv_clearcorp_admin,1,1,1,1
+,,cv_clearcorp.course.session,group_cv_clearcorp_admin,1,1,1,1
+,,cv_clearcorp.course.session.wizard,group_cv_clearcorp_admin,1,1,1,1
+,,cv_clearcorp.course.session.wizard.sessions,group_cv_clearcorp_admin,1,1,1,1
+,,cv_clearcorp.course.session.wizard.students,group_cv_clearcorp_admin,1,1,1,1

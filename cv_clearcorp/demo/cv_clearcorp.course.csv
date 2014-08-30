@@ -1,0 +1,9 @@
+id,code,name,total_seats,description,,teacher_id/id
+__export__.cv_clearcorp_course_1,CTP-TEC,Odoo Technical Certification,10,Curso técnico de Odoo. San Carlos 2014.,Administrator,base.user_root
+__export__.cv_clearcorp_course_2,CTP-FUN,Funcional,12,Curso funcional de Odoo. San Carlos 2014.,Ronald Rubí,__export__.res_users_4
+,CI-1312,Inglés 2,40,Inglés para computación 2,Jorge Nadal,__export__.res_users_5
+,SH-0022,Centro de formación humanística,60,Formación general para todas las carreras,Oscar Gutiérrez,__export__.res_users_6
+,IC-2000,Datos 1,25,Estructuras de datos I,Diego Alfaro,__export__.res_users_7
+,IC-2100,OCLE,25,Organización de computadores y lenguaje ensamblador,Jorge Nadal,__export__.res_users_5
+,MA-1404,Cálculo,40,Cálculo para computación,Jorge Nadal,__export__.res_users_5
+,SE-1220,Actividad deportiva,35,Actividad a escoger,Diego Alfaro,__export__.res_users_9

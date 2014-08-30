@@ -1,0 +1,408 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+#	* cv_clearcorp
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 8.0rc1\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2014-08-29 18:55+0000\n"
+"PO-Revision-Date: 2014-08-29 18:55+0000\n"
+"Last-Translator: <>\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: cv_clearcorp
+#: model:ir.actions.act_window,help:cv_clearcorp.action_elearning_courses
+#: model:ir.actions.act_window,help:cv_clearcorp.action_elearning_my_courses
+msgid "<p class=\"oe_view_nocontent_create\">\n"
+"                Click to create a new course.\n"
+"              </p><p>\n"
+"                Set your courses here.\n"
+"              </p>\n"
+"            "
+msgstr ""
+
+#. module: cv_clearcorp
+#: model:ir.actions.act_window,help:cv_clearcorp.action_elearning_session
+msgid "<p class=\"oe_view_nocontent_create\">\n"
+"                Click to create a new session.\n"
+"              </p><p>\n"
+"                Set your sessions here.\n"
+"              </p>\n"
+"            "
+msgstr ""
+
+#. module: cv_clearcorp
+#: model:ir.actions.act_window,help:cv_clearcorp.action_elearning_my_students
+#: model:ir.actions.act_window,help:cv_clearcorp.action_elearning_student
+msgid "<p class=\"oe_view_nocontent_create\">\n"
+"                Click to register a new student.\n"
+"              </p>\n"
+"            "
+msgstr ""
+
+#. module: cv_clearcorp
+#: view:cv_clearcorp.course.session:cv_clearcorp.view_elearning_course_session_form
+msgid "Approve"
+msgstr ""
+
+#. module: cv_clearcorp
+#: field:cv_clearcorp.course,available_seats:0
+msgid "Available seats"
+msgstr ""
+
+#. module: cv_clearcorp
+#: field:res.partner,birthday:0
+msgid "Birthday"
+msgstr ""
+
+#. module: cv_clearcorp
+#: view:cv_clearcorp.course.session:cv_clearcorp.view_elearning_course_session_form
+msgid "Cancel"
+msgstr ""
+
+#. module: cv_clearcorp
+#: selection:cv_clearcorp.course.session,state:0
+msgid "Canceled"
+msgstr ""
+
+#. module: cv_clearcorp
+#: field:cv_clearcorp.course,code:0
+msgid "Code"
+msgstr ""
+
+#. module: cv_clearcorp
+#: field:cv_clearcorp.course.session,color:0
+msgid "Color"
+msgstr ""
+
+#. module: cv_clearcorp
+#: model:ir.ui.menu,name:cv_clearcorp.menu_elearning_conf
+msgid "Configuration"
+msgstr ""
+
+#. module: cv_clearcorp
+#: view:cv_clearcorp.course:cv_clearcorp.view_elearning_course_form
+#: view:cv_clearcorp.course.session:cv_clearcorp.view_elearning_course_session_search
+#: field:cv_clearcorp.course.session,course_id:0
+msgid "Course"
+msgstr ""
+
+#. module: cv_clearcorp
+#: view:cv_clearcorp.course:cv_clearcorp.view_elearning_course_form
+msgid "Course code and name:"
+msgstr ""
+
+#. module: cv_clearcorp
+#: view:cv_clearcorp.course:cv_clearcorp.view_elearning_course_tree
+#: model:ir.actions.act_window,name:cv_clearcorp.action_elearning_courses
+#: model:ir.ui.menu,name:cv_clearcorp.menu_elearning_courses
+#: field:res.partner,course_ids:0
+msgid "Courses"
+msgstr ""
+
+#. module: cv_clearcorp
+#: field:cv_clearcorp.course,create_uid:0
+#: field:cv_clearcorp.course.session,create_uid:0
+msgid "Created by"
+msgstr ""
+
+#. module: cv_clearcorp
+#: field:cv_clearcorp.course,create_date:0
+#: field:cv_clearcorp.course.session,create_date:0
+msgid "Created on"
+msgstr ""
+
+#. module: cv_clearcorp
+#: view:cv_clearcorp.course.session:cv_clearcorp.view_elearning_course_session_search
+msgid "Current Session"
+msgstr ""
+
+#. module: cv_clearcorp
+#: view:cv_clearcorp.course.session:cv_clearcorp.view_elearning_course_session_search
+msgid "Current month Session"
+msgstr ""
+
+#. module: cv_clearcorp
+#: view:cv_clearcorp.course.session:cv_clearcorp.view_elearning_course_session_kanban
+msgid "Delete"
+msgstr ""
+
+#. module: cv_clearcorp
+#: view:cv_clearcorp.course:cv_clearcorp.view_elearning_course_form
+#: field:cv_clearcorp.course,description:0
+msgid "Description"
+msgstr ""
+
+#. module: cv_clearcorp
+#: view:cv_clearcorp.course.session:cv_clearcorp.view_elearning_course_session_form
+#: selection:cv_clearcorp.course.session,state:0
+msgid "Done"
+msgstr ""
+
+#. module: cv_clearcorp
+#: selection:cv_clearcorp.course.session,state:0
+msgid "Draft"
+msgstr ""
+
+#. module: cv_clearcorp
+#: view:cv_clearcorp.course.session:cv_clearcorp.view_elearning_course_session_search
+msgid "Draft Session"
+msgstr ""
+
+#. module: cv_clearcorp
+#: field:cv_clearcorp.course.session,duration:0
+msgid "Duration"
+msgstr ""
+
+#. module: cv_clearcorp
+#: field:cv_clearcorp.course.session,end_time:0
+msgid "End time"
+msgstr ""
+
+#. module: cv_clearcorp
+#: field:cv_clearcorp.course.session,occupied_seats:0
+msgid "Expected students"
+msgstr ""
+
+#. module: cv_clearcorp
+#: view:cv_clearcorp.course.session:cv_clearcorp.view_elearning_course_session_search
+msgid "Filter the current month sessions"
+msgstr ""
+
+#. module: cv_clearcorp
+#: view:cv_clearcorp.course.session:cv_clearcorp.view_elearning_course_session_search
+msgid "Filter the current sessions"
+msgstr ""
+
+#. module: cv_clearcorp
+#: view:cv_clearcorp.course.session:cv_clearcorp.view_elearning_course_session_search
+msgid "Filter the draft sessions"
+msgstr ""
+
+#. module: cv_clearcorp
+#: view:cv_clearcorp.course.session:cv_clearcorp.view_elearning_course_session_search
+msgid "Filter the pending sessions"
+msgstr ""
+
+#. module: cv_clearcorp
+#: view:cv_clearcorp.course.session:cv_clearcorp.view_elearning_course_session_search
+msgid "Group By"
+msgstr ""
+
+#. module: cv_clearcorp
+#: view:cv_clearcorp.course.session:cv_clearcorp.view_elearning_course_session_search
+msgid "Group sessions by course"
+msgstr ""
+
+#. module: cv_clearcorp
+#: view:cv_clearcorp.course.session:cv_clearcorp.view_elearning_course_session_search
+msgid "Group sessions by month"
+msgstr ""
+
+#. module: cv_clearcorp
+#: view:cv_clearcorp.course.session:cv_clearcorp.view_elearning_course_session_search
+msgid "Group sessions by state"
+msgstr ""
+
+#. module: cv_clearcorp
+#: view:cv_clearcorp.course.session:cv_clearcorp.view_elearning_course_session_search
+msgid "Group sessions by teacher"
+msgstr ""
+
+#. module: cv_clearcorp
+#: field:cv_clearcorp.course,id:0
+#: field:cv_clearcorp.course.session,id:0
+msgid "ID"
+msgstr ""
+
+#. module: cv_clearcorp
+#: field:cv_clearcorp.course,write_uid:0
+#: field:cv_clearcorp.course.session,write_uid:0
+msgid "Last Updated by"
+msgstr ""
+
+#. module: cv_clearcorp
+#: field:cv_clearcorp.course,write_date:0
+#: field:cv_clearcorp.course.session,write_date:0
+msgid "Last Updated on"
+msgstr ""
+
+#. module: cv_clearcorp
+#: view:cv_clearcorp.course.session:cv_clearcorp.view_elearning_course_session_search
+msgid "Month"
+msgstr ""
+
+#. module: cv_clearcorp
+#: model:ir.actions.act_window,name:cv_clearcorp.action_elearning_my_courses
+#: model:ir.ui.menu,name:cv_clearcorp.menu_elearning_my_courses
+msgid "My Courses"
+msgstr ""
+
+#. module: cv_clearcorp
+#: model:ir.actions.act_window,name:cv_clearcorp.action_elearning_my_students
+#: model:ir.ui.menu,name:cv_clearcorp.menu_elearning_my_students
+msgid "My Students"
+msgstr ""
+
+#. module: cv_clearcorp
+#: field:cv_clearcorp.course,name:0
+msgid "Name"
+msgstr ""
+
+#. module: cv_clearcorp
+#: field:cv_clearcorp.course,occupied_seats:0
+msgid "Occupied seats"
+msgstr ""
+
+#. module: cv_clearcorp
+#: selection:cv_clearcorp.course.session,state:0
+msgid "Open"
+msgstr ""
+
+#. module: cv_clearcorp
+#: model:ir.model,name:cv_clearcorp.model_res_partner
+msgid "Partner"
+msgstr ""
+
+#. module: cv_clearcorp
+#: selection:cv_clearcorp.course.session,state:0
+msgid "Pending"
+msgstr ""
+
+#. module: cv_clearcorp
+#: view:cv_clearcorp.course.session:cv_clearcorp.view_elearning_course_session_search
+msgid "Pending Session"
+msgstr ""
+
+#. module: cv_clearcorp
+#: field:cv_clearcorp.course,occupation_percentage:0
+msgid "Percentage of occupied seats"
+msgstr ""
+
+#. module: cv_clearcorp
+#: view:cv_clearcorp.course.session:cv_clearcorp.view_elearning_course_session_form
+msgid "Reset to draft"
+msgstr ""
+
+#. module: cv_clearcorp
+#: view:cv_clearcorp.course.session:cv_clearcorp.view_elearning_course_session_form
+msgid "Session subject:"
+msgstr ""
+
+#. module: cv_clearcorp
+#: view:cv_clearcorp.course:cv_clearcorp.view_elearning_course_form
+#: field:cv_clearcorp.course,session_ids:0
+#: view:cv_clearcorp.course.session:cv_clearcorp.view_elearning_course_session_calendar
+#: view:cv_clearcorp.course.session:cv_clearcorp.view_elearning_course_session_form
+#: view:cv_clearcorp.course.session:cv_clearcorp.view_elearning_course_session_gantt
+#: view:cv_clearcorp.course.session:cv_clearcorp.view_elearning_course_session_graph
+#: view:cv_clearcorp.course.session:cv_clearcorp.view_elearning_course_session_tree
+#: model:ir.actions.act_window,name:cv_clearcorp.action_elearning_session
+#: model:ir.ui.menu,name:cv_clearcorp.menu_elearning_course_sessions
+msgid "Sessions"
+msgstr ""
+
+#. module: cv_clearcorp
+#: view:cv_clearcorp.course.session:cv_clearcorp.view_elearning_course_session_search
+msgid "Sessions search"
+msgstr ""
+
+#. module: cv_clearcorp
+#: view:cv_clearcorp.course.session:cv_clearcorp.view_elearning_course_session_form
+msgid "Start"
+msgstr ""
+
+#. module: cv_clearcorp
+#: field:cv_clearcorp.course.session,start_time:0
+msgid "Start time"
+msgstr ""
+
+#. module: cv_clearcorp
+#: view:cv_clearcorp.course.session:cv_clearcorp.view_elearning_course_session_search
+#: field:cv_clearcorp.course.session,state:0
+msgid "State"
+msgstr ""
+
+#. module: cv_clearcorp
+#: field:res.partner,student:0
+msgid "Student"
+msgstr ""
+
+#. module: cv_clearcorp
+#: field:res.partner,student_code:0
+msgid "Student code"
+msgstr ""
+
+#. module: cv_clearcorp
+#: view:cv_clearcorp.course:cv_clearcorp.view_elearning_course_form
+#: field:cv_clearcorp.course,student_ids:0
+#: model:ir.actions.act_window,name:cv_clearcorp.action_elearning_student
+#: model:ir.ui.menu,name:cv_clearcorp.menu_elearning_students
+msgid "Students"
+msgstr ""
+
+#. module: cv_clearcorp
+#: field:cv_clearcorp.course.session,subject:0
+msgid "Subject"
+msgstr ""
+
+#. module: cv_clearcorp
+#: field:cv_clearcorp.course,teacher_id:0
+#: view:cv_clearcorp.course.session:cv_clearcorp.view_elearning_course_session_search
+#: field:cv_clearcorp.course.session,teacher_id:0
+msgid "Teacher"
+msgstr ""
+
+#. module: cv_clearcorp
+#: model:ir.ui.menu,name:cv_clearcorp.menu_elearning_teacher
+msgid "Teachers"
+msgstr ""
+
+#. module: cv_clearcorp
+#: constraint:cv_clearcorp.course:0
+msgid "The course has more students than seats."
+msgstr ""
+
+#. module: cv_clearcorp
+#: sql_constraint:cv_clearcorp.course:0
+msgid "The course's total seats must be a positive number."
+msgstr ""
+
+#. module: cv_clearcorp
+#: view:cv_clearcorp.course:cv_clearcorp.view_elearning_course_tree
+#: field:cv_clearcorp.course,total_seats:0
+msgid "Total seats"
+msgstr ""
+
+#. module: cv_clearcorp
+#: constraint:cv_clearcorp.course:0
+msgid "You cannot set a total seats limit under the number of actual students."
+msgstr ""
+
+#. module: cv_clearcorp
+#: model:ir.ui.menu,name:cv_clearcorp.menu_elearning
+#: model:ir.ui.menu,name:cv_clearcorp.menu_elearning_sub
+#: view:res.partner:cv_clearcorp.view_res_partner_form_student
+msgid "eLearning"
+msgstr ""
+
+#. module: cv_clearcorp
+#: view:cv_clearcorp.course.session:cv_clearcorp.view_elearning_course_session_kanban
+msgid "hours"
+msgstr ""
+
+#. module: cv_clearcorp
+#: view:res.partner:cv_clearcorp.view_res_partner_form_student
+msgid "on_change_is_company(is_company, student)"
+msgstr ""
+
+#. module: cv_clearcorp
+#: view:res.partner:cv_clearcorp.view_res_partner_form_student
+msgid "{'readonly': [('student','=',True)]}"
+msgstr ""
+

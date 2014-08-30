@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data noupdate="1">
+    	<record id="course_ci_1213" model="jornamon.course">
+    		<field name="name">Inglés 2 (desde jornamon_demo.xml)</field>
+    		<field name="code">CI-1312</field>
+    		<field name="total_seats">40</field>
+    		<field name="description">Ingles para computación (cargado desde xml)</field>
+    		<field name="teacher_id" ref="base.user_root"/>
+    	</record>
+	</data>
+</openerp>

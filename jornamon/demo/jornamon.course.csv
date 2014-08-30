@@ -1,0 +1,7 @@
+id,code,name,total_seats,description,teacher_id/id
+__export__.jornamon_course_1,ENG2014-1,"Inglés, primer cuatrimestre",16,Curso de inglés correspondiente al primer cuatrimestre de 2014.  Se lleva a cabo en el TEC de San Carlos ,base.user_root
+,IC-1000,Frances 2,40,Frances intermedio,
+,IC-999,Comunicaicón técnica,25,Curso de comuncaicón técnica,
+,IC-998,Introduccińo a la programación,30,Aprender bases de programación,
+,IC-997,Taller de programación,16,Prácticas de progración,
+,IC-996,Matemática discreta,55,Matemática de elementos discretos,
