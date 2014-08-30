@@ -156,7 +156,7 @@ Estos son los métodos que cambiaban los estados de las sesiones antes de hacerl
       
         return res
     
-    
+    _inherit = 'mail.thread'
     
     _columns = {
         'subject' : fields.char('Subject', size=256, required=True, select=True, readonly=True, states={'draft':[('readonly',False)]}),
