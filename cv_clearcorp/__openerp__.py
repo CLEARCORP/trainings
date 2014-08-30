@@ -20,6 +20,7 @@ eLearning Management
         'wizard/add_student_to_session.xml',
         'cv_clearcorp_menu.xml',
         'cv_clearcorp_workflow.xml',
+        'security/cv_clearcorp_security.xml',
         ],
     'demo': [
         'demo/cv_clearcorp_demo.xml',
