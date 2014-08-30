@@ -25,6 +25,8 @@ This app is used to manage
          'security/ir.model.access.csv',
          'nuevo_modulo_workflow.xml',
          'nuevo_modulo_menu.xml',
+         'nuevo_modulo_report.xml',
+         'views/report_course.xml',
              ],
     'demo': [
          'demo/nuevo_modulo_demo.xml'

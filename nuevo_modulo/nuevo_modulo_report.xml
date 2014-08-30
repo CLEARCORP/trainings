@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+        <report 
+            id="report_nuevo_modulo_course"
+            string="Course information"
+            model="nuevo_modulo.course" 
+            report_type="qweb-pdf"
+            file="nuevo_modulo.report_course" 
+            name="nuevo_modulo.report_course" 
+        />
+    </data>
+</openerp>
