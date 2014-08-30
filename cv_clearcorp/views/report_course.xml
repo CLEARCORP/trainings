@@ -16,6 +16,7 @@
 		                </div>
 		            </div>
 		            
+		            <h2>Students:</h2>
 		            <table class="table table-condensed">
 		                <thead>
 		                    <tr>
@@ -34,6 +35,29 @@
 		                        </td>
 		                        <td>
 		                           <span t-field="s.email"/>
+		                        </td>
+		                    </tr>
+		                </tbody>
+		            </table>
+		            <h2>Sessions:</h2>
+		            <table class="table table-condensed">
+		                <thead>
+		                    <tr>
+		                        <th>Name</th>
+		                        <th>Start time</th>
+		                        <th>Duration</th>
+		                    </tr>
+		               </thead>
+		               <tbody class="sale_tbody">
+		                    <tr t-foreach="o.session_ids" t-as="s">
+		                        <td>
+		                           <span t-field="s.subject"/>
+		                        </td>
+		                        <td>
+		                           <span t-field="s.start_time"/>
+		                        </td>
+		                        <td>
+		                           <span t-field="s.duration"/>
 		                        </td>
 		                    </tr>
 		                </tbody>
