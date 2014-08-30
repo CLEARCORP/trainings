@@ -85,6 +85,8 @@ class Partner (osv.Model):
 class CourseSession(osv.Model):
     _name = 'diego_dev.course.session'
     
+    _inherit = 'mail.thread'
+    
     @api.multi
     def get_end_time(self, field_names, arg):
         res = {}
