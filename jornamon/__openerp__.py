@@ -19,7 +19,11 @@ This app is only for testing purposes. Most liely it will never do something use
     'depends' : [],
     'data' : [
         'jornamon_view.xml',
-        'jornamon_menu.xml',           
+        'wizard/add_student_to_session.xml',
+        'jornamon_menu.xml',  
+        'jornamon_workflow.xml',
+        'security/jornamon_security.xml',
+        'security/ir.model.access.csv',     
         ],
     'qweb' : [],
     'demo' : [

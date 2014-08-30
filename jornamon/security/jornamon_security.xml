@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+    	<!-- CREACIÓN DE GRUPOS PARA NUESTRO MODULO -->
+    	<record id="group_jornamon_user" model="res.groups">
+    		<field name="name">User</field>
+    		<field name="category_id" ref="base.module_category_education"></field>	
+    	</record>
+    	<record id="group_jornamon_teacher" model="res.groups">
+    		<field name="name">Teacher</field>
+    		<field name="implied_ids" eval="[(4, ref('group_jornamon_user'))]"></field>
+    		<field name="category_id" ref="base.module_category_education"></field>	
+    	</record>
+    	<record id="group_jornamon_admin" model="res.groups">
+    		<field name="name">Manager</field>
+    		<field name="category_id" ref="base.module_category_education"></field>
+    		<field name="implied_ids" eval="[(4, ref('group_jornamon_teacher'))]"></field>
+    		<field name="users" eval="[(4, ref('base.user_root'))]"></field>
+    	</record>
+    	
+    	<!-- CREACIÓN DE  -->
+	</data>
+</openerp>
