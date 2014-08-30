@@ -149,11 +149,11 @@
                 <form string="Sessions">
                 	<header>
                 		<div style="float:left">
-	                		<button name="signal_approve" string="Approve" class="oe_highlight" states="draft,canceled" type="workflow"/>
-	                		<button name="signal_start" string="Start" class="oe_highlight" states="pending" type="workflow"/>
-	                		<button name="signal_done" string="Done" class="oe_highlight" states="open" type="workflow"/>
-	                		<button name="signal_cancel" string="Cancel" states="draft,pending,open" type="workflow"/>
-	                		<button name="signal_draft" string="Reset to draft" class="oe_link" states="pending" type="workflow"/>
+	                		<button name="signal_approve" string="Approve" class="oe_highlight" states="draft,canceled" type="workflow" groups="cv_clearcorp.group_cv_clearcorp_teacher"/>
+	                		<button name="signal_start" string="Start" class="oe_highlight" states="pending" type="workflow" groups="cv_clearcorp.group_cv_clearcorp_teacher"/>
+	                		<button name="signal_done" string="Done" class="oe_highlight" states="open" type="workflow" groups="cv_clearcorp.group_cv_clearcorp_teacher"/>
+	                		<button name="signal_cancel" string="Cancel" states="draft,pending,open" type="workflow" groups="cv_clearcorp.group_cv_clearcorp_teacher"/>
+	                		<button name="signal_draft" string="Reset to draft" class="oe_link" states="pending" type="workflow" groups="cv_clearcorp.group_cv_clearcorp_teacher"/>
                 		</div>
                 		<field name="state" widget="statusbar" style="float:right" statusbar_visible="draft,pending,open,done" statusbar_color='{"draft":"red"}'/>
                 	</header>
@@ -170,7 +170,7 @@
 	                	<group col="2">
 		                	<field name="start_time"/>
 		                	<field name="end_time"/>
-		                	<field name="duration"/>
+		                	<field name="duration" groups="cv_clearcorp.group_cv_clearcorp_teacher"/>
 	                	</group>
 	                </group>
 	                <notebook>
