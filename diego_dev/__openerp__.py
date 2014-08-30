@@ -18,9 +18,11 @@ eLearning Managment
     'data':[
         'diego_dev_view.xml',
         'wizard/add_student_to_session.xml',
-        'diego_dev_menu.xml',
         'diego_dev_demo.xml',
         'diego_dev_workflow.xml',
+        'security/diego_dev_security.xml',
+        'security/ir.model.access.csv',
+        'diego_dev_menu.xml',
             ],
     'demo':[
             ],
