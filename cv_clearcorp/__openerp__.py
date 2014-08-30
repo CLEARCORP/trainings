@@ -22,6 +22,8 @@ eLearning Management
         'security/cv_clearcorp_security.xml',
         'security/ir.model.access.csv',
         'cv_clearcorp_menu.xml',
+        'cv_clearcorp_report.xml',
+        'views/report_course.xml'
         ],
     'demo': [
         'demo/cv_clearcorp_demo.xml',

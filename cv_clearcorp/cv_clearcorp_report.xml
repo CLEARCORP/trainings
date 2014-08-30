@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+        <report 
+            id="report_cv_clearcorp_course"
+            string="Course information"
+            model="cv_clearcorp.course" 
+            report_type="qweb-pdf"
+            file="cv_clearcorp.report_course" 
+            name="cv_clearcorp.report_course" 
+        />
+    </data>
+</openerp>
